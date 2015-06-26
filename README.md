@@ -1,2 +1,2 @@
 # swe4citizenscience
-n open citizen observatories repository on GitHub, to be used to develop SWE profiles for COBWEB and its sibling projects
+swe4citizensciencen is an open citizen observatories repository on GitHub, to be used to develop best practices on how to use OGC specifications for citizen observatories. 
