@@ -5,5 +5,5 @@ For furhter information, please go to the [wiki]. If you want to know why wo do 
 
 [wiki]: https://github.com/opengeospatial/swe4citizenscience/wiki
 [rational]: https://github.com/opengeospatial/swe4citizenscience/wiki/What's-this-all-about
-[use cases]: https://github.com/opengeospatial/swe4citizenscience/wiki
+[use cases]: https://github.com/opengeospatial/swe4citizenscience/wiki/Use-Cases
 [observation model]: https://github.com/opengeospatial/swe4citizenscience/wiki/Observations
