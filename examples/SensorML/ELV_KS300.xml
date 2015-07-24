@@ -21,36 +21,60 @@
             <gml:pos srsName="urn:ogc:def:crs:EPSG:3857">50.079762 8.461040</gml:pos>
         </gml:Point>
     </gml:location>
-    <!-- we need a reference for keywords -->
+    <!-- Keywords associated with the type of sensor, the purpose etc. -->
     <sml:keywords>
-        <sml:KeywordList definition="http://www.opengeospatial.org/def/keywords" id="ID002">
+        <sml:KeywordList definition="http://link.to/keywords" id="ID002">
             <sml:keyword>weather station</sml:keyword>
             <sml:keyword>citizen science</sml:keyword>
             <sml:keyword>crowd sourcing</sml:keyword>
         </sml:KeywordList>
     </sml:keywords>
+    <!-- Identification of the sensor, used for discovery -->
+    <sml:identification>
+        <sml:IdentifierList>
+            <sml:identifier>
+                <sml:Term definition="http://link.to/fullName">
+                    <sml:label>Full Name</sml:label>
+                    <sml:value>ELV Kombi-Wettersensor KS 300 </sml:value>
+                </sml:Term>
+            </sml:identifier>
+            <sml:identifier>
+                <sml:Term definition="http://link.to/shortName">
+                    <sml:label>Short Name</sml:label>
+                    <sml:value>ELV KS 300 </sml:value>
+                </sml:Term>
+            </sml:identifier>
+        </sml:IdentifierList>
+    </sml:identification>
+    <!-- Classification: What type of sensor -->
+    <!-- todo: Advise on where to put the definition attributes. Top level applying to all children, or children level with individual applicability -->
     <sml:classification>
-        <sml:ClassifierList definition="http://www.erh.noaa.gov/er/box/glossary.htm">
+        <sml:ClassifierList>
             <sml:classifier>
-                <sml:Term>
+                <sml:Term definition="http://www.erh.noaa.gov/er/box/glossary.htm">
                     <sml:label>Weather</sml:label>
                     <sml:value>Weather</sml:value>
                 </sml:Term>
             </sml:classifier>
         </sml:ClassifierList>
     </sml:classification>
+    <!-- Time period this description is valid for. Open intervals use 'indeterminatePosision="unknown"' -->
     <sml:validTime>
         <gml:TimePeriod gml:id="validTime_KS300">
             <gml:beginPosition>2015-07-01T00:00:00.00</gml:beginPosition>
             <gml:endPosition indeterminatePosition="unknown"/>
         </gml:TimePeriod>
     </sml:validTime>
+    <!-- 
+        Basic characteristics of this sensor. Characteristics describe the sensor's non-sensing characteristics, such 
+        as size, material, power, transmission range etc.
+    -->
     <sml:characteristics name="generalProperties">
         <sml:CharacteristicList>
             <sml:characteristic name="operationalProperties">
                 <swe:DataRecord definition="http://sensorml.com/ont/swe/property/AssetOperationalSpecification">
                     <swe:label>Operatinal Specification</swe:label>
-                    <swe:field name="sampleRate">
+                    <swe:field name="dataTransmissionFrequency">
                         <swe:Quantity>
                             <swe:uom code="ms"/>
                             <swe:value>155</swe:value>
@@ -77,23 +101,27 @@
             </sml:characteristic>
         </sml:CharacteristicList>
     </sml:characteristics>
+    <!-- 
+        Capabilities of the sensor: Describe all sensing characteristics here, 
+        including measurementRange, measurementFrequency, measurementResolution etc.        
+    -->
     <sml:capabilities name="operationalCapabilities">
         <sml:CapabilityList definition="http://where.to/">
             <sml:capability name="temperatureSensor" xlink:href="#tempSensor">
                 <swe:DataRecord>
-                    <swe:field name="temperatureRange">
+                    <swe:field name="measurementRange">
                         <swe:QuantityRange>
                             <swe:uom code="degC"/>
                             <swe:value>-29.9 79.9</swe:value>
                         </swe:QuantityRange>
                     </swe:field>
-                    <swe:field name="temperatureResolution">
+                    <swe:field name="measurementResolution">
                         <swe:Quantity>
                             <swe:uom code="degC"/>
                             <swe:value>0.1</swe:value>
                         </swe:Quantity>
                     </swe:field>
-                    <swe:field name="temperatureAccuracy">
+                    <swe:field name="measurementAccuracy">
                         <swe:QuantityRange>
                             <swe:uom code="degC"/>
                             <swe:value>-0.8 0.8</swe:value>
@@ -102,242 +130,138 @@
                 </swe:DataRecord>
             </sml:capability>
             <sml:capability name="windSensor">
-                <!-- hier geht's weiter -->
+                <swe:DataRecord>
+                    <swe:field name="measurementRange" xlink:href="#windSensor">
+                        <swe:QuantityRange>
+                            <swe:uom code="km/h"/>
+                            <swe:value>0 200</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                    <swe:field name="measurementResolution">
+                        <!-- how to express conditional values here? -->
+                        <swe:QuantityRange>
+                            <swe:uom/>
+                        </swe:QuantityRange>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:capability>
+            <sml:capability name="rainSensor">
+                <swe:DataRecord>
+                    <swe:field name="measurementRange" xlink:href="#rainSensor">
+                        <swe:QuantityRange>
+                            <swe:uom code="mm"/>
+                            <swe:value>0 999</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                    <swe:field name="measurementResolution">
+                        <swe:QuantityRange>
+                            <swe:uom code="mm"/>
+                            <swe:value>0 0.3</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:capability>
+            <sml:capability name="humiditySensor">
+                <swe:DataRecord>
+                    <swe:field name="measurementRange" xlink:href="#humiditySensor">
+                        <swe:QuantityRange>
+                            <swe:uom code="%"/>
+                            <swe:value>0 99</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                    <swe:field name="measurementResolution">
+                        <swe:Quantity>
+                            <swe:uom code="%"/>
+                            <swe:value>1</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="measurementAccuracy">
+                        <swe:QuantityRange>
+                            <swe:uom code="%"/>
+                            <swe:value>-5 5</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                </swe:DataRecord>
             </sml:capability>
         </sml:CapabilityList>
     </sml:capabilities>
-    <sml:contacts xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title23" xlink:show="new"
-         xlink:actuate="onLoad">
-        <sml:ContactList definition="http://www.oxygenxml.com/" id="ID017">
-            <swe:extension>
-            </swe:extension>
-            <swe:identifier>http://www.oxygenxml.com/</swe:identifier>
-            <swe:label>label5</swe:label>
-            <swe:description>description5</swe:description>
-            <sml:contact xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title24"
-                 xlink:show="new" xlink:actuate="onLoad" uuidref="uuidref1" gco:nilReason="inapplicable">
-                <gmd:CI_ResponsibleParty id="ID018" uuid="uuid1">
-                    <gmd:individualName gco:nilReason="inapplicable">
-                        <gmd:MD_ProgressCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">MD_ProgressCode0</gmd:MD_ProgressCode>
-                    </gmd:individualName>
-                    <gmd:organisationName gco:nilReason="inapplicable">
-                        <gmd:MD_MediumNameCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">MD_MediumNameCode0</gmd:MD_MediumNameCode>
+    <!-- Contact details of the sensor operator, manufacturer etc. -->
+    <sml:contacts>
+        <sml:ContactList>
+            <sml:contact xlink:role="http://link.to/manufacturer">
+                <gmd:CI_ResponsibleParty>
+                   <gmd:organisationName>
+                        <gco:CharacterString>ELV Elektronik AG</gco:CharacterString>
                     </gmd:organisationName>
-                    <gmd:positionName gco:nilReason="inapplicable">
-                        <gmd:MD_KeywordTypeCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">MD_KeywordTypeCode0</gmd:MD_KeywordTypeCode>
-                    </gmd:positionName>
-                    <gmd:contactInfo xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title25"
-                         xlink:show="new" xlink:actuate="onLoad" uuidref="uuidref2"
-                         gco:nilReason="inapplicable">
-                        <gmd:CI_Contact id="ID019" uuid="uuid2">
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>+49491600888</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:city>
+                                        <gco:CharacterString>Leer</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:country>
+                                        <gco:CharacterString>Germany</gco:CharacterString>
+                                    </gmd:country>
+                                </gmd:CI_Address>
+                            </gmd:address>
                         </gmd:CI_Contact>
                     </gmd:contactInfo>
-                    <gmd:role gco:nilReason="inapplicable">
-                        <gmd:CI_RoleCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">CI_RoleCode0</gmd:CI_RoleCode>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://link.to/contactRoleCodeList" codeListValue="http://link.to/manufacturer">manufacturer</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </sml:contact>
+            <sml:contact xlink:role="http://link.to/operator">
+                <gmd:CI_ResponsibleParty>
+                    <gmd:individualName>
+                        <gco:CharacterString>Ingo Simonis</gco:CharacterString>
+                    </gmd:individualName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:city>
+                                        <gco:CharacterString>Kriftel</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:country>
+                                        <gco:CharacterString>Germany</gco:CharacterString>
+                                    </gmd:country>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://link.to/contactRoleCodeList" codeListValue="http://link.to/operator">operator</gmd:CI_RoleCode>
                     </gmd:role>
                 </gmd:CI_ResponsibleParty>
             </sml:contact>
         </sml:ContactList>
     </sml:contacts>
-    <sml:documentation xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title26" xlink:show="new"
-         xlink:actuate="onLoad">
-        <sml:DocumentList definition="http://www.oxygenxml.com/" id="ID020">
-            <swe:extension>
-            </swe:extension>
-            <swe:identifier>http://www.oxygenxml.com/</swe:identifier>
-            <swe:label>label6</swe:label>
-            <swe:description>description6</swe:description>
-            <sml:document xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title27"
-                 xlink:show="new" xlink:actuate="onLoad" uuidref="uuidref3" gco:nilReason="inapplicable">
-                <gmd:CI_OnlineResource id="ID021" uuid="uuid3">
-                    <gmd:linkage gco:nilReason="inapplicable">
-                        <gmd:URL>http://www.oxygenxml.com/</gmd:URL>
+    <!--  -->
+    <sml:documentation>
+        <sml:DocumentList>
+            <sml:document xlink:title="http://link.to/userGuide" >
+                <gmd:CI_OnlineResource>
+                    <gmd:linkage>
+                        <gmd:URL>http://files.elv.de/service/manuals/KS300/65390_um.pdf</gmd:URL>
                     </gmd:linkage>
-                    <gmd:protocol gco:nilReason="inapplicable">
-                        <gmd:LocalisedCharacterString id="ID022" locale="http://www.oxygenxml.com/">LocalisedCharacterString0</gmd:LocalisedCharacterString>
-                    </gmd:protocol>
-                    <gmd:applicationProfile gco:nilReason="inapplicable">
-                        <gmd:MD_DistributionUnits codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">MD_DistributionUnits0</gmd:MD_DistributionUnits>
-                    </gmd:applicationProfile>
-                    <gmd:name gco:nilReason="inapplicable">
-                        <gmd:MD_ImagingConditionCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">MD_ImagingConditionCode0</gmd:MD_ImagingConditionCode>
-                    </gmd:name>
-                    <gmd:description gco:nilReason="inapplicable">
-                        <gmd:DS_InitiativeTypeCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">DS_InitiativeTypeCode0</gmd:DS_InitiativeTypeCode>
-                    </gmd:description>
-                    <gmd:function gco:nilReason="inapplicable">
-                        <gmd:CI_OnLineFunctionCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">CI_OnLineFunctionCode0</gmd:CI_OnLineFunctionCode>
-                    </gmd:function>
                 </gmd:CI_OnlineResource>
             </sml:document>
         </sml:DocumentList>
     </sml:documentation>
-    <sml:history xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title28" xlink:show="new"
-         xlink:actuate="onLoad">
-        <sml:EventList definition="http://www.oxygenxml.com/" id="ID023">
-            <swe:extension>
-            </swe:extension>
-            <swe:identifier>http://www.oxygenxml.com/</swe:identifier>
-            <swe:label>label7</swe:label>
-            <swe:description>description7</swe:description>
-            <sml:event xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title29"
-                 xlink:show="new" xlink:actuate="onLoad">
-                <sml:Event definition="http://www.oxygenxml.com/" id="ID024">
-                    <swe:extension>
-                    </swe:extension>
-                    <swe:identifier>http://www.oxygenxml.com/</swe:identifier>
-                    <swe:label>label8</swe:label>
-                    <swe:description>description8</swe:description>
-                    <sml:keywords xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title30"
-                         xlink:show="new" xlink:actuate="onLoad" uuidref="uuidref4"
-                         gco:nilReason="inapplicable">
-                        <gmd:MD_Keywords id="ID025" uuid="uuid4">
-                            <gmd:keyword gco:nilReason="inapplicable">
-                                <gmd:MD_MediumNameCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">MD_MediumNameCode1</gmd:MD_MediumNameCode>
-                            </gmd:keyword>
-                        </gmd:MD_Keywords>
-                    </sml:keywords>
-                    <sml:identification xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title31"
-                         xlink:show="new" xlink:actuate="onLoad">
-                        <sml:IdentifierList definition="http://www.oxygenxml.com/" id="ID026">
-                            <sml:identifier>
-                                <sml:Term definition="http://www.oxygenxml.com/" id="ID027">
-                                    <sml:label>label2</sml:label>
-                                    <sml:value>value2</sml:value>
-                                </sml:Term>
-                            </sml:identifier>
-                        </sml:IdentifierList>
-                    </sml:identification>
-                    <sml:classification xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title32"
-                         xlink:show="new" xlink:actuate="onLoad">
-                        <sml:ClassifierList definition="http://www.oxygenxml.com/" id="ID028">
-                            <sml:classifier>
-                                <sml:Term definition="http://www.oxygenxml.com/" id="ID029">
-                                    <sml:label>label3</sml:label>
-                                    <sml:value>value3</sml:value>
-                                </sml:Term>
-                            </sml:classifier>
-                        </sml:ClassifierList>
-                    </sml:classification>
-                    <sml:contacts xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title33"
-                         xlink:show="new" xlink:actuate="onLoad">
-                        <sml:ContactList definition="http://www.oxygenxml.com/" id="ID030">
-                            <sml:contact xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title34"
-                                 xlink:show="new" xlink:actuate="onLoad" uuidref="uuidref5"
-                                 gco:nilReason="inapplicable">
-                                <gmd:CI_ResponsibleParty id="ID031" uuid="uuid5">
-                                    <gmd:role gco:nilReason="inapplicable">
-                                        <gmd:CI_RoleCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/" codeSpace="http://www.oxygenxml.com/">CI_RoleCode1</gmd:CI_RoleCode>
-                                    </gmd:role>
-                                </gmd:CI_ResponsibleParty>
-                            </sml:contact>
-                        </sml:ContactList>
-                    </sml:contacts>
-                    <sml:documentation xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title35"
-                         xlink:show="new" xlink:actuate="onLoad">
-                        <sml:DocumentList definition="http://www.oxygenxml.com/" id="ID032">
-                            <sml:document xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title36"
-                                 xlink:show="new" xlink:actuate="onLoad" uuidref="uuidref6"
-                                 gco:nilReason="inapplicable">
-                                <gmd:CI_OnlineResource id="ID033" uuid="uuid6">
-                                    <gmd:linkage gco:nilReason="inapplicable">
-                                        <gmd:URL>http://www.oxygenxml.com/</gmd:URL>
-                                    </gmd:linkage>
-                                </gmd:CI_OnlineResource>
-                            </sml:document>
-                        </sml:DocumentList>
-                    </sml:documentation>
-                    <sml:time>
-                        <gml:TimeInstant frame="#ISO-8601" gml:id="ID034">
-                            <gml:timePosition frame="#ISO-8601" calendarEraName="calendarEraName1" indeterminatePosition="after">2006-05-04</gml:timePosition>
-                        </gml:TimeInstant>
-                    </sml:time>
-                    <sml:property xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title37"
-                         xlink:show="new" xlink:actuate="onLoad">
-                        <swe:Time referenceTime="2006-05-04T18:13:51.0" localFrame="http://www.oxygenxml.com/" referenceFrame="http://www.oxygenxml.com/"
-                             axisID="axisID2" updatable="false" optional="false"
-                             definition="http://www.oxygenxml.com/" id="ID035">
-                            <swe:uom code="code1" xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title38"
-                                 xlink:show="new" xlink:actuate="onLoad"/>
-                        </swe:Time>
-                    </sml:property>
-                    <sml:configuration>
-                        <sml:AbstractSettings id="ID036">
-                        </sml:AbstractSettings>
-                    </sml:configuration>
-                </sml:Event>
-            </sml:event>
-        </sml:EventList>
-    </sml:history>
-    <sml:typeOf owns="false" xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title39" xlink:show="new"
-         xlink:actuate="onLoad" nilReason="inapplicable" gml:remoteSchema="http://www.oxygenxml.com/"/>
-    <sml:configuration>
-        <sml:AbstractSettings id="ID037">
-            <swe:extension>
-            </swe:extension>
-        </sml:AbstractSettings>
-    </sml:configuration>
-    <sml:featuresOfInterest>
-        <sml:FeatureList definition="http://www.oxygenxml.com/" id="ID038">
-            <swe:extension>
-            </swe:extension>
-            <swe:identifier>http://www.oxygenxml.com/</swe:identifier>
-            <swe:label>label9</swe:label>
-            <swe:description>description9</swe:description>
-            <sml:feature owns="false" xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title40"
-                 xlink:show="new" xlink:actuate="onLoad" nilReason="inapplicable"
-                 gml:remoteSchema="http://www.oxygenxml.com/">
-                <gml:MultiPointCoverage gml:id="ID039">
-                    <gml:multiSolidDomain owns="false" xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                         xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title41"
-                         xlink:show="new" xlink:actuate="onLoad" nilReason="inapplicable"
-                         gml:remoteSchema="http://www.oxygenxml.com/">
-                        <gml:Point srsName="http://www.oxygenxml.com/" srsDimension="50" axisLabels="axisLabels0" uomLabels="uomLabels0"
-                             gml:id="ID040">
-                            <gml:coordinates decimal="." cs="," ts=" ">coordinates0</gml:coordinates>
-                        </gml:Point>
-                    </gml:multiSolidDomain>
-                    <gml:rangeSet>
-                        <gml:DataBlock>
-                            <gml:rangeParameters owns="false" xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                                 xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title42"
-                                 xlink:show="new" xlink:actuate="onLoad" nilReason="inapplicable"
-                                 gml:remoteSchema="http://www.oxygenxml.com/">
-                                <gml:verticalDatumRef xlink:type="simple" xlink:href="http://www.oxygenxml.com/" xlink:role="http://www.oxygenxml.com/"
-                                     xlink:arcrole="http://www.oxygenxml.com/" xlink:title="title43"
-                                     xlink:show="new" xlink:actuate="onLoad" nilReason="inapplicable"
-                                     gml:remoteSchema="http://www.oxygenxml.com/">
-                                    <gml:VerticalDatum gml:id="ID041">
-                                        <gml:identifier codeSpace="http://www.oxygenxml.com/">identifier2</gml:identifier>
-                                        <gml:scope>scope0</gml:scope>
-                                    </gml:VerticalDatum>
-                                </gml:verticalDatumRef>
-                            </gml:rangeParameters>
-                            <gml:doubleOrNilReasonTupleList>missing http://www.oxygenxml.com/ 0 inapplicable other:00</gml:doubleOrNilReasonTupleList>
-                        </gml:DataBlock>
-                    </gml:rangeSet>
-                </gml:MultiPointCoverage>
-            </sml:feature>
-        </sml:FeatureList>
-    </sml:featuresOfInterest>
+    <!-- 
+        the sml:history element has been ommitted because the weather station's characteristics
+        and properties have never changed
+    -->
+    <!-- hier geht es weiter -->
     <sml:inputs>
         <sml:InputList id="ID042">
             <swe:extension>
