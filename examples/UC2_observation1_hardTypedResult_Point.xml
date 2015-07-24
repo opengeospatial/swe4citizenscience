@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<om:OM_Observation
+    gml:id="useCase-1.1"
+    xmlns:om="http://www.opengis.net/om/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:cs="http://www.opengis.net/cs/1.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd">
+    <gml:description>Use case 2: Butterfly on plant</gml:description>
+    <gml:name>Butterfly on plant</gml:name>
+    <om:type xlink:href="http://www.opengis.net/def/observationType/citizenscience/1.0/HumanObservation"/>
+    <om:phenomenonTime>
+        <gml:TimeInstant
+            gml:id="otime1">
+            <gml:timePosition>2015-06-29T12:02:00+02:00</gml:timePosition>
+        </gml:TimeInstant>
+    </om:phenomenonTime>
+    <om:resultTime
+        xlink:href="#otime1"/>
+    <om:procedure>
+        <cs:CrowdSourcingProcess>
+            <cs:samplingProtocol>random walk</cs:samplingProtocol>
+            <cs:recordedBy>
+                <cs:CitizenScientist>
+                    <gmd:individualName>
+                        <gco:CharacterString>Ingo Simonis</gco:CharacterString>
+                    </gmd:individualName>
+                    <gmd:role>
+                        <gmd:CI_RoleCode 
+                            codeList="http://link.to/codelist"
+                            codeListValue="CI_RoleCode_publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                    <cs:experience>high</cs:experience>
+                </cs:CitizenScientist>
+            </cs:recordedBy>
+        </cs:CrowdSourcingProcess>
+    </om:procedure>
+    <om:observedProperty
+        xlink:href="http://rs.tdwg.org/dwc/terms/Organism"/>
+    <om:featureOfInterest
+        xlink:href="http://wfs.example.org?request=getFeature&amp;featureid=TaunusMountains"/>
+    <om:result>	
+        <cs:BiologicalMonitoringResult>
+            <cs:location>
+                <gml:Point
+                    gml:id="ObservationPoint">
+                    <gml:pos srsName="urn:ogc:def:crs:EPSG:4326">51.9 9.152</gml:pos>
+                </gml:Point>
+            </cs:location>
+            <cs:observedTaxon>
+                <Taxon>
+                    <observedTaxon>
+                        <ScientificName>Pieris brassicae (L.)</ScientificName>
+                        <occurrenceStatus definition="http://terms.tdwg.org/wiki/dwc:occurrenceStatus">present</occurrenceStatus>
+                        <lifeStage definition="http://terms.tdwg.org/wiki/dwc:lifeStage">adult</lifeStage>
+                        <individualCount definition="http://terms.tdwg.org/wiki/dwc:individualCount">1</individualCount>
+                    </observedTaxon>
+                </Taxon>
+                <cs:associatedTaxa associationType="pollinating">
+                    <cs:Taxon>
+                        <scientificName>Lavandula angustifolia</scientificName>
+                    </cs:Taxon>
+                </cs:associatedTaxa>
+            </cs:observedTaxon>	
+        </cs:BiologicalMonitoringResult>
+    </om:result>
+</om:OM_Observation>

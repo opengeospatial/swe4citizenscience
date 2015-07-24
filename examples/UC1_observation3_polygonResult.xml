@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<om:OM_Observation
+    gml:id="useCase-1.1"
+    xmlns:om="http://www.opengis.net/om/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:cs="http://www.opengis.net/cs/1.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:gmlce="http://www.opengis.net/gml/3.3/ce"
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd">
+    <gml:description>Observation test instance: Occurrance of Japanese Knotweed</gml:description>
+    <gml:name>Japanese Knotweed Occurrance</gml:name>
+    <om:type xlink:href="http://www.opengis.net/def/observationType/citizenscience/1.0/HumanObservation"/>
+    <om:phenomenonTime>
+        <gml:TimeInstant
+            gml:id="otime1">
+            <gml:timePosition>2015-06-29T12:02:00+02:00</gml:timePosition>
+        </gml:TimeInstant>
+    </om:phenomenonTime>
+    <om:resultTime
+        xlink:href="#otime1"/>
+    <om:procedure>
+        <cs:CrowdSourcingProcess>
+            <cs:recordedBy>
+                <cs:CitizenScientist>
+                    <gmd:individualName>
+                        <gco:CharacterString>Ingo Simonis</gco:CharacterString>
+                    </gmd:individualName>
+                    <gmd:role>
+                        <gmd:CI_RoleCode 
+                            codeList="http://link.to/codelist"
+                            codeListValue="CI_RoleCode_publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                    <cs:experience>high</cs:experience>
+                </cs:CitizenScientist>
+            </cs:recordedBy>
+        </cs:CrowdSourcingProcess>
+    </om:procedure>
+    <om:observedProperty
+        xlink:href="http://rs.tdwg.org/dwc/terms/Organism"/>
+    <om:featureOfInterest
+        xlink:href="http://wfs.example.org?request=getFeature&amp;featureid=TaunusMountains"/>
+    <om:result>	
+        <cs:BiologicalMonitoringResult>
+            <location>
+                <gmlce:SimplePolygon>
+                    <gml:posList srsName="urn:ogc:def:crs:EPSG:4326">
+                        52.876 8.911 
+                        52.8725 8.913 
+                        52.8734 8.9134 
+                        52.873 8.9121
+                        52.876 8.911 
+                    </gml:posList>
+                </gmlce:SimplePolygon>
+            </location>
+            <cs:observedTaxon>
+                <swe:DataRecord>
+                    <swe:field name="scientificName">
+                        <swe:Text definition="http://rs.tdwg.org/dwc/terms/#scientificName">
+                            <swe:value>Fallopia japonica</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                    <swe:field name="occurrenceStatus">
+                        <swe:Text definition="http://terms.tdwg.org/wiki/dwc:occurrenceStatus">
+                            <swe:value>present</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                    <swe:field name="lifeStage">
+                        <swe:Text definition="http://terms.tdwg.org/wiki/dwc:lifeStage">
+                            <swe:value>adult</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                    <swe:field name="individualCount">
+                        <swe:Count definition="http://terms.tdwg.org/wiki/dwc:individualCount">
+                            <swe:value>12</swe:value>
+                        </swe:Count>
+                    </swe:field>
+                </swe:DataRecord>
+            </cs:observedTaxon>	
+        </cs:BiologicalMonitoringResult>
+    </om:result>
+</om:OM_Observation>

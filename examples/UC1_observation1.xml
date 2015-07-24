@@ -15,23 +15,6 @@
 	<om:type xlink:href="http://www.opengis.net/def/observationType/citizenscience/1.0/HumanObservation"/>
 	<!-- issue here, as MD_Metadata has contact, dateStamp and identificationInfo as mandatory 
 		 Whereas the first two are ok (need to be removed from procedure then, identificationInfo is a bit awkward-->
-	<om:metadata> 
-		<gmd:MD_Metadata>
-			<gmd:contact>
-				<gmd:CI_ResponsibleParty>
-					<gmd:role></gmd:role>
-				</gmd:CI_ResponsibleParty>
-			</gmd:contact>
-			<gmd:dateStamp>
-				<gco:DateTime>2015-06-29T16:54:00+02:00</gco:DateTime>
-			</gmd:dateStamp>
-			<gmd:identificationInfo><gmd:MD_DataIdentification>
-				<gmd:citation></gmd:citation>
-				<gmd:abstract></gmd:abstract>
-				<gmd:language></gmd:language>
-			</gmd:MD_DataIdentification></gmd:identificationInfo>
-		</gmd:MD_Metadata>
-	</om:metadata>
 	<om:phenomenonTime>
 		<gml:TimeInstant
 			gml:id="otime1">
@@ -41,45 +24,77 @@
 	<om:resultTime
 		xlink:href="#otime1"/>
 	<om:procedure>
-		<cs:HumanObservationProcess>
-			<gmd:CI_ResponsibleParty>
-				<gmd:role>
-					<gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="CI_RoleCode_originator">Ingo Simonis</gmd:CI_RoleCode>
-				</gmd:role>
-			</gmd:CI_ResponsibleParty>
-		</cs:HumanObservationProcess>
+		<cs:CrowdSourcingProcess>
+			<cs:samplingProtocol>random walk</cs:samplingProtocol>
+			<cs:recordedBy>
+				<cs:CitizenScientist>
+					<gmd:individualName>
+						<gco:CharacterString>Ingo Simonis</gco:CharacterString>
+					</gmd:individualName>
+					<gmd:role>
+						<gmd:CI_RoleCode 
+							codeList="http://link.to/codelist"
+							codeListValue="CI_RoleCode_publisher">publisher</gmd:CI_RoleCode>
+					</gmd:role>
+					<cs:experience>high</cs:experience>
+				</cs:CitizenScientist>
+			</cs:recordedBy>
+		</cs:CrowdSourcingProcess>
 	</om:procedure>
 	<om:observedProperty
 		xlink:href="http://rs.tdwg.org/dwc/terms/Organism"/>
 	<om:featureOfInterest
 		xlink:href="http://wfs.example.org?request=getFeature&amp;featureid=TaunusMountains"/>
 	<om:result>	
-		<cs:HumanObservationResult>
-			<swe:DataRecord>
-				<swe:field name="scientificName">
-					<swe:Text definition="http://rs.tdwg.org/dwc/terms/#scientificName">
-						<swe:value>Fallopia japonica</swe:value>
-					</swe:Text>
-				</swe:field>
-				<swe:field>
-					<swe:Vector>
-						<swe:coordinate name="lat">
-							<swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
-								<swe:label>Latitude</swe:label>
-								<swe:uom xlink:href="deg"/>
-								<swe:value>55.3446</swe:value>
-							</swe:Quantity>
-						</swe:coordinate>
-						<swe:coordinate name="lon">
-							<swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude" axisID="Long">
-								<swe:label>Longitude</swe:label>
-								<swe:uom code="deg"/>
-								<swe:value>9.3432</swe:value>
-							</swe:Quantity>
-						</swe:coordinate>
-					</swe:Vector>
-				</swe:field>
-			</swe:DataRecord>
-		</cs:HumanObservationResult>
+		<cs:BiologicalMonitoringResult>
+			<cs:location>
+				<gml:Point
+					gml:id="ObservationPoint">
+					<gml:pos srsName="urn:ogc:def:crs:EPSG:3857">50.079762 8.461040</gml:pos>
+				</gml:Point>
+			</cs:location>
+			<cs:observedTaxon>
+				<swe:DataRecord>
+					<swe:field name="scientificName">
+						<swe:Text definition="http://rs.tdwg.org/dwc/terms/#scientificName">
+							<swe:value>Fallopia japonica</swe:value>
+						</swe:Text>
+					</swe:field>
+					<swe:field name="occurrenceStatus">
+						<swe:Text definition="http://terms.tdwg.org/wiki/dwc:occurrenceStatus">
+							<swe:value>present</swe:value>
+						</swe:Text>
+					</swe:field>
+					<swe:field name="lifeStage">
+						<swe:Text definition="http://terms.tdwg.org/wiki/dwc:lifeStage">
+							<swe:value>adult</swe:value>
+						</swe:Text>
+					</swe:field>
+					<swe:field name="individualCount">
+						<swe:Count definition="http://terms.tdwg.org/wiki/dwc:individualCount">
+							<swe:value>12</swe:value>
+						</swe:Count>
+					</swe:field>
+					<swe:field>
+						<swe:Vector>
+							<swe:coordinate name="lat">
+								<swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
+									<swe:label>Latitude</swe:label>
+									<swe:uom xlink:href="deg"/>
+									<swe:value>55.3446</swe:value>
+								</swe:Quantity>
+							</swe:coordinate>
+							<swe:coordinate name="lon">
+								<swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude" axisID="Long">
+									<swe:label>Longitude</swe:label>
+									<swe:uom code="deg"/>
+									<swe:value>9.3432</swe:value>
+								</swe:Quantity>
+							</swe:coordinate>
+						</swe:Vector>
+					</swe:field>
+				</swe:DataRecord>
+			</cs:observedTaxon>	
+		</cs:BiologicalMonitoringResult>
 	</om:result>
 </om:OM_Observation>
