@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:PhysicalSystem xmlns:sml="http://www.opengis.net/sensorml/2.0"
+ xmlns:gml="http://www.opengis.net/gml/3.2"
+ xmlns:swe="http://www.opengis.net/swe/2.0"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:gco="http://www.isotc211.org/2005/gco"
+ xmlns:gmd="http://www.isotc211.org/2005/gmd"
+ xmlns:gsr="http://www.isotc211.org/2005/gsr"
+ xmlns:gts="http://www.isotc211.org/2005/gts"
+ xmlns:gss="http://www.isotc211.org/2005/gss"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 file:/Users/ingo/Dropbox/_workspace/_schemas/SCHEMAS_OPENGIS_NET/sensorML/2.0/physical_system.xsd"  xml:lang="en-US" gml:id="ID000">
+    <!-- System description -->
+    <gml:description>Weather ELV KS 300 air temperature sensor</gml:description>
+    <gml:descriptionReference xlink:href="http://files.elv.de/service/manuals/KS300/65390_um.pdf" xlink:title="user manual"/>
+    <gml:identifier codeSpace="http://www.ingosimonis.de">ELV_KS300_airTemperature</gml:identifier>
+    <gml:name codeSpace="http://www.ingosimonis.de/">Weather station ELV KS 300 Air Temperature Sensor</gml:name>
+    <!-- as this part is intended to be used with the master file ELV KS 300, only sensor-specific parts are provided -->
+    <!-- 
+        Capabilities of the sensor: Describe all sensing characteristics here, 
+        including measurementRange, measurementFrequency, measurementResolution etc.        
+    -->
+    <sml:capabilities name="measurementProperties">
+        <sml:CapabilityList>
+            <sml:capability name="temperatureSensor">
+                <swe:DataRecord>
+                    <swe:field name="measurementRange">
+                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#MeasurementRange">
+                            <swe:label>Measurement Range</swe:label>
+                            <swe:uom code="degC"/>
+                            <swe:value>-29.9 79.9</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                    <swe:field name="measurementResolution" >
+                        <swe:Quantity definition="http://purl.oclc.org/NET/ssnx/ssn#Resolution">
+                            <swe:label>Measurement Resolution</swe:label>
+                            <swe:uom code="degC"/>
+                            <swe:value>0.1</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="measurementAccuracy">
+                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#Accuracy">
+                            <swe:label>Measurement Accuracy</swe:label>
+                            <swe:uom code="degC"/>
+                            <swe:value>-0.8 0.8</swe:value>
+                        </swe:QuantityRange>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:capability>
+        </sml:CapabilityList>
+    </sml:capabilities>
+    <!-- Inputs define all observed properties -->
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="temperature">
+                <sml:ObservableProperty definition="http://www.opengeospatial.org/skos/swe#AirTemperature"/>
+            </sml:input>
+        </sml:InputList>
+    </sml:inputs>
+    <!-- Outputs define observed properties with units of measurement -->
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="temperature">
+                <swe:DataRecord>
+                    <swe:field name="temperatureSensor">
+                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                            <swe:label>Air Temperature</swe:label>
+                            <swe:uom code="cel"/>
+                        </swe:Quantity>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:output>
+        </sml:OutputList>
+    </sml:outputs>
+</sml:PhysicalSystem>

@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.opengeospatial.org/skos/swe#"
+     xml:base="http://www.opengeospatial.org/skos/swe"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.opengeospatial.org/skos/swe">
+        <owl:imports rdf:resource="http://purl.oclc.org/NET/ssnx/ssn"/>
+        <owl:imports rdf:resource="http://www.w3.org/2008/05/skos"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="&skos;definition">
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="&skos;note"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:ObjectProperty rdf:about="&skos;broader"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+    <owl:ObjectProperty rdf:about="&skos;exactMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+
+    <owl:ObjectProperty rdf:about="&skos;narrower"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="&skos;Concept"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#AirPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#AirPressure">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The pressure asserted by the mass of the column of air directly above any specific point.</skos:definition>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#AtmosphericPressure"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#AirTemperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#AirTemperature">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Air temperature is a measure of how hot or cold the air is. It is the most commonly measured weather parameter. More specifically, temperature describes the kinetic energy, or energy of motion, of the gases that make up air. As gas molecules move more quickly, air temperature increases.</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Temperature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#AtmosphericPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#AtmosphericPressure">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The pressure asserted by the mass of the column of air directly above any specific point.</skos:definition>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#AirPressure"/>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#BarometricPressure"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#BarometricPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#BarometricPressure">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#AirPressure"/>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#AtmosphericPressure"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#BatteryType -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#BatteryType">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The type of battery used to power the device</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#OperatingProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Manual -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Manual">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#UserGuide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#MeasurementTransmissionFrequency -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#MeasurementTransmissionFrequency">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Defines the interval between two subsequent measurement transmisions</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#OperatingProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#ObservedProperty -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#ObservedProperty">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#WindDirection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#OperatingProperty -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#OperatingProperty">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">An identifiable characteristic of the environmental and other conditions in which the sensor is intended to operate. May include power ranges, power sources, standard configurations, attachments and the like.</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Rain -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Rain">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Rain- Liquid water droplets that fall from the atmosphere, having diameters greater than drizzle (0.5 mm).</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#RelativeHumidity -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The amount of water vapor in the air, compared to the amount the air could hold if it was totally saturated. (Expressed as a percentage).</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Temperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Temperature">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition>The warmth or coldness of an object or substance with reference to a standard value</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#TransmitterFrequency -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#TransmitterFrequency">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Radio frequency used by the device</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#OperatingProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#TransmitterRange -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#TransmitterRange">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Defines how far away the transmitter&apos;s signal can be properly received</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#OperatingProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#UserGuide -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#UserGuide">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#Manual"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Wind -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Wind">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Air in motion relative to the surface of the earth.</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#WindSpeed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#WindDirection -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#WindDirection">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The direction from which the wind is blowing</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Wind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#WindSpeed -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#WindSpeed">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The rate at which air is moving horizontally past a given point.  It may be a x-minute average speed (reported as wind speed) or an instantaneous speed (reported as a peak wind speed, or gust).</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Wind"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

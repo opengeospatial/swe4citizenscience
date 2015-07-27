@@ -56,6 +56,30 @@
                     <sml:value>Weather</sml:value>
                 </sml:Term>
             </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#Temperature">
+                    <sml:label>Temperature</sml:label>
+                    <sml:value>Temperature</sml:value>
+                </sml:Term>
+            </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#WindSpeed">
+                    <sml:label>WindSpeed</sml:label>
+                    <sml:value>WindSpeed</sml:value>
+                </sml:Term>
+            </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#Rain">
+                    <sml:label>Rain</sml:label>
+                    <sml:value>Rain</sml:value>
+                </sml:Term>
+            </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                    <sml:label>RelativeHumidity</sml:label>
+                    <sml:value>RelativeHumidity</sml:value>
+                </sml:Term>
+            </sml:classifier>
         </sml:ClassifierList>
     </sml:classification>
     <!-- Time period this description is valid for. Open intervals use 'indeterminatePosision="unknown"' -->
@@ -109,95 +133,6 @@
         Capabilities of the sensor: Describe all sensing characteristics here, 
         including measurementRange, measurementFrequency, measurementResolution etc.        
     -->
-    <sml:capabilities name="measurementProperties">
-        <sml:CapabilityList>
-            <sml:capability name="temperatureSensor" xlink:href="#temperatureSensor">
-                <swe:DataRecord>
-                    <swe:field name="measurementRange">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#MeasurementRange">
-                            <swe:label>Measurement Range</swe:label>
-                            <swe:uom code="degC"/>
-                            <swe:value>-29.9 79.9</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                    <swe:field name="measurementResolution" >
-                        <swe:Quantity definition="http://purl.oclc.org/NET/ssnx/ssn#Resolution">
-                            <swe:label>Measurement Resolution</swe:label>
-                            <swe:uom code="degC"/>
-                            <swe:value>0.1</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="measurementAccuracy">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#Accuracy">
-                            <swe:label>Measurement Accuracy</swe:label>
-                            <swe:uom code="degC"/>
-                            <swe:value>-0.8 0.8</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                </swe:DataRecord>
-            </sml:capability>
-            <sml:capability name="windSensor">
-                <swe:DataRecord>
-                    <swe:field name="measurementRange" xlink:href="#windSensor">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#MeasurementRange">
-                            <swe:label>Measurement Range</swe:label>
-                            <swe:uom code="km/h"/>
-                            <swe:value>0 200</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                    <swe:field name="measurementResolution">
-                        <!-- how to express conditional values here? -->
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#Resolution">
-                            <swe:label>Measurement Resolution</swe:label>
-                            <swe:uom/>
-                        </swe:QuantityRange>
-                    </swe:field>
-                </swe:DataRecord>
-            </sml:capability>
-            <sml:capability name="rainSensor">
-                <swe:DataRecord>
-                    <swe:field name="measurementRange" xlink:href="#rainSensor">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#MeasurementRange">
-                            <swe:label>Measurement Range</swe:label>
-                            <swe:uom code="mm"/>
-                            <swe:value>0 999</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                    <swe:field name="measurementResolution">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#Resolution">
-                            <swe:label>Measurement Resolution</swe:label>
-                            <swe:uom code="mm"/>
-                            <swe:value>0 0.3</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                </swe:DataRecord>
-            </sml:capability>
-            <sml:capability name="humiditySensor">
-                <swe:DataRecord>
-                    <swe:field name="measurementRange" xlink:href="#humiditySensor">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#MeasurementRange">
-                            <swe:uom code="%"/>
-                            <swe:value>0 99</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                    <swe:field name="measurementResolution">
-                        <swe:Quantity definition="http://purl.oclc.org/NET/ssnx/ssn#Resolution">
-                            <swe:label>Measurement Resolution</swe:label>
-                            <swe:uom code="%"/>
-                            <swe:value>1</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="measurementAccuracy">
-                        <swe:QuantityRange definition="http://purl.oclc.org/NET/ssnx/ssn#Accuracy">
-                            <swe:label>Measurement Accuracy</swe:label>
-                            <swe:uom code="%"/>
-                            <swe:value>-5 5</swe:value>
-                        </swe:QuantityRange>
-                    </swe:field>
-                </swe:DataRecord>
-            </sml:capability>
-        </sml:CapabilityList>
-    </sml:capabilities>
     <!-- Contact details of the sensor operator, manufacturer etc. -->
     <sml:contacts>
         <sml:ContactList>
@@ -274,54 +209,12 @@
         the sml:history element has been ommitted because the weather station's characteristics
         and properties have never changed
     -->
-    <!-- Inputs define all observed properties -->
-    <sml:inputs>
-        <sml:InputList>
-            <sml:input name="temperature">
-                <sml:ObservableProperty definition="http://www.opengeospatial.org/skos/swe#AirTemperature"/>
-            </sml:input>
-            <sml:input name="windspeed">
-                <sml:ObservableProperty definition="http://www.opengeospatial.org/skos/swe#WindSpeed"/>
-            </sml:input>
-            <sml:input name="relativeHumidity">
-                <sml:ObservableProperty definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity"/>
-            </sml:input>
-            <sml:input name="rain">
-                <sml:ObservableProperty definition="http://www.opengeospatial.org/skos/swe#Rain"/>
-            </sml:input>
-        </sml:InputList>
-    </sml:inputs>
-    <!-- Outputs define observed properties with units of measurement -->
-    <sml:outputs>
-        <sml:OutputList>
-            <sml:output name="weather">
-                <swe:DataRecord>
-                    <swe:field name="temperatureSensor">
-                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
-                            <swe:label>Air Temperature</swe:label>
-                            <swe:uom code="cel"/>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="windSpeedSensor">
-                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#WindSpeed">
-                            <swe:label>Wind Speed</swe:label>
-                            <swe:uom code="km/h"/>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="relativeHumidiySensor">
-                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AtmosphericPressure">
-                            <swe:label>Relative Humidity</swe:label>
-                            <swe:uom code="%"/>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="rainSensor">
-                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#Rain">
-                            <swe:label>Amount of Rainfall</swe:label>
-                            <swe:uom code="mm/d"/>
-                        </swe:Quantity>
-                    </swe:field>
-                </swe:DataRecord>
-            </sml:output>
-        </sml:OutputList>
-    </sml:outputs>
+    <sml:components>
+        <sml:ComponentList>
+            <sml:component name="temperatureSensor" xlink:href="./ELV_KS300_airTemperature.xml"/>
+            <sml:component name="relativeHumiditySensor" xlink:href="ELV_KS300_relativeHumiditySensor.xml"/>
+            <sml:component name="windSpeedSensor" xlink:href="ELV_KS300_windSpeedSensor.xml"/>
+            <sml:component name="rainSensor" xlink:href="ELV_KS300_rainSensor.xml"/>
+        </sml:ComponentList>
+    </sml:components>
 </sml:PhysicalSystem>
