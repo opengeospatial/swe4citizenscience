@@ -13,4 +13,4 @@ swe4citizenscience is an initiative started by the 5 [EU sponsored Citizen Obser
 OGC Europe is a member of the COBWEB consortium, that is leading this swe4citizenscience initiative.
 
 ## Upcoming meetings:
-Citizens Observatories Ad hoc at the [OGC meeting in Nottingham](https://portal.opengeospatial.org/public_ogc/sched/agenda.php?my_session=41628) 
+Citizens Observatories Ad hoc at the [OGC meeting in Nottingham](https://portal.opengeospatial.org/public_ogc/sched/agenda.php?my_session=41628) 15 September 2015, 08:00 until 12:00.
