@@ -205,9 +205,165 @@
             </sml:document>
         </sml:DocumentList>
     </sml:documentation>
+    <!-- Defines the output structure of this physical system -->
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="weatherStationOutput">
+                <sml:DataInterface>
+                    <sml:data>
+                        <swe:DataStream>
+                            <swe:elementType name="weatherStationDataStream">
+                                <swe:DataRecord>
+                                    <swe:field name="fixed1">
+                                        <swe:Text definition="fixedValue">
+                                            <swe:description>the first value of each text block is fixed to 1</swe:description>
+                                        </swe:Text>
+                                    </swe:field>
+                                    <swe:field name="fixed2">
+                                        <swe:Text definition="fixedValue">
+                                            <swe:description>the second value of each text block is fixed to 1</swe:description>
+                                        </swe:Text>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt1">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 1</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt2">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 2</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt3">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 3</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt4">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 4</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt5">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 5</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt6">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 6</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt7">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 7</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperatureExt8">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature External 8</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt1">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 1</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt2">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 2</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt3">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 3</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt4">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 4</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt5">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 5</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt6">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 6</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt7">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 7</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidityExt8">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity External 8</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="airTemperature">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#AirTemperature">
+                                            <swe:label>Air Temperature</swe:label>
+                                            <swe:uom code="degC"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="relativeHumidity">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                                            <swe:label>Relative Humidity</swe:label>
+                                            <swe:uom code="%"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="windSpeed">
+                                        <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#WindSpeed">
+                                            <swe:label>Wind Speed</swe:label>
+                                            <swe:uom code="km/h"/>
+                                        </swe:Quantity>
+                                    </swe:field>
+                                    <swe:field name="rain">
+                                        <swe:Count definition="http://www.opengeospatial.org/skos/swe#RockSwings">
+                                            <swe:label>Total Amount Rain Sensor Rock Swings</swe:label>
+                                               <swe:description>the rain sensor is implemented as a rock that swings once per 0.295mm</swe:description>
+                                        </swe:Count>
+                                    </swe:field>
+                                    <swe:field name="rainActivity">
+                                        <swe:Boolean definition="http://www.opengeospatial.org/skos/swe#Rain">
+                                            <swe:label>Rain Activity</swe:label>
+                                            <swe:description>true indicates that rain was measured during this sampling interval</swe:description>
+                                        </swe:Boolean>
+                                    </swe:field>
+                                </swe:DataRecord>
+                            </swe:elementType>
+                            <swe:encoding>
+                                <swe:TextEncoding tokenSeparator=";" blockSeparator="&#10;" decimalSeparator=","></swe:TextEncoding>
+                            </swe:encoding>
+                            <swe:values/>
+                        </swe:DataStream>
+                    </sml:data>
+                </sml:DataInterface>
+            </sml:output>
+        </sml:OutputList>
+    </sml:outputs>
     <!-- 
-        the sml:history element has been ommitted because the weather station's characteristics
-        and properties have never changed
+        Components that make up this physical system
     -->
     <sml:components>
         <sml:ComponentList>
