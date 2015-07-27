@@ -56,6 +56,30 @@
                     <sml:value>Weather</sml:value>
                 </sml:Term>
             </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#Temperature">
+                    <sml:label>Temperature</sml:label>
+                    <sml:value>Temperature</sml:value>
+                </sml:Term>
+            </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#WindSpeed">
+                    <sml:label>WindSpeed</sml:label>
+                    <sml:value>WindSpeed</sml:value>
+                </sml:Term>
+            </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#Rain">
+                    <sml:label>Rain</sml:label>
+                    <sml:value>Rain</sml:value>
+                </sml:Term>
+            </sml:classifier>
+            <sml:classifier>
+                <sml:Term definition="http://www.opengeospatial.org/skos/swe#RelativeHumidity">
+                    <sml:label>RelativeHumidity</sml:label>
+                    <sml:value>RelativeHumidity</sml:value>
+                </sml:Term>
+            </sml:classifier>
         </sml:ClassifierList>
     </sml:classification>
     <!-- Time period this description is valid for. Open intervals use 'indeterminatePosision="unknown"' -->
