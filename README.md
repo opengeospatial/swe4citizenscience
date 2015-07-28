@@ -1,3 +1,5 @@
+![alt tag](https://github.com/opengeospatial/swe4citizenscience/tree/master/img/co_logo.jpg)
+
 # swe4citizenscience
 swe4citizenscience is an open citizen observatories repository on GitHub, to be used to develop best practices on how to use OGC specifications for citizen observatories. 
 
@@ -10,7 +12,9 @@ For furhter information, please go to the [wiki]. If you want to know why wo do 
 
 swe4citizenscience is an initiative started by the 5 [EU sponsored Citizen Observatory projects](http://www.citizen-obs.eu) (CITI-SENSE, WeSenseIt, COBWEB, Citclops, OMNISCIENTIS). These projects have received funding from the European Union's Seventh Framework Programme for research, technological development and demonstration under grant agreements no 308524, 308429, 308513, 308469, 308427 respectively.
 
-OGC Europe is a member of the COBWEB consortium, that is leading this swe4citizenscience initiative.
+OGC Europe is a member of the COBWEB consortium, leading this swe4citizenscience initiative.
+
+![alt tag](https://github.com/opengeospatial/swe4citizenscience/tree/master/img/eu_logo.jpg)
 
 ## Upcoming meetings:
 Citizens Observatories Ad hoc at the [OGC meeting in Nottingham](https://portal.opengeospatial.org/public_ogc/sched/agenda.php?my_session=41628) 15 September 2015, 08:00 until 12:00.
