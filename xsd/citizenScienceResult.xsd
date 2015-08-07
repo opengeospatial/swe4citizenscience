@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.opengis.net/swe/citizenscience"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cs="http://www.opengis.net/swe/citizenscience"
+    xmlns:swe="http://www.opengis.net/swe/2.0">
+    <!-- 
+        Imports 
+    -->
+    <xs:import namespace="http://www.opengis.net/samplingSpatial/2.0"
+        schemaLocation="http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd"/>
+    <xs:import namespace="http://www.opengis.net/gml/3.2"
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:import namespace="http://www.opengis.net/om/2.0"
+        schemaLocation="http://schemas.opengis.net/om/2.0/observation.xsd"/>
+    <xs:import namespace="http://www.opengis.net/swe/2.0"
+        schemaLocation="http://schemas.opengis.net/sweCommon/2.0/block_components.xsd"/>
+    <!-- 
+        Elements and Types
+    -->
+    <xs:element name="CitizenScienceResult" type="cs:CitizenScienceResultType" abstract="true"/>
+    <xs:complexType name="CitizenScienceResultType" abstract="true"/>
+    <xs:element name="DataRecordResult" substitutionGroup="cs:CitizenScienceResult"/>
+    <xs:complexType name="DataRecordResult">
+        <xs:complexContent>
+            <xs:extension base="cs:CitizenScienceResultType">
+                <xs:sequence>
+                    <xs:element name="data">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="swe:DataRecord"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="DataArrayResult" substitutionGroup="cs:CitizenScienceResult"
+        type="cs:DataArrayResultType"/>
+    <xs:complexType name="DataArrayResultType">
+        <xs:complexContent>
+            <xs:extension base="cs:CitizenScienceResultType">
+                <xs:sequence>
+                    <xs:element name="data">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="swe:DataArray"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="DataStreamResult" substitutionGroup="cs:CitizenScienceResult"
+        type="cs:DataStreamResultType"/>
+    <xs:complexType name="DataStreamResultType">
+        <xs:complexContent>
+            <xs:extension base="cs:CitizenScienceResultType">
+                <xs:sequence>
+                    <xs:element name="data">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="swe:DataStream"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
