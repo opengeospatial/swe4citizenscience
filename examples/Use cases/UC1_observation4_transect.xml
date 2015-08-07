@@ -9,6 +9,8 @@
     xmlns:gml="http://www.opengis.net/gml/3.2"
     xmlns:gmd="http://www.isotc211.org/2005/gmd"
     xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:sam="http://www.opengis.net/sampling/2.0" 
+    xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
     xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd">
     <gml:description>Observation test instance: Occurrance of Japanese Knotweed</gml:description>
     <gml:name>Japanese Knotweed Occurrance</gml:name>
@@ -31,19 +33,42 @@
                     </gmd:individualName>
                     <gmd:role>
                         <gmd:CI_RoleCode 
-                            codeList="http://link.to/codelist"
-                            codeListValue="CI_RoleCode_publisher">publisher</gmd:CI_RoleCode>
+                            codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml" 
+                            codeListValue="CI_RoleCode_originator">originator</gmd:CI_RoleCode>
                     </gmd:role>
-                    <cs:experience>high</cs:experience>
+                    <cs:experience>medium</cs:experience>
                 </cs:CitizenScientist>
             </cs:recordedBy>
         </cs:CitizenProcess>
     </om:procedure>
     <om:observedProperty
         xlink:href="http://www.opengeospatial.org/skos/swe#Fallopia_japonica"/>
-    <om:featureOfInterest
-        xlink:href="http://wfs.example.org?request=getFeature&amp;featureid=TaunusMountains"/>
+    <om:featureOfInterest>
+        <cs:CitizenScienceFeature>
+            <cs:descriptionRefernce>http://link.to/description/1</cs:descriptionRefernce>
+            <sam:sampledFeature>http://link.to/features/Taunus</sam:sampledFeature>
+            <sams:shape>
+                <gml:Curve gml:id="transect1" srsName="urn:ogc:def:crs:EPSG::4326">
+                    <gml:segments>
+                        <gml:LineStringSegment>
+                            <gml:pos>50.0798473 8.4614252</gml:pos>
+                            <gml:pos>50.0797726 8.4615805</gml:pos>
+                            <gml:pos>50.0797390 8.4617278</gml:pos>
+                            <gml:pos>50.0797128 8.4618892</gml:pos>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+            </sams:shape>
+        </cs:CitizenScienceFeature>
+    </om:featureOfInterest>
     <om:result>	
+        <cs:DataRecordResult>
+            <cs:data>
+                <swe:DataRecord>
+                    
+                </swe:DataRecord>
+            </cs:data>
+        </cs:DataRecordResult>
         <cs:BiologicalMonitoringResult>
             <cs:location>
                 <gml:Point
