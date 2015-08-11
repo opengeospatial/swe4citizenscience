@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema elementFormDefault="qualified"
     targetNamespace="http://www.opengis.net/swe/citizenscience"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cs="http://www.opengis.net/swe/citizenscience"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:cs="http://www.opengis.net/swe/citizenscience"
     xmlns:swe="http://www.opengis.net/swe/2.0">
     <!-- 
         Imports 
@@ -17,9 +18,11 @@
     <!-- 
         Elements and Types
     -->
-    <xs:element name="CitizenScienceResult" type="cs:CitizenScienceResultType" abstract="true"/>
+    <xs:element name="CitizenScienceResult" type="cs:CitizenScienceResultType"
+        abstract="true"/>
     <xs:complexType name="CitizenScienceResultType" abstract="true"/>
-    <xs:element name="DataRecordResult" substitutionGroup="cs:CitizenScienceResult"/>
+    <xs:element name="DataRecordResult"
+        substitutionGroup="cs:CitizenScienceResult" type="cs:DataRecordResult"/>
     <xs:complexType name="DataRecordResult">
         <xs:complexContent>
             <xs:extension base="cs:CitizenScienceResultType">
@@ -35,7 +38,8 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="DataArrayResult" substitutionGroup="cs:CitizenScienceResult"
+    <xs:element name="DataArrayResult"
+        substitutionGroup="cs:CitizenScienceResult"
         type="cs:DataArrayResultType"/>
     <xs:complexType name="DataArrayResultType">
         <xs:complexContent>
@@ -52,7 +56,8 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="DataStreamResult" substitutionGroup="cs:CitizenScienceResult"
+    <xs:element name="DataStreamResult"
+        substitutionGroup="cs:CitizenScienceResult"
         type="cs:DataStreamResultType"/>
     <xs:complexType name="DataStreamResultType">
         <xs:complexContent>

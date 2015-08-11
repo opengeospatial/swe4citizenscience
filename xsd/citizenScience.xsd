@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cs="http://www.opengis.org/citizenscience/1.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:sml="http://www.opengis.net/sensorml/2.0" xmlns:swe="http://www.opengis.net/swe/2.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.org/citizenscience/1.0" version="1.0">
+  <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.opengis.net/om/2.0" schemaLocation="http://schemas.opengis.net/om/2.0/observation.xsd"/>
+  <import namespace="http://www.opengis.net/sampling/2.0" schemaLocation="http://schemas.opengis.net/sampling/2.0/samplingFeature.xsd"/>
+  <import namespace="http://www.opengis.net/sensorml/2.0" schemaLocation="http://schemas.opengis.net/sensorML/2.0/physical_system.xsd"/>
+  <import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="CampaignProcess" substitutionGroup="cs:CitizenScienceProcess" type="cs:CampaignProcessType"/>
+  <complexType name="CampaignProcessType">
+    <complexContent>
+      <extension base="cs:CitizenScienceProcessType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="member">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="cs:CitizenProcess"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CampaignProcessPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CampaignProcess"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="CitizenProcess" substitutionGroup="cs:CitizenScienceProcess" type="cs:CitizenProcessType"/>
+  <complexType name="CitizenProcessType">
+    <complexContent>
+      <extension base="cs:CitizenScienceProcessType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="sensor" type="sml:PhysicalSystemPropertyType"/>
+          <element maxOccurs="unbounded" name="recordedBy" type="cs:CitizenScientistPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="asset" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenProcessPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenProcess"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="CitizenScienceFeature" substitutionGroup="sam:SF_SamplingFeature" type="cs:CitizenScienceFeatureType">
+    <annotation>
+      <documentation>A CitizenScienceFeature is a spatial sampling feature (O&amp;M) where observations are recorded. This could be either a point location, or a curve, if the citizen has recorded the observation track, or a surface that has been defined as sampling area within a (usually) larger sampled feature of interest.</documentation>
+    </annotation>
+  </element>
+  <complexType name="CitizenScienceFeatureType">
+    <complexContent>
+      <extension base="sam:SF_SamplingFeatureType">
+        <sequence>
+          <element minOccurs="0" name="observationPath">
+            <annotation>
+              <documentation>shape of the spatial sampling feature, i.e. the path a citizen scientist has taken</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence>
+                    <element ref="gml:LineStringSegment"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element minOccurs="0" name="observationArea">
+            <annotation>
+              <documentation>shape of the spatial sampling feature, i.e. the convex hull of the path a citizen scientist has taken</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence>
+                    <element ref="gml:PolygonPatch"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element minOccurs="0" name="observationPoint" type="gml:PointPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenScienceFeaturePropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenScienceFeature"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="CitizenScienceMetadata" substitutionGroup="gml:AbstractFeature" type="cs:CitizenScienceMetadataType"/>
+  <complexType name="CitizenScienceMetadataType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="samplingCampaign" type="anyURI"/>
+          <element name="fieldNotes" type="string"/>
+          <element name="eventRemarks" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenScienceMetadataPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenScienceMetadata"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="CitizenScienceObservation" substitutionGroup="om:OM_Observation" type="cs:CitizenScienceObservationType"/>
+  <complexType name="CitizenScienceObservationType">
+    <complexContent>
+      <extension base="om:OM_ObservationType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenScienceObservationPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenScienceObservation"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="CitizenScienceProcess" substitutionGroup="gml:AbstractGML" type="cs:CitizenScienceProcessType"/>
+  <complexType abstract="true" name="CitizenScienceProcessType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="samplingProtocol" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenScienceProcessPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenScienceProcess"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="CitizenScienceResult" substitutionGroup="gml:AbstractFeature" type="cs:CitizenScienceResultType"/>
+  <complexType abstract="true" name="CitizenScienceResultType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenScienceResultPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenScienceResult"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="CitizenScientist" substitutionGroup="gml:AbstractFeature" type="cs:CitizenScientistType"/>
+  <complexType name="CitizenScientistType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="experience" type="string"/>
+          <element name="contact">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMetadataPropertyType">
+                  <sequence>
+                    <element ref="gmd:CI_ResponsibleParty"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CitizenScientistPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:CitizenScientist"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="DataArrayResult" substitutionGroup="cs:CitizenScienceResult" type="cs:DataArrayResultType"/>
+  <complexType name="DataArrayResultType">
+    <complexContent>
+      <extension base="cs:CitizenScienceResultType">
+        <sequence>
+          <element name="data">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence>
+                    <element ref="swe:DataArray"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DataArrayResultPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:DataArrayResult"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="DataRecordResult" substitutionGroup="cs:CitizenScienceResult" type="cs:DataRecordResultType"/>
+  <complexType name="DataRecordResultType">
+    <complexContent>
+      <extension base="cs:CitizenScienceResultType">
+        <sequence>
+          <element name="data">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence>
+                    <element ref="swe:DataRecord"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DataRecordResultPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:DataRecordResult"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="DataStreamResult" substitutionGroup="cs:CitizenScienceResult" type="cs:DataStreamResultType">
+    <annotation>
+      <documentation>The “DataStream” class is used to describe a data stream as a list of elements whose type is given by the element type. It is similar to a “DataArray” but the “elementCount” property is optional to describe never-ending streams.</documentation>
+    </annotation>
+  </element>
+  <complexType name="DataStreamResultType">
+    <complexContent>
+      <extension base="cs:CitizenScienceResultType">
+        <sequence>
+          <element name="data">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence>
+                    <element ref="swe:DataStream"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DataStreamResultPropertyType">
+    <sequence minOccurs="0">
+      <element ref="cs:DataStreamResult"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
