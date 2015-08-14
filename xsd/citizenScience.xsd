@@ -67,7 +67,11 @@
   </complexType>
   <element name="CitizenScienceFeature" substitutionGroup="sam:SF_SamplingFeature" type="cs:CitizenScienceFeatureType">
     <annotation>
-      <documentation>A CitizenScienceFeature is a spatial sampling feature (O&amp;M) where observations are recorded. This could be either a point location, or a curve, if the citizen has recorded the observation track, or a surface that has been defined as sampling area within a (usually) larger sampled feature of interest.</documentation>
+      <documentation>A CitizenScienceFeature is a spatial sampling feature (O&amp;M) where observations are recorded. This could be either a point location, or a curve, if the citizen has recorded the observation track, or a surface that has been defined as sampling area within a (usually) larger sampled feature of interest.
+
+Citizens either go to a specific point to take their observations (e.g. to take noise over a highway or water samples from a river), or take observations along their path (e.g. birds or butterflies spotted on a piece of grassland to the left and right of the walking path). In some cases the exact path is of importance. It is then expressed as a Curve. If the path is not important, e.g. when determining associations of plants in a 10m by 10m square, the sampling area is expressed as a surface (or point, if the definition of the square center point is sufficient). 
+
+The corresponding shapes are defined as the shape property of the CitizenScienceFeature. It allows to understand why specific observations have or have not been made. As an example, a citizen followed a specific path and therefore was not able to spot a breeding place of a rare bird species.</documentation>
     </annotation>
   </element>
   <complexType name="CitizenScienceFeatureType">
@@ -323,46 +327,22 @@ See &lt;a href="$inet://http://rs.tdwg.org/dwc/terms/#fieldNotes"&gt;&lt;font co
   </complexType>
   <element name="Shape" substitutionGroup="gml:AbstractObject" type="cs:ShapeType">
     <annotation>
-      <documentation>The shape of the sampling feature, i.e. the shape the observation took place, which is either at a point, along a line or within a polygon.</documentation>
+      <documentation>Citizens either go to a specific point to take their observations (e.g. to take noise samples next to an airport runway or over a highway), take observations along their path (e.g. birds or butterflies spotted on a piece of grassland to the left and right of the walking path), or observe an area that is part of a larger area but the exact path is not important (e.g. plant association in a 10x10m square within a forest). The Shape Union provides the corresponding shape properties as samplingPoint, samplingCurve, or samplingSurface.</documentation>
     </annotation>
   </element>
   <complexType name="ShapeType">
     <choice>
-      <element name="observationPolygon">
+      <element name="samplingCurve" type="gml:CurvePropertyType">
         <annotation>
-          <documentation>used if the observation is not point but rather polygon-like, i.e. a number of plants at one location where the extent really matters</documentation>
-        </annotation>
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractMemberType">
-              <sequence minOccurs="0">
-                <element ref="gml:PolygonPatch"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="observationLine">
-        <annotation>
-          <documentation>Used if the observation took place along a line, e.g. a single line of trees along an alley</documentation>
-        </annotation>
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractMemberType">
-              <sequence minOccurs="0">
-                <element ref="gml:LineStringSegment"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="observationPoint" type="gml:PointPropertyType">
-        <annotation>
-          <documentation>used if the observation took place at a point and the real shape can be reduced to a single point.</documentation>
+          <documentation>Defines the line-shaped sammpling path, e.g. a transect across a natrure reserve or a random walk within a park or city</documentation>
         </annotation>
       </element>
+      <element name="samplingPoint" type="gml:PointPropertyType">
+        <annotation>
+          <documentation>Used if the sampling took place at a single point, e.g. to obtain noise measurements on a bridge over a highway.</documentation>
+        </annotation>
+      </element>
+      <element name="samplingSurface" type="gml:SurfacePropertyType"/>
     </choice>
   </complexType>
   <complexType name="ShapePropertyType">

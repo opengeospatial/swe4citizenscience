@@ -46,7 +46,7 @@
                           </gmd:CI_Contact>
                        </gmd:contactInfo>
                        <gmd:role>
-                          <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml" codeListValue="originator" codeSpace="ISOTC211/19115"/>
+                           <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml" codeListValue="originator" codeSpace="ISOTC211/19115"/>
                        </gmd:role>
                     </gmd:CI_ResponsibleParty>
                  </cs:contact>
@@ -58,16 +58,20 @@
     <om:featureOfInterest>
        <cs:CitizenScienceFeature gml:id="f1">
           <sam:sampledFeature xlink:href="http://features.de/TaunusMountains"/>
-          <cs:observationPath>
-             <gml:LineStringSegment>
-                <gml:posList srsName="urn:ogc:def:crs:EPSG:3857">
-                   50.079762 8.461040
-                   50.079765 8.461012
-                   50.079771 8.461027
-                   50.079654 8.461111
-                </gml:posList>
-             </gml:LineStringSegment>
-          </cs:observationPath>
+          <cs:shape>
+             <cs:Shape>
+                <cs:samplingCurve>
+                   <gml:LineString gml:id="samplingPath">
+                      <gml:posList srsName="urn:ogc:def:crs:EPSG:3857">
+                         50.079762 8.461040
+                         50.079765 8.461012
+                         50.079771 8.461027
+                         50.079654 8.461111
+                      </gml:posList>
+                   </gml:LineString>
+                </cs:samplingCurve>
+             </cs:Shape>
+          </cs:shape>
        </cs:CitizenScienceFeature>
     </om:featureOfInterest>
     <om:result>
