@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmlce:SimplePolygon xmlns:gml="http://www.opengis.net/gml/3.2"
+ xmlns:gmd="http://www.isotc211.org/2005/gmd"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:gco="http://www.isotc211.org/2005/gco"
+ xmlns:gsr="http://www.isotc211.org/2005/gsr"
+ xmlns:gss="http://www.isotc211.org/2005/gss"
+ xmlns:gmlce="http://www.opengis.net/gml/3.3/ce"
+ xmlns:gts="http://www.isotc211.org/2005/gts"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd" gml:id="ID000">
+   <gml:description>Ingos garden</gml:description>
+   <gml:posList srsName="urn:ogc:def:crs:EPSG:3857">
+       50.079735 8.461163
+       50.079681 8.461121
+       50.079787 8.460840
+       50.079879 8.460890
+       50.079872 8.460946
+       50.079788 8.460932
+    </gml:posList>
+</gmlce:SimplePolygon>

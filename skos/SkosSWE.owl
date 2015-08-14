@@ -49,6 +49,14 @@
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;prefLabel">
+        <rdfs:subPropertyOf rdf:resource="&rdfs;label"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -106,6 +114,24 @@
     
 
 
+    <!-- http://www.opengeospatial.org/skos/swe#Aglais_io -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Aglais_io">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Organism"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Aglais_urticae -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Aglais_urticae">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Organism"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.opengeospatial.org/skos/swe#AirPressure -->
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#AirPressure">
@@ -125,6 +151,16 @@
 
 Air temperature is the ambient temperature shown by a thermometer exposed to the air but sheltered from direct solar radiation.</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Temperature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#AssociatedTaxon -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#AssociatedTaxon">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">A taxon that is associated with another taxon by EcologicalRelationship.</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
     </owl:NamedIndividual>
     
 
@@ -158,6 +194,51 @@ Air temperature is the ambient temperature shown by a thermometer exposed to the
         <rdf:type rdf:resource="&skos;Concept"/>
         <skos:definition xml:lang="en">The type of battery used to power the device</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#OperatingProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Behaviour -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Behaviour">
+        <rdf:type rdf:resource="&skos;Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Buddleja_davidii -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Buddleja_davidii">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Organism"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#EcologicalRelationship -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#EcologicalRelationship">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Occurence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Fallopia_japonica -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Fallopia_japonica">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Organism"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#FloralOilCollection -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#FloralOilCollection">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The process of collecting floral oil.</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Behaviour"/>
     </owl:NamedIndividual>
     
 
@@ -247,12 +328,40 @@ Air temperature is the ambient temperature shown by a thermometer exposed to the
     
 
 
+    <!-- http://www.opengeospatial.org/skos/swe#Organism -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Organism">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#Fallopia_japonica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Pollination -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Pollination">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">To transfer pollen from an anther of an angiosperm to (a stigma, flower, or plant)</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Behaviour"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.opengeospatial.org/skos/swe#Rain -->
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Rain">
         <rdf:type rdf:resource="&skos;Concept"/>
         <skos:definition xml:lang="en">Rain- Liquid water droplets that fall from the atmosphere, having diameters greater than drizzle (0.5 mm).</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#RandomWalk -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#RandomWalk">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Sampling"/>
     </owl:NamedIndividual>
     
 
@@ -272,6 +381,16 @@ Air temperature is the ambient temperature shown by a thermometer exposed to the
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Sampling">
         <rdf:type rdf:resource="&skos;Concept"/>
         <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#Transect"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Taxon -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Taxon">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">A group of organisms (sensu http://purl.obolibrary.org/obo/OBI_0100026) considered by taxonomists to form a homogeneous unit.</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
     </owl:NamedIndividual>
     
 

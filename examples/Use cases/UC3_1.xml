@@ -4,6 +4,7 @@
  xmlns:swe="http://www.opengis.net/swe/2.0"
  xmlns:gss="http://www.isotc211.org/2005/gss"
  xmlns:gml="http://www.opengis.net/gml/3.2"
+ xmlns:gmlce="http://www.opengis.net/gmlce/3.2"
  xmlns:gts="http://www.isotc211.org/2005/gts"
  xmlns:gsr="http://www.isotc211.org/2005/gsr"
  xmlns:cs="http://www.opengis.org/citizenscience/1.0"
@@ -13,16 +14,17 @@
  xmlns:sam="http://www.opengis.net/sampling/2.0"
  xmlns:gmd="http://www.isotc211.org/2005/gmd"
  xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="ID000">
-   <gml:description>Use case 1: Occurrance of Japanese Knotweed</gml:description>
+   <gml:description>Use case 3: Waddensea transect</gml:description>
     <om:phenomenonTime>
-       <gml:TimeInstant gml:id="t1">
-          <gml:timePosition>2015-08-11T10:19:00</gml:timePosition>
-       </gml:TimeInstant>
+       <gml:TimePeriod gml:id="samplingPeriod">
+          <gml:beginPosition>2015-08-14T12:25:00</gml:beginPosition>
+          <gml:endPosition>2015-08-14T16:30:00</gml:endPosition>
+       </gml:TimePeriod>
     </om:phenomenonTime>
     <om:resultTime xlink:href="#t1"/>
     <om:procedure>
        <cs:CitizenProcess gml:id="cp1">
-          <cs:samplingProtocol>http://tinyurl.com/3wtmrzu</cs:samplingProtocol>
+          <cs:samplingProtocol>http://www.opengeospatial.org/skos/swe#Transect</cs:samplingProtocol>
           <cs:recordedBy>
               <cs:CitizenScientist gml:id="cs1">
                  <cs:contact>
@@ -54,19 +56,27 @@
           </cs:recordedBy>
        </cs:CitizenProcess>
     </om:procedure>
-   <om:observedProperty xlink:href="http://www.nps.gov/plants/alien/pubs/midatlantic/faja.htm"/>
+   <om:observedProperty xlink:href="http://www.opengeospatial.org/skos/swe#WaddenseaCharacteristics"/>
     <om:featureOfInterest>
        <cs:CitizenScienceFeature gml:id="f1">
-          <sam:sampledFeature xlink:href="http://features.de/TaunusMountains"/>
+          <sam:sampledFeature xlink:href="http://ingosimonis.de/sampledFeatures/wattenmeer.xml"/>
           <cs:shape>
              <cs:Shape>
                 <cs:samplingCurve>
                    <gml:LineString gml:id="samplingPath">
                       <gml:posList srsName="urn:ogc:def:crs:EPSG:3857">
-                         50.079762 8.461040
-                         50.079765 8.461012
-                         50.079771 8.461027
-                         50.079654 8.461111
+                         54.71787840 8.394927970 
+                         54.72501670 8.390808100 
+                         54.72580980 8.375015250 
+                         54.71986140 8.369522090 
+                         54.71272210 8.372955320 
+                         54.70558160 8.378448480 
+                         54.69685270 8.377075190 
+                         54.69010630 8.369522090 
+                         54.68653420 8.358535760 
+                         54.67978610 8.361282340 
+                         54.66588940 8.369522090 
+                         54.65635740 8.363342280 
                       </gml:posList>
                    </gml:LineString>
                 </cs:samplingCurve>
@@ -75,7 +85,7 @@
        </cs:CitizenScienceFeature>
     </om:featureOfInterest>
     <om:result>
-       <cs:DataArrayResult gml:id="r1">
+       <cs:DataArrayResult gml:id="result">
           <cs:data>
              <swe:DataArray>
                 <swe:elementCount>
@@ -85,28 +95,45 @@
                 </swe:elementCount>
                 <swe:elementType name="observation">
                    <swe:DataRecord>
-                      <swe:field name="lattitide">
-                         <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude">
+                      <swe:field name="latitude">
+                         <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#Latitude">
                             <swe:uom xlink:href="deg"/>
                          </swe:Quantity>
                       </swe:field>
                       <swe:field name="longitude">
-                         <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude">
+                         <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#Longitude">
                             <swe:uom xlink:href="deg"/>
                          </swe:Quantity>
                       </swe:field>
-                      <swe:field name="individualCount">
-                         <swe:Count definition="http://www.opengeospatial.org/skos/swe#individualCount">
-                         </swe:Count>
+                      <swe:field name="sampleID">
+                         <swe:Text definition="http://www.waddensea.org/skos/swe#sampleID"/>
                       </swe:field>
+                      <swe:field name="photoID">
+                         <swe:Text definition="http://www.waddensea.org/skos/swe#photoID"/>
+                      </swe:field>
+                      <swe:field name="code">
+                         <swe:Text definition="http://www.waddensea.org/skos/swe#CodeOnColorChart"/>
+                      </swe:field>
+                      <swe:field name="waterCov">
+                         <swe:Category definition="http://www.waddensea.org/skos/swe#waterCoverage"/>
+                      </swe:field>
+                      <swe:field name="waterCovDeep">
+                         <swe:Category definition="http://www.waddensea.org/skos/swe#waterCoverageDeepness"/>
+                      </swe:field>
+                      <swe:field name="waterCovType">
+                         <swe:Category definition="http://www.waddensea.org/skos/swe#waterCoverageType"/>
+                      </swe:field>
+                      <swe:field name="rippleMarks">
+                         <swe:Boolean definition="http://www.waddensea.org/skos/swe#rippleMarks"/>
+                      </swe:field>
+                      
                    </swe:DataRecord>
                 </swe:elementType>
                 <swe:encoding>
                    <swe:TextEncoding tokenSeparator=";" blockSeparator="&#10;"/>
                 </swe:encoding>
                 <swe:values>
-                   50.079765;8.461012;1
-                   50.079772;8.461026;1
+50.0798746;8.46075475;http://www.opengeospatial.org/skos/swe#Aglais_io;http://www.opengeospatial.org/skos/swe:FloralOilCollection;http://www.opengeospatial.org/skos/swe#Buddleja_davidii 50.0798746;8.46075475;http://www.opengeospatial.org/skos/swe#Aglais_urticae;http://www.opengeospatial.org/skos/swe:FloralOilCollection;http://www.opengeospatial.org/skos/swe#Buddleja_davidii
                 </swe:values>
              </swe:DataArray>
           </cs:data>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cs:CitizenScienceObservation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.org/citizenscience/1.0 ../../../../GitHub/swe4citizenscience/xsd/citizenScience.xsd"
+ xmlns:swe="http://www.opengis.net/swe/2.0"
+ xmlns:gss="http://www.isotc211.org/2005/gss"
+ xmlns:gml="http://www.opengis.net/gml/3.2"
+ xmlns:gmlce="http://www.opengis.net/gmlce/3.2"
+ xmlns:gts="http://www.isotc211.org/2005/gts"
+ xmlns:gsr="http://www.isotc211.org/2005/gsr"
+ xmlns:cs="http://www.opengis.org/citizenscience/1.0"
+ xmlns:gco="http://www.isotc211.org/2005/gco"
+ xmlns:sml="http://www.opengis.net/sensorml/2.0"
+ xmlns:om="http://www.opengis.net/om/2.0"
+ xmlns:sam="http://www.opengis.net/sampling/2.0"
+ xmlns:gmd="http://www.isotc211.org/2005/gmd"
+ xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="ID000">
+   <gml:description>Use case 2: Occurrance of butterflies on plants in Ingos Garden</gml:description>
+    <om:phenomenonTime>
+       <gml:TimePeriod gml:id="samplingPeriod">
+          <gml:beginPosition>2015-08-14T16:25:00</gml:beginPosition>
+          <gml:endPosition>2015-08-14T16:30:00</gml:endPosition>
+       </gml:TimePeriod>
+    </om:phenomenonTime>
+    <om:resultTime xlink:href="#t1"/>
+    <om:procedure>
+       <cs:CitizenProcess gml:id="cp1">
+          <cs:samplingProtocol>http://www.opengeospatial.org/skos/swe#RandomWalk</cs:samplingProtocol>
+          <cs:recordedBy>
+              <cs:CitizenScientist gml:id="cs1">
+                 <cs:contact>
+                    <gmd:CI_ResponsibleParty>
+                       <gmd:individualName>
+                          <gco:CharacterString>
+                             Ingo Simonis
+                          </gco:CharacterString>
+                       </gmd:individualName>
+                       <gmd:contactInfo>
+                          <gmd:CI_Contact>
+                             <gmd:onlineResource>
+                                <gmd:CI_OnlineResource>
+                                   <gmd:linkage>
+                                      <gmd:URL>
+                                         http://www.ingosimonis.de
+                                      </gmd:URL>
+                                   </gmd:linkage>
+                                </gmd:CI_OnlineResource>
+                             </gmd:onlineResource>
+                          </gmd:CI_Contact>
+                       </gmd:contactInfo>
+                       <gmd:role>
+                           <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml" codeListValue="originator" codeSpace="ISOTC211/19115"/>
+                       </gmd:role>
+                    </gmd:CI_ResponsibleParty>
+                 </cs:contact>
+              </cs:CitizenScientist>
+          </cs:recordedBy>
+       </cs:CitizenProcess>
+    </om:procedure>
+   <om:observedProperty xlink:href="http://www.opengeospatial.org/skos/swe#TaxaAssociation"/>
+    <om:featureOfInterest>
+       <cs:CitizenScienceFeature gml:id="f1">
+          <sam:sampledFeature xlink:href="http://ingosimonis.de/sampledFeatures/IngosGarden.xml"/>
+          <cs:shape>
+             <cs:Shape>
+                <cs:samplingCurve>
+                   <gml:LineString gml:id="samplingPath">
+                      <gml:posList srsName="urn:ogc:def:crs:EPSG:3857">
+                         50.0798781 8.46090495
+                         50.0799056 8.46082985
+                         50.0798746 8.46075475
+                         50.079823 8.46074402
+                         50.0798126 8.4607923
+                         50.0797954 8.46085131
+                         50.0797817 8.46088349
+                         50.0797507 8.46093714
+                         50.0797266 8.46104443
+                         50.0797059 8.46114099
+                      </gml:posList>
+                   </gml:LineString>
+                </cs:samplingCurve>
+             </cs:Shape>
+          </cs:shape>
+       </cs:CitizenScienceFeature>
+    </om:featureOfInterest>
+    <om:result>
+       <cs:DataArrayResult gml:id="result">
+          <cs:data>
+             <swe:DataArray>
+                <swe:elementCount>
+                   <swe:Count>
+                      <swe:value>2</swe:value>
+                   </swe:Count>
+                </swe:elementCount>
+                <swe:elementType name="observation">
+                   <swe:DataRecord>
+                      <swe:field name="latitude">
+                         <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#Latitude">
+                            <swe:uom xlink:href="deg"/>
+                         </swe:Quantity>
+                      </swe:field>
+                      <swe:field name="longitude">
+                         <swe:Quantity definition="http://www.opengeospatial.org/skos/swe#Longitude">
+                            <swe:uom xlink:href="deg"/>
+                         </swe:Quantity>
+                      </swe:field>
+                      <swe:field name="taxon">
+                         <swe:Text definition="http://www.opengeospatial.org/skos/swe#Taxon"/>
+                      </swe:field>
+                      <swe:field name="relationship">
+                         <swe:Text definition="http://www.opengeospatial.org/skos/swe#EcologicalRelationship"/>
+                      </swe:field>
+                      <swe:field name="associatedTaxa">
+                         <swe:Text definition="http://www.opengeospatial.org/skos/swe#AssociatedTaxon"/>
+                      </swe:field>
+                   </swe:DataRecord>
+                </swe:elementType>
+                <swe:encoding>
+                   <swe:TextEncoding tokenSeparator=";" blockSeparator="&#10;"/>
+                </swe:encoding>
+                <swe:values>
+50.0798746;8.46075475;http://www.opengeospatial.org/skos/swe#Aglais_io;http://www.opengeospatial.org/skos/swe:FloralOilCollection;http://www.opengeospatial.org/skos/swe#Buddleja_davidii 50.0798746;8.46075475;http://www.opengeospatial.org/skos/swe#Aglais_urticae;http://www.opengeospatial.org/skos/swe:FloralOilCollection;http://www.opengeospatial.org/skos/swe#Buddleja_davidii
+                </swe:values>
+             </swe:DataArray>
+          </cs:data>
+       </cs:DataArrayResult>
+    </om:result>
+</cs:CitizenScienceObservation>
