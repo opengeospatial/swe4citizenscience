@@ -96,7 +96,7 @@
                          </swe:Quantity>
                       </swe:field>
                       <swe:field name="individualCount">
-                         <swe:Count definition="http://terms.tdwg.org/wiki/dwc:individualCount">
+                         <swe:Count definition="http://www.opengeospatial.org/skos/swe#individualCount">
                          </swe:Count>
                       </swe:field>
                    </swe:DataRecord>

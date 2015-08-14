@@ -121,7 +121,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#AirTemperature">
         <rdf:type rdf:resource="&skos;Concept"/>
-        <skos:definition xml:lang="en">Air temperature is a measure of how hot or cold the air is. It is the most commonly measured weather parameter. More specifically, temperature describes the kinetic energy, or energy of motion, of the gases that make up air. As gas molecules move more quickly, air temperature increases.</skos:definition>
+        <skos:definition xml:lang="en">Air temperature is a measure of how hot or cold the air is. It is the most commonly measured weather parameter. More specifically, temperature describes the kinetic energy, or energy of motion, of the gases that make up air. As gas molecules move more quickly, air temperature increases.
+
+Air temperature is the ambient temperature shown by a thermometer exposed to the air but sheltered from direct solar radiation.</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Temperature"/>
     </owl:NamedIndividual>
     
@@ -160,10 +162,47 @@
     
 
 
+    <!-- http://www.opengeospatial.org/skos/swe#IndividualCount -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#IndividualCount">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The number of individuals represented present at the time of the Occurrence.</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Instruction -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Instruction">
+        <rdf:type rdf:resource="&skos;Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Latitude -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Latitude">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition rdf:datatype="&xsd;string">The WGS84 latitude of a SpatialThing (decimal degrees).</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Longitude -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Longitude">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition rdf:datatype="&xsd;string">The WGS84 longitude of a SpatialThing (decimal degrees).</skos:definition>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.opengeospatial.org/skos/swe#Manual -->
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Manual">
         <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Instruction"/>
         <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#UserGuide"/>
     </owl:NamedIndividual>
     
@@ -183,7 +222,18 @@
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#ObservedProperty">
         <rdf:type rdf:resource="&skos;Concept"/>
-        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#WindDirection"/>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#Latitude"/>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#Longitude"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Occurence -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Occurence">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">An existence of an Organism (sensu http://rs.tdwg.org/dwc/terms/Organism) at a particular place at a particular time.</skos:definition>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#IndividualCount"/>
     </owl:NamedIndividual>
     
 
@@ -217,12 +267,30 @@
     
 
 
+    <!-- http://www.opengeospatial.org/skos/swe#Sampling -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Sampling">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#Transect"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.opengeospatial.org/skos/swe#Temperature -->
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Temperature">
         <rdf:type rdf:resource="&skos;Concept"/>
         <skos:definition>The warmth or coldness of an object or substance with reference to a standard value</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengeospatial.org/skos/swe#Transect -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Transect">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">Transect sampling can be conducted using simple visual encounter survey techniques, such as by walking a preselected line transect at night and counting all the salamanders seen, or it can be used in conjunction with passive sampling techniques, such as the placement of coverboards along a preselected survey line. When using transects, sampling locations are determined through a stratified random process. A survey line of a prescribed length is selected, and observers use the line as a base from which to make observations.</skos:definition>
     </owl:NamedIndividual>
     
 
@@ -251,18 +319,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#UserGuide">
         <rdf:type rdf:resource="&skos;Concept"/>
+        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Instruction"/>
         <skos:exactMatch rdf:resource="http://www.opengeospatial.org/skos/swe#Manual"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.opengeospatial.org/skos/swe#Wind -->
-
-    <owl:NamedIndividual rdf:about="http://www.opengeospatial.org/skos/swe#Wind">
-        <rdf:type rdf:resource="&skos;Concept"/>
-        <skos:definition xml:lang="en">Air in motion relative to the surface of the earth.</skos:definition>
-        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
-        <skos:narrower rdf:resource="http://www.opengeospatial.org/skos/swe#WindSpeed"/>
     </owl:NamedIndividual>
     
 
@@ -273,7 +331,6 @@
         <rdf:type rdf:resource="&skos;Concept"/>
         <skos:definition xml:lang="en">The direction from which the wind is blowing</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
-        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Wind"/>
     </owl:NamedIndividual>
     
 
@@ -284,7 +341,6 @@
         <rdf:type rdf:resource="&skos;Concept"/>
         <skos:definition xml:lang="en">The rate at which air is moving horizontally past a given point.  It may be a x-minute average speed (reported as wind speed) or an instantaneous speed (reported as a peak wind speed, or gust).</skos:definition>
         <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#ObservedProperty"/>
-        <skos:broader rdf:resource="http://www.opengeospatial.org/skos/swe#Wind"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
