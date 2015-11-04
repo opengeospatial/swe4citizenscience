@@ -17,4 +17,8 @@ OGC Europe is a member of the COBWEB consortium, leading this swe4citizenscience
 ![alt tag](https://github.com/opengeospatial/swe4citizenscience/raw/master/img/eu_logo.jpg)
 
 ## Upcoming meetings:
-Citizens Observatories Ad hoc at the [OGC meeting in Nottingham](https://portal.opengeospatial.org/public_ogc/sched/agenda.php?my_session=41628) 15 September 2015, 08:00 until 12:00.
+COBWEB STC meeting, Munich, November 9/10, 2015
+
+## Past meetings:
+* ECSA Citizens Science Workshop, Barcelona, October 30, 2015
+* Citizens Observatories Ad hoc at the [OGC meeting in Nottingham](https://portal.opengeospatial.org/public_ogc/sched/agenda.php?my_session=41628) 15 September 2015, 08:00 until 12:00.
