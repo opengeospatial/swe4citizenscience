@@ -17,7 +17,7 @@ OGC Europe is a member of the COBWEB consortium, leading this swe4citizenscience
 ![alt tag](https://github.com/opengeospatial/swe4citizenscience/raw/master/img/eu_logo.jpg)
 
 ## Upcoming meetings:
-COBWEB STC meeting, Munich, November 9/10, 2015
+* COBWEB STC meeting, Munich, November 9/10, 2015
 
 ## Past meetings:
 * ECSA Citizens Science Workshop, Barcelona, October 30, 2015
