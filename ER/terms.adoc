@@ -1,0 +1,102 @@
+== Terms and definitions
+
+For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard [OGC 06-121r9] (( and in OGC® Abstract Specification Topic TBD: TBD )) shall apply. In addition, the following terms and definitions apply.
+
+===	term name
+ text of the definition
+ 
+===	term name|synonym
+
+ text of the definition
+
+.NOTE: 	This is a note text.
+
+(( The Terms and definitions clause is an optional element giving definitions necessary for the understanding of certain terms used in this document. ))
+
+(( Rules for the drafting and presentation of terms and definitions are given in the ISO 19104 Terminology. For example, term names are not capitalized in this list, unless that term is normally capitalized. The definition text shall not be a complete sentence, but should be substitutable (in theory) for the term name. This definition text shall thus not be capitalized or be followed by a punctuation mark. Any notes should be complete sentences, with NOTE capitalized as shown. ))
+
+== Conventions
+
+===	Abbreviated terms
+
+(( The abbreviated terms clause gives a list of the abbreviated terms and the symbols necessary for understanding this document. Unless there is a need to list symbols in a specific order to reflect technical criteria, all symbols should be listed in alphabetical order in the following sequence: ))
+
+*	upper case Latin letter followed by lower case Latin letter (A, a, B, b, etc.);
+*	letters without indices preceding letters with indices, and with letter indices preceding numerical ones (B, b, C, Cm, C2, c, d, dext, dint, d1, etc.);
+*	Greek letters following Latin letters (Z, z, Α, α, Β, β … Λ, λ, etc.);
+*	any other special symbols.
+
+(( Some more frequently used abbreviated terms: ))
+
+* API	Application Program Interface
+* COM	Component Object Model
+* CORBA	Common Object Request Broker Architecture
+* COTS	Commercial Off The Shelf
+* DCE	Distributed Computing Environment
+* DCOM	Distributed Component Object Model
+* IDL	Interface Definition Language
+
+===	UML notation (( Optional ))
+
+(( When UML is used in an OGC document, that document should indicate the UML notation that is used. Inclusion of the following paragraph is suggested. ))
+(( Most diagrams that appear in this standard are presented using the Unified Modeling Language (UML) static structure diagram, as described in Subclause 5.2 of [OGC 06-121r9]. ))
+
+===	Used parts of other documents  (( Optional ))
+
+(( If significant parts of other documents are copied into this document, those parts can be highlighted with a grey background, and this subclause can be included to indicate that this marking is used.  Delete this paragraph if the approach it describes is not used. ))
+
+This document uses significant parts of document [OGC 06-121r9]. To reduce the need to refer to that document, this document copies some of those parts with small modifications. To indicate those parts to readers of this document, the largely copied parts are shown with a light grey background (15%).
+
+===	Platform-neutral and platform-specific standards  (( Optional ))
+
+(( Delete this paragraph if the approach it describes is not applicable to the topic of the ER. ))
+
+(( As specified in Clause 10 of OGC Abstract Specification Topic 12 “OGC Service Architecture” (which contains ISO 19119), this document includes both Distributed Computing Platform-neutral and platform-specific standards. This document first specifies each operation request and response in platform-neutral fashion. This is done using a table for each data structure, which lists and defines the parameters and other data structures contained. These tables serve as data dictionaries for the UML model in Annex C, and thus specify the UML model data type and multiplicity of each listed item. ))
+
+(( EXAMPLES 1	Platform-neutral standards are contained in Subclauses TBD, and TBD.
+The specified platform-neutral data could be encoded in many alternative ways, each appropriate to one or more specific DCPs. This document now specifies encoding appropriate for use of HTTP GET transfer of operations requests (using KVP encoding), and for use of HTTP POST transfers of operations requests (using XML or KVP encoding). However, the same operation requests and responses (and other data) could be encoded for other specific computing platforms, including SOAP/WSDL. ))
+
+(( EXAMPLES 2	Platform-specific standards for KVP encoding are contained in Subclauses TBD, and TBD. ))
+
+(( EXAMPLES 3	Platform-specific standards for XML encoding are contained in Subclauses TBD, and TBD. ))
+
+===	Data dictionary tables  (( Optional ))
+
+(( Delete this paragraph if the approach it describes is not applicable to the topic of the ER.
+The UML model data dictionary is specified herein in a series of tables. The contents of the columns in these tables are described in Table 1.)) 
+
+.Contents of data dictionary tables
+[width="80%",options="header"]
+|====================
+|Column title |Column contents
+|Names (left column) | Two names for each included parameter or association (or data structure). 
+The first name is the UML model attribute or association role name. 
+The second name uses the XML encoding capitalization specified in Subclause 11.6.2 of [OGC 06-121r3]. 
+The name capitalization rules used are specified in Subclause 11.6.2 of [OGC 06-121r3]. Some names in the tables may appear to contain spaces, but no names contain spaces.
+|Definition (second column) | Specifies the definition of this parameter (omitting un-necessary words such as “a”, “the”, and “is”). If the parameter value is the identifier of something, not a description or definition, the definition of this parameter should read something like “Identifier of TBD”.
+|Data type and value (third column)
+or
+Data type 
+(if are no second items are included in rows of table) | Normally contains two items:
+The mandatory first item is often the data type used for this parameter, using data types appropriate in a UML model, in which this parameter is a named attribute of a UML class. Alternately, the first item can identify the data structure (or class) referenced by this association, and references a separate table used to specify the contents of that class (or data structure).
+The optional second item in the third column of each table should indicate the source of values for this parameter, the alternative values, or other value information, unless the values are quite clear from other listed information.
+|Multiplicity and use (right or fourth column)
+or
+Multiplicity 
+(if are no second items are included in rows of table) | Normally contains two items:
+The mandatory first item specifies the multiplicity and optionality of this parameter in this data structure, either “One (mandatory)”, “One or more (mandatory)”, “Zero or one (optional)”, or “Zero or more (optional)”.
+The second item in the right column of each table should specify how any multiplicity other than “One (mandatory)” shall be used. If that parameter is optional, under what condition(s) shall that parameter be included or not included?  If that parameter can be repeated, for what is that parameter repeated? 
+|====================
+
+
+
+When the data type used for this parameter, in the third column of such a table, is an enumeration or code list, all the values specified shall be listed, together with the meaning of each value. When this information is extensive, these values and meanings should be specified in a separate table that is referenced in the third column of this table row.
+
+The data type of many parameters, in the third table column, is specified as “Character String type, not empty”. In the XML Schema Documents specified herein, these parameters are encoded with the xsd:string type, which does NOT require that these strings not be empty.
+
+(These conditions may seem obvious to you, but they are rarely obvious to most readers.)
+
+The contents of these data dictionary tables are normative, including any table footnotes.
+
+(This means that these table footnotes should use the normative verbs "shall", "should", "may", and "can", as defined in Subclause 5.3 "Document terms and definitions" of OWS Common [OGC 06-121r9].)
+

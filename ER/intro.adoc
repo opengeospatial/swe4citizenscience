@@ -1,0 +1,34 @@
+== Introduction
+
+===	Scope
+
+(( The Scope clause shall appear at the beginning of each document and shall define without ambiguity the subject of this document and the aspect(s) covered, thereby indicating the limits of applicability the topic being discussed. It shall not contain requirements. ))
+
+(( The scope shall be succinct so that it can be used as a summary for bibliographic purposes. ))
+
+(( It shall be worded as a series of statements of fact. Forms of expression such as «This OGC® document [specifies] [establishes] [gives guidelines for] [defines terms] …» shall be used. ))
+
+(( Statements of applicability of this document shall be introduced by the wording «This OGC® document is applicable to …». ))
+
+===	Document contributor contact points
+
+All questions regarding this document should be directed to the editor or the contributors:
+
+
+.Contacts
+[width="80%",options="header"]
+|====================
+|Name |Organization
+|((editor)) | (( from org ))
+|((contributor)) | ((from org))
+|====================
+
+
+=== Future Work
+(( i.e. "No future work is planned to this document." or  "It is expected that this document may result in changes in other documents." ))
+
+=== Forward
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.

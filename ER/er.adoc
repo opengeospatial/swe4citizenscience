@@ -1,0 +1,69 @@
+:doctype: book
+:encoding: utf-8
+:lang: en
+:toc: macro
+:toclevels: 3
+:numbered:
+:sectanchors:
+
+= SWE4Citizen Science Data Model
+
+Publication Date: 2016-mm-dd
+
+Approval Date: 2016-mm-dd
+
+Posted Date: 2016-((01-01))
+
+Reference number of this document: OGC 16-((NNNrN))
+
+Reference URL for this document: http://www.opengis.net/doc/PER/XXXX-((xxx))
+
+Category: Public Engineering Report
+
+Editor: Ingo Simonis, Rob Atkinson
+
+Title: [big]#SWE4Citizen Science Data Model#
+
+''''
+
+////
+Organize your ER includes
+The includes down to the overview should not be modified here.
+You will need to modify each file as appropriate
+////
+include::preface.adoc[]
+
+include::intro.adoc[]
+
+include::references.adoc[]
+
+include::terms.adoc[]
+
+include::overview.adoc[]
+
+include::clauses-examples.adoc[]
+////
+add major sections (clauses) as necessary
+make a copy of clauses-examples.adoc and label it as follows
+then comment out clauses-examples include above
+
+include::clause-06.adoc[]
+iclude::clause-07.adoc[]
+include::clause-08.adoc[]
+...
+////
+
+////
+add or remove annexes as necessary
+////
+include::annex-a.adoc[]
+
+
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::history.adoc[]
+
+include::bibliography.adoc[]
