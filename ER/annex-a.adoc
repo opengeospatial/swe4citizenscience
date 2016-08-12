@@ -1,2 +1,4 @@
 [appendix]
-= Annex A
+= Annex A - XML Schema Documents
+
+.[big]*A.1	Introduction*

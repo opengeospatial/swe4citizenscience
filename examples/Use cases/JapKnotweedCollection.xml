@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cs:CitizenScienceObservationCollection xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:gco="http://www.isotc211.org/2005/gco"
  xmlns:gmd="http://www.isotc211.org/2005/gmd"
  xmlns:gml="http://www.opengis.net/gml/3.2"
  xmlns:swe="http://www.opengis.net/swe/2.0"
@@ -10,8 +9,6 @@
  xmlns:om="http://www.opengis.net/om/2.0"
  xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
  xmlns:sf="http://www.opengis.net/sampling/2.0"
- xmlns:gts="http://www.isotc211.org/2005/gts"
- xmlns:gsr="http://www.isotc211.org/2005/gsr"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.org/citizenscience/1.1 file:/Users/isi/Dropbox/_workspace/ShapeChange-2.0.1/CitizenScience/output/xsd/INPUT/citizenScience.xsd" gml:id="ID000">
     <cs:resultTime>

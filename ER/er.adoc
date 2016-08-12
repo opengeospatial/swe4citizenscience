@@ -5,8 +5,9 @@
 :toclevels: 3
 :numbered:
 :sectanchors:
+:imagesdir: ./images
 
-= SWE4Citizen Science Data Model
+= Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data
 
 Publication Date: 2016-mm-dd
 
@@ -22,7 +23,7 @@ Category: Public Engineering Report
 
 Editor: Ingo Simonis, Rob Atkinson
 
-Title: [big]#SWE4Citizen Science Data Model#
+Title: [big]#Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data#
 
 ''''
 
@@ -41,17 +42,8 @@ include::terms.adoc[]
 
 include::overview.adoc[]
 
-include::clauses-examples.adoc[]
-////
-add major sections (clauses) as necessary
-make a copy of clauses-examples.adoc and label it as follows
-then comment out clauses-examples include above
+include::clause-6-ProblemStatement.adoc[]
 
-include::clause-06.adoc[]
-iclude::clause-07.adoc[]
-include::clause-08.adoc[]
-...
-////
 
 ////
 add or remove annexes as necessary
