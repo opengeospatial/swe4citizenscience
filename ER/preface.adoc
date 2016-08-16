@@ -36,14 +36,13 @@ toc::[]
 
 
 .[big]*Abstract*
-This discussion paper is a result of the research project https://cobwebproject.eu[Citizen Observatory Web (COBWEB)]. COBWEB is supported by the European Commission through grant agreement 308513.
+This discussion paper is a result of the research project https://cobwebproject.eu[Citizen Observatory Web (COBWEB)]. COBWEB is supported by the European Commission through grant agreement 308513. The discussion paper describes a data model for the standardized exchange of citizen science sampling data.
 
 .[big]*Business Value*
-This discussion paper outlines a data model for citizen science data and outlines a future interoperability approach based on semantic web concepts.
-
+This discussion paper outlines a data model for citizen science data and outlines a future interoperability approach based on semantic web concepts. A standardized model allows for efficient exchange of citizen science data and supports re-use of data in other than originally planned contexts.
 
 .[big]*What does this ER mean for the Working Group and OGC in general*
-This discussion paper should be considered by the Citizen Science Domain Working Group
+This discussion paper should be considered by the Citizen Science Domain Working Group as a baseline for future citizen science data exchange research and standardization.
 
 .[big]*How does this ER relates to the work of the Working Group*
 This report provides a solid base for future discussions on data models for citizen science in particular and interoperability in general.

@@ -5,7 +5,7 @@
 :toclevels: 3
 :numbered:
 :sectanchors:
-:imagesdir: ./images
+
 
 = Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data
 
@@ -44,6 +44,7 @@ include::overview.adoc[]
 
 include::clause-6-ProblemStatement.adoc[]
 
+include::clause-7-models.adoc[]
 
 ////
 add or remove annexes as necessary

@@ -3,7 +3,7 @@
 The number of citizen science projects is constantly growing. Local, national, and international platforms feature new projects almost every month, resulting in an endless number of observations that are constantly gathered and stored in databases. Often, these data sets are only used for the sampling campaign’s objectives, thus leaving a huge potential unused: Its reusability in other contexts, and its comparability with other data sets. Reusability and comparability require a number of aspects to be fulfilled. This paper describes those aspects and focuses on the citizen science application profile as a standardized information model that ensures syntactic and semantic understanding of citizen science data collected by arbitrary sampling campaigns. Data compliant to this information model can be discovered and accessed through standardized Web interfaces and therefore easily integrated into any data processing environment or compared to any other data set. It is emphasized that the application profile described in this paper is one out of two possible solutions. The second is briefly addressed and will be documented in detail in future publications.
 
 ===	Scope
-This document focuses on three aspects. First, it describes the problem statement as it currently occurs in many citizen science sampling campaigns. Second, it provides a data model that addresses most of the current interoperability issues by applying available models and technologies. Third, it outlines a path ahead that describes future solutions that further improve the level of interoperability.
+This document focuses on three aspects. First, it describes common design decisions as they currently occur in many citizen science sampling campaigns. Second, it provides a data model that addresses most of the current interoperability issues by applying available models and technologies. Third, it outlines a path ahead that describes future solutions that further improve the level of interoperability.
 
 
 ===	Document contributor contact points
@@ -21,7 +21,7 @@ All questions regarding this document should be directed to the editor or the co
 
 
 === Future Work
-This document is a first step towards a new approach to interoperability in heterogenous environments that supports semantic interoperability. The concept needs further research and should be explored in other domains to evaluate its universal applicability. 
+This document is a first step towards a new approach to interoperability in heterogenous environments that supports semantic interoperability. The concept needs further research and should be explored in other domains to evaluate its universal applicability.
 
 === Forward
 

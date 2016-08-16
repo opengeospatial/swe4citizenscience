@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<om:OM_Observation gml:id="_x3ebvgy65"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:gco="http://www.isotc211.org/2005/gco"
+   xmlns:gmd="http://www.isotc211.org/2005/gmd"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   xmlns:gss="http://www.isotc211.org/2005/gss"
+   xmlns:gts="http://www.isotc211.org/2005/gts"
+   xmlns:om="http://www.opengis.net/om/2.0"
+   xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
+   xmlns:sf="http://www.opengis.net/sampling/2.0"
+   xmlns:swe="http://www.opengis.net/swe/2.0"
+   xmlns:gsr="http://www.isotc211.org/2005/gsr"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:tsml="http://www.opengis.net/timeseriesml/1.0"
+   xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+                       http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+                       http://www.opengis.net/timeseriesml/1.0 file:/Users/isi/Documents/SVN/timeSeriesML.swg/tags/20160223_FinalReleaseCandidate_post_eVote/xsd/timeseriesML.xsd">
+   <!-- tag::description[]  -->
+   <gml:description>Swe4CitizenScience example observation from the Japanese Knotweed field sampling campaign, data set SnowdoniaNationalParkJapaneseKnotweedSurvey2015</gml:description>
+   <gml:name>Japanese Knotweed Observation, pure OM, TSML and SWECommon</gml:name>
+   <!-- end::description[]  -->
+   <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+   <om:phenomenonTime>
+      <gml:TimeInstant gml:id="t001">
+         <gml:timePosition>2015-07-07T10:32:48.460Z</gml:timePosition>
+      </gml:TimeInstant>
+   </om:phenomenonTime>
+   <om:resultTime xlink:href="#t001"/>
+    <om:procedure>
+       <tsml:ObservationProcess gml:id="op1">
+          <!-- processType defines observation performed by human with sensor -->
+          <tsml:processType xlink:href="http://www.opengis.net/def/property/OGC/1.0/processType/sensor"/>
+          <!-- processReference defines sampling protocol -->
+          <tsml:processReference xlink:href="https://dyfi.cobwebproject.eu/skos#JapaneseKnotweedSamplingProtocol"/>
+          <!-- if a sensor is used, provide the link to the sensor definition here. Ideayll, value points to SensorML definition -->
+          <tsml:parameter>
+             <om:NamedValue>
+                <om:name xlink:href="http://www.opengis.net/def/property/OGC/1.0/sensor"/>
+                <om:value>http://www.motorola.com/XT1068</om:value>
+             </om:NamedValue>
+          </tsml:parameter>
+          <!-- operator defines the human producing this observation -->
+          <tsml:operator>
+            <!-- anonymous observation producer from ISO 19115, roleCode "Expert" -->
+             <gmd:CI_ResponsibleParty>
+                <gmd:role>
+                   <gmd:CI_RoleCode codeList="https://dyfi.cobwebproject.eu/skos#CI_roleCodes" codeListValue="Expert"></gmd:CI_RoleCode>
+                </gmd:role>
+             </gmd:CI_ResponsibleParty>
+          </tsml:operator>
+       </tsml:ObservationProcess>
+    </om:procedure>
+   <!-- namedParameter to provide the sampling campaign identifier -->
+   <om:parameter>
+      <om:NamedValue>
+         <om:name xlink:href="https://dyfi.cobwebproject.eu/skos#SamplingCampaignID"/>
+         <om:value>SnowdoniaNationalParkJapaneseKnotweedSurvey2015_Cleaned</om:value>
+      </om:NamedValue>
+   </om:parameter>
+   <!-- observed property is a taxon with specific occurence data -->
+   <om:observedProperty xlink:href="https://dyfi.cobwebproject.eu/skos#taxon_occurence"/>
+   <om:featureOfInterest>
+      <sams:SF_SpatialSamplingFeature gml:id="sf001">
+         <sf:type xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
+         <sf:sampledFeature xlink:href="https://dyfi.cobwebproject.eu/skos#Snowdonia_National_Park"/>
+         <sams:shape>
+            <gml:Point gml:id="sp1">
+               <gml:pos srsName="urn:ogc:def:crs:EPSG:6.8:3857">53.09665139 -3.79436993599</gml:pos>
+            </gml:Point>
+         </sams:shape>
+      </sams:SF_SpatialSamplingFeature>
+   </om:featureOfInterest>
+   <om:result>
+      <swe:DataRecord>
+         <swe:field name="positionAccuracy">
+            <swe:Count definition="https://dyfi.cobwebproject.eu/skos#positionAccuracy">
+               <swe:value>-1</swe:value>
+            </swe:Count>
+         </swe:field>
+         <swe:field name="broadHabitatType">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#BroadHabitatType">
+               <swe:value>Rivers and streams</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="image">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#image">
+               <swe:value>https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/LJ%20(6)/1436265141986.jpg</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="taxon">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#taxon">
+               <swe:value>https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="approxPlantHeight">
+            <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#approxPlantHeight">
+               <swe:uom code="m"/>
+               <swe:value>1.0</swe:value>
+            </swe:Quantity>
+         </swe:field>
+         <swe:field name="evidenceOfManagement">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#evidenceOfManagement">
+               <swe:value>No</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="distanceFromObservation">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#distanceFromObservation">
+               <swe:value>Very Close (&lt;1m)</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="riverBankErrosion">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#riverBankErrosion">
+               <swe:value>No</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="temperature">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#Temperature">
+               <swe:value>Warm</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="weather">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#Weather">
+               <swe:value>Dry</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="fieldNnotes">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#FieldNotes">
+               <swe:value>Over 10m2</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="azimuth">
+            <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#Azimuth">
+               <swe:uom code="deg"/>
+               <swe:value>145.238262662</swe:value>
+            </swe:Quantity>
+         </swe:field>
+         <swe:field name="pitch">
+            <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#Pitch">
+               <swe:uom code="deg"/>
+               <swe:value>-25.5942265843</swe:value>
+            </swe:Quantity>
+         </swe:field>
+         <swe:field name="osVersion">
+            <swe:Text definition="https://dyfi.cobwebproject.eu/skos#OSVersion">
+               <swe:value>4.4.4</swe:value>
+            </swe:Text>
+         </swe:field>
+         <swe:field name="roll">
+            <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#Roll">
+               <swe:uom code="deg"/>
+               <swe:value>12.3224971071</swe:value>
+            </swe:Quantity>
+         </swe:field>
+      </swe:DataRecord>
+   </om:result>
+</om:OM_Observation>

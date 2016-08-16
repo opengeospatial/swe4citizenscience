@@ -1,0 +1,34 @@
+[[CitizenScienceModels]]
+== Citizen Science Data Models
+_SWE For Citizen Science_ (Swe4cs) is a common data model suitable for collecting and sharing citizen science data. It is based on the ISO 19156 / http://portal.opengeospatial.org/files/?artifact_id=41579[OGC Abstract Specification Topic 20 Observation and Measurements (O&M)] standard and implemented as an http://www.iso.org/iso/catalogue_detail.htm?csnumber=59193[ISO 19109] (Geographic information - Rules for application schema) compliant application schema, which implements key elements from other ISO standards following the conventions defined in http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=32554[ISO 19136] / http://www.opengeospatial.org/standards/gml[OGC Geography Markup Language (GML)]. Swe4cs is based on the OGC core model, with the General Feature Model (defined in ISO 19109) as a metamodel for representing features in application schemas; therefore, Swe4cs data can easily be processed and integrated with other OGC compliant data such as coverage based on satellite data, sensor data from ground stations, or reference data sets provided by public bodies. In addition, Swe4cs uses standards from the OGC Sensor Web Enablement (SWE) family, a suite of standards initially developed to realize the Sensor Web. Originally designed to network sensors, the scope of SWE has broadened to include humans as sensors and sensor data processing capacities. Swe4cs uses the OGC standards http://www.opengeospatial.org/standards/sensorml[SensorML], a robust and semantically-tied means of defining assets, to describe sensors used in sampling campaigns, and http://www.opengeospatial.org/standards/swecommon[SWECommon], a low-level data model for exchanging sensor related data between nodes of the OGC Sensor Web Enablement (SWE) framework. To express time series and coverage data, Swe4cs implements OGC standards https://portal.opengeospatial.org/files/?artifact_id=64592[TimeseriesML] and https://portal.opengeospatial.org/files/?artifact_id=41438[GML coverages].
+
+The currently available Swe4cs model has been designed with a focus on reusing existing standards to the greatest degree possible. As it stands, Swe4cs is suitable for expressing the key elements of a citizen science observation, i.e. the observed property(ies), the results, temporal and spatial aspects, potentially used hardware, and information about the volunteer herself. It is envisioned that future interoperability pilots are required to extend the model and address remaining interoperability concerns, including:
+
+* Definition of the sampling protocol
+* Semantic pointers to shared ontologies
+* Definition of a Swe4cs constraint model of SensorML to overcome design issues caused by the extreme flexibility of SensorML
+* Data quality and user feedback
+* Further serializations such as JSON and RDF
+
+[[GeneralDesignDecision]]
+=== General Design Decision
+Defining a data model for a particular community commonly involves a number of design decisions. In the case of Swe4CS, it was decided after long debates to favor a data model that is fully based on existing core standards without profiling them using specializations. The reason is that specializations require adapted client applications to parse serialized data. On the other side, specializations would allow more fine-grained adaptations to particular needs - but these are commonly an issue for interoperability anyway.
+
+
+[[OMBaseModel]]
+=== O&M Base Model
+Observation & Measurement (O&M) provides a general model to encode observations done by either humans, machines, or software processes and is therefore suitable for citizen science data. Citizen science data often results from human observations or is provided by citizen scientists using mobile sensor assets. O&M features a number of levels of freedom that require design decisions and constraints in order to result in a model for interoperable data exchange. These levels of freedom are illustrated in figure <<img_OMLevelsOfFreedom,Levels of Freedom in the O&M model>>.
+
+[[img_OMLevelsOfFreedom]]
+.Levels of Freedom in the O&M model
+image::images/OMLevelsOfFreedom.png[width=600]
+
+Following the decision to use O&M as is without further specialization, design decisions had to be taken to improve interoperability of the _featureOfInterest_, the _procedure_, and the _result_.
+
+==== PhenomenonTime
+
+[source,xml]
+.Label
+----
+include::xml/jap1_tml.xml[tags=description]
+----

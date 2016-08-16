@@ -2,3 +2,6 @@
 == Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data
 
 After a short <<CitizenScienceIntroduction,introduction>>, this discussion paper first discusses the typical <<CitizenScienceProcess,citizen science sampling campaign formalization and execution process>> to allow understanding the full set of requirements that needs to be fulfilled by citizen science data in order to maximize reuse and comparability. It then focuses on the <<CitizenScienceApplicationProfile,citizen science application profile>>, an information model that allows the integration of citizen science data in new contexts without risking semantically incorrect use or interpretation. The model itself can be implemented and serialized in various ways, featuring XML or JSON based object oriented models, or Semantic Web approaches based on triples and links. The paper shows how the citizen science application profile can be <<SDIIntegration,integrated into spatial data infrastructures and processing chains>> before it describes <<FutureInteroperability,future interoperability concepts>> that further address interoperability aspects in heterogeneous environments..
+
+
+[yellow-background]#NEEDS REVIEW#
