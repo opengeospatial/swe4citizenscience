@@ -1,5 +1,5 @@
 [appendix]
-= Bibliography
+== Bibliography
 
 [NOTE]
 .Example Bibliography (Delete this note).
