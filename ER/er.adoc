@@ -46,6 +46,8 @@ include::clause-6-ProblemStatement.adoc[]
 
 include::clause-7-models.adoc[]
 
+include::clause-8-collections.adoc[]
+
 ////
 add or remove annexes as necessary
 ////

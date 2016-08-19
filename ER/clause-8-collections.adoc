@@ -1,7 +1,7 @@
 [[CitizenScienceCollections]]
 == Observation Collections and Aggregations
 
-The <<CitizenScienceModels,previous chapter>> introduced the citizen science model for simple and complex observations, i.e. observations done by citizen scientists. This chapter introduces observation collections and aggregation patterns. These patterns will make use of the citizen science model as described, but extend it to allow different types of aggregations, e.g. all observations by a specific citizen scientist, or all observations in a given area, etc. These collections and aggregations are either produced directly by the (mobile) applications used by citizen scientists to optimize data transfer, or result from data analysis and filtering processes.
+The <<CitizenScienceModels,previous chapter>> introduced the citizen science model for simple and complex observations, i.e. individual observations done by citizen scientists. This chapter introduces observation collections and aggregation patterns. These patterns will make use of the citizen science model as described, but extend it to allow different types of aggregations, e.g. all observations by a specific citizen scientist, or all observations in a given area, etc. These collections and aggregations are either produced directly by the (mobile) applications used by citizen scientists to optimize data transfer, or result from data analysis and filtering processes.
 
 The following figure illustrates different aspects that need to be taken into consideration. Here, a citizen scientist walks from left to right and detects four occurrences of Japanese Knotweed (1). These occurrences can be modeled in different ways, depending on the sampling protocol and other potentially available information. One option is _DiscretePointCoverage_ (2). Here, the extent of the coverage describes the projected path of the scientist to the plane. Occurrences of Japanese Knotweed are modeled as _MultiPoint_ elements in a _MultiPointCoverage_. The second option, if the exact path of the scientist is not available or does not matter, is a simple _TimeSeries_. The third option and fourth option illustrated in the <<img_AggregationPatterns, figure below>> provide the trajectory and encode all occurrences together with the sampling path (4), or, if the sampling protocol defines to watch out for occurrences 10m left and right of the path, as a sampling polygon (5).
 
@@ -9,12 +9,14 @@ The following figure illustrates different aspects that need to be taken into co
 .Observation aggregation patterns
 image::images/clause-8-AggregationPatterns.png[width=600]
 
-The following XML examples show the encoding of the various options described above. To improve readability, the number of Japanese Knotweed occurrences has been reduced to two and all elements except for _featureOfInterest_ and _result_ have been omitted. The first examples illustrates Japanese Knotweed occurrence encoded as a _DiscretePointCoverage_.
+The following XML examples show the encoding of the various options described above. To improve readability, the number of Japanese Knotweed occurrences has been reduced to two and all elements except for _featureOfInterest_ and _result_ have been omitted.
+
+=== Aggregation encoding: DiscretePointCoverage
+The first examples illustrates Japanese Knotweed occurrence encoded as a _DiscretePointCoverage_.
 
 [source,xml]
 .XML example: DiscretePointCoverage option
 ----
-<?xml version="1.0" encoding="UTF-8"?>
 <om:featureOfInterest xlink:href="https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park"/>
 <!-- the result uses a gmlcov:MultiPointCoverage. Each observation occurrence results in a   MultiPoint:member gml:Point as part of the domain set. Values are provided as part of the rangeSet,   which is described in rangeType -->
 <om:result>
@@ -38,7 +40,8 @@ The following XML examples show the encoding of the various options described ab
       <gml:DataBlock>
         <gml:rangeParameters/>
         <gml:tupleList decimal=".">
-          "http://www.motorola.com/XT1068","2015-11-03T15:45:41",-1,"Rivers and streams","https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/LJ%20(6)/1436265141986.jpg","https://dyfi.cobwebproject.eu/skos/JapaneseKnotweed",1.0,"No","Very Close (&lt;1m)","No","Warm","Dry","Over 10m2",145.238262662,-25.5942265843,"4.4.4",12.3224971071 "http://www.sony.com/D6603","2015-07-07T13:06:48.394Z",-1,"Rivers and streams","https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/Doug%20(16)/1436274370609.jpg","https://dyfi.cobwebproject.eu/skos/JapaneseKnotweed",2.0,"No","Far (3m-10m)","Yes","Warm","Dry","Far side of river. Visible through the branches in the picture.",166.585854989,-48.7309271996,"5.0.2",8.19621761251
+          "http://www.motorola.com/XT1068","2015-11-03T15:45:41","https://dyfi.cobwebproject.eu/65141986.jpg",1.0
+          "http://www.sony.com/D6603","2015-07-07T13:06:48.394Z","https://dyfi.cobwebproject.eu/74370609.jpg",2.0
         </gml:tupleList>
       </gml:DataBlock>
     </gml:rangeSet>
@@ -47,64 +50,18 @@ The following XML examples show the encoding of the various options described ab
         <swe:field name="mobilePhoneType">
           <swe:Text definition="https://dyfi.cobwebproject.eu/skos/mobilePhoneType"/>
         </swe:field>
-        <swe:field name="mobilePhoneType">
+        <swe:field name="samplingTime">
           <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
             <swe:label>Sampling Time</swe:label>
             <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
           </swe:Time>
         </swe:field>
-        <swe:field name="positionAccuracy">
-          <swe:Count definition="https://dyfi.cobwebproject.eu/skos/positionAccuracy"/>
-        </swe:field>
-        <swe:field name="broadHabitatType">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/BroadHabitatType"/>
-        </swe:field>
         <swe:field name="image">
           <swe:Text definition="https://dyfi.cobwebproject.eu/skos/image" />
-        </swe:field>
-        <swe:field name="taxon">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/taxon"/>
         </swe:field>
         <swe:field name="approxPlantHeight">
           <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/approxPlantHeight">
             <swe:uom code="m"/>
-          </swe:Quantity>
-        </swe:field>
-        <swe:field name="evidenceOfManagement">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/evidenceOfManagement"/>
-        </swe:field>
-        <swe:field name="distanceFromObservation">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/distanceFromObservation"/>
-        </swe:field>
-        <swe:field name="riverBankErrosion">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/riverBankErrosion"/>
-        </swe:field>
-        <swe:field name="temperature">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/Temperature"/>
-        </swe:field>
-        <swe:field name="weather">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/Weather"/>
-        </swe:field>
-        <swe:field name="fieldNnotes">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/FieldNotes"/>
-        </swe:field>
-        <swe:field name="azimuth">
-          <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/Azimuth">
-            <swe:uom code="deg"/>
-          </swe:Quantity>
-        </swe:field>
-        <swe:field name="pitch">
-          <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/Pitch">
-            <swe:uom code="deg"/>
-          </swe:Quantity>
-        </swe:field>
-        <swe:field name="osVersion">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/OSVersion">
-          </swe:Text>
-        </swe:field>
-        <swe:field name="roll">
-          <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/Roll">
-            <swe:uom code="deg"/>
           </swe:Quantity>
         </swe:field>
       </swe:DataRecord>
@@ -113,10 +70,11 @@ The following XML examples show the encoding of the various options described ab
 </om:result>
 ----
 
-The second examples illustrates Japanese Knotweed occurrence encoded as a collection of individual observations and thus represents a simple form of time series.
+=== Aggregation encoding: Collection of observations
+The second examples illustrates Japanese Knotweed occurrence encoded as a collection of individual observations and thus represents a simple form of time series. This option allows to capture different number of elements per observation, e.g. at the first observation lists two species, Sphagnum moss and Bog cotton, where as the next lists Bog cotton, Common rush, and Star moss. Those varying number of observed property results are best serialized using the _swe:DataRecord_ approach.
 
 [source,xml]
-.XML example: DiscretePointCoverage option
+.XML example: Collection of individual observations
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <gml:FeatureCollection gml:id="JapanesKnotweedFeatureCollection_1">
@@ -164,7 +122,7 @@ The second examples illustrates Japanese Knotweed occurrence encoded as a collec
           <om:value>SnowdoniaNationalParkJapaneseKnotweedSurvey2015_Cleaned</om:value>
         </om:NamedValue>
       </om:parameter>
-      <om:observedProperty xlink:href="https://dyfi.cobwebproject.eu/skos/fallopia_japonica"/>
+      <om:observedProperty xlink:href="https://dyfi.cobwebproject.eu/skos/BogTaxa"/>
       <om:featureOfInterest>
         <sams:SF_SpatialSamplingFeature gml:id="sf001">
           <sf:type xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
@@ -178,18 +136,16 @@ The second examples illustrates Japanese Knotweed occurrence encoded as a collec
       </om:featureOfInterest>
       <om:result>
         <swe:DataRecord>
-          <swe:field name="image">
-            <swe:Text definition="https://dyfi.cobwebproject.eu/skos/image">
-              <swe:value>https://dyfi.cobwebproject.eu/38e388-f34e-25d9-945c-54cffd...986.jpg</swe:value>
+          <swe:field name="taxon">
+            <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
+              <swe:value>Sphagnum moss</swe:value>
             </swe:Text>
           </swe:field>
-          <swe:field name="approxPlantHeight">
-            <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/approxPlantHeight">
-              <swe:uom code="m"/>
-              <swe:value>1.0</swe:value>
-            </swe:Quantity>
+          <swe:field name="taxon">
+            <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
+              <swe:value>Bog Cotton</swe:value>
+            </swe:Text>
           </swe:field>
-          <...>
         </swe:DataRecord>
       </om:result>
     </om:OM_Observation>
@@ -226,24 +182,29 @@ The second examples illustrates Japanese Knotweed occurrence encoded as a collec
       </om:featureOfInterest>
       <om:result>
         <swe:DataRecord>
-          <swe:field name="image">
-            <swe:Text definition="https://dyfi.cobwebproject.eu/skos/image">
-              <swe:value>https://dyfi.cobwebproject.eu/36274370609.jpg</swe:value>
+          <swe:field name="taxon">
+            <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
+              <swe:value>Bog Cotton</swe:value>
             </swe:Text>
           </swe:field>
-          <swe:field name="approxPlantHeight">
-            <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/approxPlantHeight">
-              <swe:uom code="m"/>
-              <swe:value>2.0</swe:value>
-            </swe:Quantity>
+          <swe:field name="taxon">
+            <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
+              <swe:value>Common moss</swe:value>
+            </swe:Text>
           </swe:field>
-          <...>
+          <swe:field name="taxon">
+            <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
+              <swe:value>Star moss</swe:value>
+            </swe:Text>
+          </swe:field>
         </swe:DataRecord>
       </om:result>
     </om:OM_Observation>
   </gml:featureMember>
 </gml:FeatureCollection>
 ----
+
+=== Aggregation encoding: Collection of observations with track information
 
 The third example illustrates combined path and occurrences information. The applied pattern is _SpatialSamplingFeature_ using a _gml:Curve_ for trajectory information. If a corridor instead of the trajectory would be required, a _gml:Polygon_ would be used instead of the _gml:Curve_. If the collection would not aggregate observations by the same citizen scientist using the same sensing device, a _gml:Collection_ would be used that needs to repeat the various data sets. A full example of such a situation is given in annex XXX.
 
