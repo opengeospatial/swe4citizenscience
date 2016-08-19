@@ -1,4 +1,9 @@
 [appendix]
-= Annex A - XML Schema Documents
+= Annex A - XML Examples
 
 .[big]*A.1	Introduction*
+This annex provides complete XML examples covering the following sampling situations:
+
+* Bogs in Wales: Citizen scientists observe bogs in Western Wales.
+** Individual citizen scientist
+** Collection of citizen scientist surveys

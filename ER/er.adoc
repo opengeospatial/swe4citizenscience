@@ -29,8 +29,6 @@ Title: [big]#Standardized Information Models to Optimize Exchange, Reusability a
 
 ////
 Organize your ER includes
-The includes down to the overview should not be modified here.
-You will need to modify each file as appropriate
 ////
 include::preface.adoc[]
 
@@ -49,7 +47,7 @@ include::clause-7-models.adoc[]
 include::clause-8-collections.adoc[]
 
 ////
-add or remove annexes as necessary
+annexes 
 ////
 include::annex-a.adoc[]
 
