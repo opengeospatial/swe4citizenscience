@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<om:OM_Observation gml:id="obt_bogs_single1" xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd"
-    xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gss="http://www.isotc211.org/2005/gss"
-    xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:om="http://www.opengis.net/om/2.0"
+<om:OM_Observation gml:id="obt_bogs_single1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:gss="http://www.isotc211.org/2005/gss"
+    xmlns:gts="http://www.isotc211.org/2005/gts"
+    xmlns:om="http://www.opengis.net/om/2.0"
     xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
-    xmlns:sf="http://www.opengis.net/sampling/2.0" xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:sf="http://www.opengis.net/sampling/2.0"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
     xmlns:gsr="http://www.isotc211.org/2005/gsr"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:tsml="http://www.opengis.net/timeseriesml/1.0"
@@ -15,8 +20,7 @@
     <gml:description>Exploring bogs and recording plants species. Observations contain a varying number of plants.</gml:description>
     <gml:name>Bogs Observation, pure OM, TSML and SWECommon</gml:name>
     <!-- end:description  -->
-    <om:type
-        xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+    <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
     <om:phenomenonTime>
         <gml:TimeInstant gml:id="t001">
             <gml:timePosition>2015-06-21T12:59:51.145Z</gml:timePosition>
@@ -28,8 +32,7 @@
             <!-- processType defines observation performed by human with sensor -->
             <tsml:processType xlink:href="http://www.opengis.net/def/waterml/2.0/processType/Sensor"/>
             <!-- processReference defines sampling protocol -->
-            <tsml:processReference
-                xlink:href="https://dyfi.cobwebproject.eu/skos/OBT_sampling_protocoll"/>
+            <tsml:processReference xlink:href="https://dyfi.cobwebproject.eu/skos/OBT_sampling_protocoll"/>
             <!-- if a sensor is used, provide the link to the sensor definition here. Ideayll, value points to SensorML definition -->
             <tsml:parameter>
                 <om:NamedValue>
@@ -70,14 +73,11 @@
     <om:observedProperty xlink:href="https://dyfi.cobwebproject.eu/skos/bogs"/>
     <om:featureOfInterest>
         <sams:SF_SpatialSamplingFeature gml:id="sf001">
-            <sf:type
-                xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
-            <sf:sampledFeature
-                xlink:href="https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park"/>
+            <sf:type xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
+            <sf:sampledFeature xlink:href="https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park"/>
             <sams:shape>
                 <gml:Point gml:id="sp1">
-                    <gml:pos srsName="urn:ogc:def:crs:EPSG:6.8:4326">53.09665139
-                        -3.79436993599</gml:pos>
+                    <gml:pos srsName="urn:ogc:def:crs:EPSG:6.8:4326">53.09665139 -3.79436993599</gml:pos>
                 </gml:Point>
             </sams:shape>
         </sams:SF_SpatialSamplingFeature>
@@ -86,19 +86,19 @@
         <swe:DataRecord>
             <swe:field name="roll">
                 <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/orientation_roll">
-                    <swe:uom code="deg"/>
+                    <swe:uom code="deg"/> 
                     <swe:value>-0.2377</swe:value>
                 </swe:Quantity>
             </swe:field>
             <swe:field name="pitch">
                 <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/orientation_pitch">
-                    <swe:uom code="deg"/>
+                    <swe:uom code="deg"/> 
                     <swe:value>-16.196</swe:value>
                 </swe:Quantity>
             </swe:field>
             <swe:field name="azimuth">
                 <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/orientation_azimuth">
-                    <swe:uom code="deg"/>
+                    <swe:uom code="deg"/> 
                     <swe:value>-8.455</swe:value>
                 </swe:Quantity>
             </swe:field>
@@ -135,3 +135,5 @@
         </swe:DataRecord>
     </om:result>
 </om:OM_Observation>
+
+

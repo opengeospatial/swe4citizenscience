@@ -2,8 +2,9 @@
 = Revision History
 
 .Revision History
-[width="90%",options="header"]
+[width="80%",options="header"]
 |====================
 |Date |Release |Editor | Primary clauses modified |Descriptions
-|Aug 10, 2016 |I. Simonis | .1 |all |initial version
+|Aug 10, 2016 | 0.1 | I. Simonis |all |initial version
+|Aug 20, 2016 | 0.2 | I. Simonis |chap 7-9 | complemented
 |====================
