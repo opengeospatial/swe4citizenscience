@@ -5,5 +5,7 @@
 This annex provides complete XML examples covering the following sampling situations:
 
 * Bogs in Wales: Citizen scientists observe bogs in Western Wales.
-** Individual citizen scientist
+** https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Single.xml[Individual citizen scientist]
 ** Collection of citizen scientist surveys
+*** https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Collection.xml[ uncompressed version with annotations] (1.6MB)
+*** https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Collection.xml.zip[compressed version] (43kb)
