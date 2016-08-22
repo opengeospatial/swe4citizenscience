@@ -1,0 +1,43 @@
+[[EnhancedInteroperability]]
+== From Data Models to Interoperability Contracts
+
+Goals:
+
+* reduce transaction costs
+* improve interoperability between components
+* improve ease of use for non-experts
+* allow more auto-configuration
+
+=== Current situation in SDIs
+aspects such as:
+
+* keywords for discovery unknown
+* data models need to be defined
+* few profiles directly usable
+* no links
+* ...
+
+
+idea: start with data model (done here)
+but issue: applied approach is not explicit! Which one to chose, why one and not the other...0
+
+
+idea: model dimensions in data cubes -> generate surveys against these dimensions
+
+
+=== Data Cube Approach
+Interoperability dimensions:
+
+* geographical dimension
+* time
+* thematic
+* data model
+* ...?
+
+=== Future SDI Situation
+aspects such as:
+
+* read RDF QB dimensions to understand what vocabularies to query
+* query catalog to get the URI template structures for a given vocabulary (or linked data entries?)
+* interact with vocabulary to get relationships of query terms and other resources
+* data access with content negotiation

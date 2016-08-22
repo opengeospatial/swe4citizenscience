@@ -46,8 +46,9 @@ include::clause-7-models.adoc[]
 
 include::clause-8-collections.adoc[]
 
+include::clause-9-enhanced.adoc[]
 ////
-annexes 
+annexes
 ////
 include::annex-a.adoc[]
 
