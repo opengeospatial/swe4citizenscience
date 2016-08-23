@@ -1,21 +1,56 @@
 [[EnhancedInteroperability]]
-== From Data Models to Interoperability Contracts
+== From Schemas to Data Interoperability Contracts
 
-Goals:
+The use of a known schema, whether it be encoded as XML, JSON or even the classes and properties in an RDF graph, provides for some of the semantics of the data to be understood by the recipient. In general, however, it provides little or no information about a range of key issues that determine if that data can be understood, combined, or even discovered in the context of very large collections.
 
-* reduce transaction costs
+Standard practice to date has been the provision of documents defining "Application Profiles" - for example the NetCDF [http://www.unidata.ucar.edu/software/netcdf/conventions.html]
+
+The OGC has been using the ISO 19100 approach to defining Application Schema, using an UML idiom that allows data structures to be defined, but offers no standardised way to allow data providers to further refine the rules about the data content contained. The OGC Modular Specification Policy however supports the inheritance of specifications, and the identification of specification elements (conformance classes and requirements) using URI identifiers. 
+
+These processes form a backbone for defining interoperability contracts around data structures and service interfaces. 
+Defining interoperability requirements of data within these constraints needs to be supported by additional mechanisms.
+
+We can summarise the design goals for such mechanisms:
+* reduced transaction costs
 * improve interoperability between components
 * improve ease of use for non-experts
 * allow more auto-configuration
 
-=== Current situation in SDIs
-aspects such as:
+_reduced transaction costs_ : 
+Implementing interface standards requires development of software. Implementing schema standards requires mapping data structures into the internal data models of consuming systems. These have high transaction costs, borne by the experts building systems, to reduce the transaction cost of users of that software accessing such data.
 
-* keywords for discovery unknown
-* data models need to be defined
-* few profiles directly usable
-* no links
-* ...
+Interpretation of the data, and semantic translations, remain the problem of the end user, who relies on metadata or prior knowledge of data to discover, formulate appropriate requests, transform and exploit the data. With data descriptions available in large documents, at best, or relatively terse dataset metadata, identify a basis for data integration remains a high transaction cost.  Declarative machine readable statements about the conformance of data to one or more interoperability contracts reduce the transaction costs compared to interpretation of unstructured, relatively ad-hoc documents or descriptive metadata/ 
+
+The goal is therefore to allow data publishers to make statements about data content that can reduce the burden on the end user to discover and exploit data, through both unambiguous identification of conformance with interoperability contracts, and making as much of the aspects of those contracts machine-readable.
+
+_improve interoperability between components_ :
+It is recognised that similar data may be structured and packaged in many different ways, yet share common elements. For example, a record of Sea Surface Temperature may be held as a gridded coverage over an area, or may be present in discrete samples combined with Salinity readings. A set of readings at different locations may be available for a time period, or the same type of data may be available as a timeseries at a given location. 
+In the case of Citizen Science activities, it will be important to be able to distinguish different methodologies used to collect the same type of data, including "official data".
+The requirement is thus to be able to make statements about aspects of the data, and where that aspect is expressed in data encodings. Each aspect will this need its own identifier, and be related to the broader data set description as well as further parameters about how that aspect is implemented.  
+The useful implication is that this will allow partial description of datasets, with key aspects being documented with declariative semantics, whilst allowing less important aspects, or harder to describe, to be documented in an ad-hoc fashion.
+
+_improve ease of use for non-experts_
+Non experts need explicit statements regarding the semantic compatibility of data for a given purpose, including simple comparability of data. The alternative is locating, accessing, reading and comparing, and ultimately citing, potentially detailed and inconsistently structured descriptive documentation.
+The design goal is for interoperability contracts to be constructed of components that can be immediately tested for comparability, using identifiers that can be de-referenced to immediately access relevant sections of documentation.
+
+_allow more auto-configuration_
+Data interoperability is enhanced by enforced compliance during data collection, therefore the goal is to provide sufficient guidance to data collection software configuration to automate much of that compliance and user-assistance.
+Auto-configuration of data integration processes needs to be supported, partially or wholly, by unambiguous machine-readable metadata of data, preferably carried from the data collection process.
+Conformance to structural and semantic contracts then allows auto-configuration of data utlisation through re-use of configurations for display or model assimilation.
+
+=== Current situation in SDIs
+
+It is noted that current Spatial Data Infrastructures based on "Publish-Find-Bind" paradigm using catalogues of static metadata records seem to lose performace as the number and heterogeneity of data sets grows. Furthermore, with increased numbers and backgrounds of end-users (such as a broad Citizen Science community) there must be expected a lower level of familiarity of users with the descriptive conventions.  Scientists working in a narrow field may be expected to know the code name of a particular instrument (e.g. MODIS Version 6 products to AρρEEARS: MCD43A1, MCD43A3, and MCD43A4 [https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12] ). 
+
+We note the following areas where current practices are fragile in multi-stakeholder contexts:
+* keywords for discovery
+* identification of observed property and methodology
+* use of naming conventions in dataset/layer etc names to convey semantic meaning
+* data models - identification of , declaration of, descriptions of, relationships between
+* consistency of profile and data product specification documents
+* discovery of datasets containing information about a particular feature
+* lack of easily discoverable links between related data elements
+
 
 
 idea: start with data model (done here)
