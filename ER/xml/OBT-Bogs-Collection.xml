@@ -14,10 +14,8 @@
     <gml:name>Bog Survey June 2016</gml:name>
     <gml:featureMember>
         <om:OM_Observation gml:id="_k7kvs2sa31">
-            
             <gml:description>Exploring bogs and recording plants species. Observations contain a varying number of plants.</gml:description>
             <gml:name>Bogs Observation, pure OM, TSML and SWECommon @ Glaslyn Reserve</gml:name>
-
             <om:type
                 xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
             <om:phenomenonTime>

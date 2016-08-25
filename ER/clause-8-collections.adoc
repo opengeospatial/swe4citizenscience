@@ -12,7 +12,7 @@ image::images/clause-8-AggregationPatterns.png[width=600]
 The following XML examples show the encoding of the various options described above. To improve readability, the number of Japanese Knotweed occurrences has been reduced to two and all elements except for _featureOfInterest_ and _result_ have been omitted.
 
 === Aggregation encoding: DiscretePointCoverage
-The first examples illustrates Japanese Knotweed occurrence encoded as a _DiscretePointCoverage_. This is the recommended approach if a compact serialization is intended and the number of observed properties and corresponding result elements remains stable. 
+The first examples illustrates Japanese Knotweed occurrence encoded as a _DiscretePointCoverage_. This is the recommended approach if a compact serialization is intended and the number of observed properties and corresponding result elements remains stable. Two different serializations are possible. The first one below uses _gmlcov:MultiPointCoverage_, the second further below uses _SweCommon_ _DataArray_. Both express the same data. It requires further discussion on which one should be preferred. XXX
 
 [source,xml]
 .XML example: DiscretePointCoverage option
