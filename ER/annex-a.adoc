@@ -9,3 +9,4 @@ This annex provides complete XML examples covering the following sampling situat
 ** Collection of citizen scientist surveys
 *** https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Collection.xml[ uncompressed version with annotations] (1.6MB)
 *** https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Collection.xml.zip[compressed version] (43kb)
+* Trees Survey: Citizen scientists observe trees in 
