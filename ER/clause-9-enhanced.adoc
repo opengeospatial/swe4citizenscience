@@ -53,13 +53,34 @@ We note the following areas where current practices are fragile in multi-stakeho
 * discovery of datasets containing information about a particular feature
 * lack of easily discoverable links between related data elements
 
+=== Current situation in "domain standards"
 
+Currently "communities of practice" (COP) emerge through various fora and try to address their interoperability requirements. OGC has formalised such a process whereby "Domain Working Groups" can be established, and then work within the OGC framework to generate specifications, which are then vetted for consistency with similar approaches by other domains. 
 
-idea: start with data model (done here)
-but issue: applied approach is not explicit! Which one to chose, why one and not the other...0
+Domains with stakeholders willing and able to take the "long view" may thus standardise data models and service interfaces for interoperability. Applying such standards in the wider community is done by a much broader community, on shorter timescales. Such short term demands mean the payoff for developing standards is ahrd to realise, and the value of conforming to a given standard/COP requirement must be easily understood and realised. 
 
+COPs also emerge out of technical sub-groups from within existing cooperations with the domain. such groups develop "fit-for-purpose" but idiosyncratics APIs and data models. (e.g. GBIF) 
 
-idea: model dimensions in data cubes -> generate surveys against these dimensions
+Some COPs are created by design, through projects and programmes targetting cooperation, such as the GEOSS system, or the COBWEB project. They may be infrastructure oriented, or "network building" attempts. Participation requires conformance to a specification provided by a controlling interest. Typically the aim is that such COP may grow into "opt-in" models embracing a wider audience than the initial participants.
+
+Finally, many COP emerge through common experiences applying common tools to a problem space. User groups for particular toolsets may simply share experiences and resources, and de facto standards emerge.
+
+In the case of complex subject domains, such as Citizen Science, Earth Observation, Urban Design, it is likely that all these models of COP will co-exist. What is missing however is a well-known means for each COP to share its particular concerns in ways which can be combined, compared or even discovered.
+
+== Improving the status quo
+
+We must recognise that effective COP and standards are not going to "go away" - and that leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimise future system design.
+
+Secondly, we must recognise that for each system (or COP) some aspects will be unique but many will be common between COPs. Thus, _granularity_ of requirements specification must be a driving principle. In fact, this is the main shortcoming of the status quo for both SDIs and standards development. 
+
+Thirdly, recognising that the same data can be packaged, transferred and access using different technologies, but still conform to an underlying semantics suggests that technical standards need to be applied to data standards, rather than the converse - where each technical standard (schema or interface) needs multiple independent specifications of the data content.
+
+At this point we can note that the trend to separating the "conceptual model" from schema encodings in the OGC standards process is addressing this concern. In addition there is an emerging supporting infrastructure of the OGC Modular Specifications Policy - and publishing components of specifications (conformance classes and requirements) as indivual Web addressible components.
+
+If we then examine, for example, the use of SWE schemas for Citizen Science, we can see that the OGC process works well to a point, at which we start to need to tie data specifications into specific schema elements, and we find ourselves with multiple possible schemas, and no standard way to define the commonality of data elements between these.
+
+The question then is whether an approach to definining data-centric requirements can be "bound" to multiple alternative technical standards, working in a lightweight process suitable for the data design lifecycle, not the software and technical standards lifecycles.
+
 
 
 === Data Cube Approach
