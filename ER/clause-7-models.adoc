@@ -21,7 +21,7 @@ Defining a data model for a particular community commonly involves a number of d
 
 [[OMBaseModel]]
 === O&M Base Model
-Observation & Measurement (O&M) provides a general model to encode observations done by either humans, machines, or software processes and is therefore suitable for citizen science data. Citizen science data often results from human observations or is provided by citizen scientists using mobile sensor assets. O&M features a number of levels of freedom that require design decisions and constraints in order to result in a model for interoperable data exchange. These levels of freedom are illustrated in figure <<img_OMLevelsOfFreedom,Levels of Freedom in the O&M model>>. The O&M observation model is the core of all citizen science observations. We need to understand a single observation first, before we will look how to aggregate multiple observations in the next chapter. XXX
+Observation & Measurement (O&M) provides a general model to encode observations done by either humans, machines, or software processes and is therefore suitable for citizen science data. Citizen science data often results from human observations or is provided by citizen scientists using mobile sensor assets. O&M features a number of levels of freedom that require design decisions and constraints in order to result in a model for interoperable data exchange. These levels of freedom are illustrated in figure <<img_OMLevelsOfFreedom,Levels of Freedom in the O&M model>>. The O&M observation model is the core of all citizen science observations. We need to understand a single observation first, before we will look how to aggregate multiple observations in the next chapter.
 
 [[img_OMLevelsOfFreedom]]
 .Levels of Freedom in the O&M model
@@ -36,7 +36,7 @@ Here, we focus on elements that are relevant for citizen science data only. All 
 
 * (1) *gml:description*: General description of this observation
 * (2) *gml:name*: Name of the observation that could be used as a label in a client application
-* (3) *gml:boundedBy*: Only relevant for area-observations (e.g. if your are standing on a hill and count all the zebras you can see through your binocular in a 360° turn, you can provide the bounding box of the area you observed) or time series where you walked/cycled/... a certain area or any form of aggregated observation data. The actual location of each observation comes later. XXX
+* (3) *gml:boundedBy*: Only relevant if the bounding box of all locations aggregated in an observation shall be documented
 
 [source,xml]
 .XML example: Elements inherited from GML
@@ -251,3 +251,5 @@ The _result_ property provides the actual observation result data. _om:result_ p
 The _DataRecord_ contains any number of fields with semantics coded in the _definition_ attribute. It is recommended to link to common vocabularies to improve reusability. Alternatively, if survey managers set up their own vocabulary as illustrated here, it is recommended to use the http://www.w3.org/2004/02/skos/[SKOS Simple Knowledge Organization System] with links to external, commonly used vocabularies, as availability of the vocabulary can be assured and shared semantics achieved through links to external ontologies.
 
 As illustrated in the example above, _SweCommon_ allows nesting further _DataRecord_s. This allows adding more than one value for a single type, here done with three different plants that have been observed. Instead of (1) _swe:DataRecord_ a _swe:DataArray_ could be used, but it does not add any value here, as the number of entries fixed.
+
+NOTE: In principle, O&M supports associations to other observations. This is - in principle - a very powerful linking mechanism that allows describing associations to other observations. In practice, it turned out that users prefer to have all relevant data in a single file with minimum links embedded. Therefore, we don't make use of this mechanism in this engineering report.

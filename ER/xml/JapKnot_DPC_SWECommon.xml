@@ -16,7 +16,7 @@
     xmlns:tsml="http://www.opengis.net/timeseriesml/1.0"
     xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
     http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
-    http://www.opengis.net/timeseriesml/1.0 http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd">
+    http://www.opengis.net/timeseriesml/1.0 file:/Users/isi/Documents/SVN/timeSeriesML.swg/tags/20160223_FinalReleaseCandidate_post_eVote/xsd/timeseriesML.xsd">
     <gml:description>Swe4CitizenScience example observation from the Japanese Knotweed field sampling campaign, data set SnowdoniaNationalParkJapaneseKnotweedSurvey2015</gml:description>
     <gml:name>Japanese Knotweed Observation, as OM_PointCoverage Observation usign TSML for procedure description</gml:name>
     <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_PointCoverageObservation"/>
@@ -79,6 +79,31 @@
    MultiPoint:member gml:Point as part of the domain set. Values are provided as part of the rangeSet, 
    which is described in rangeType -->
     <om:result>
+        <swe:DataArray>
+            <swe:elementCount></swe:elementCount>
+            <swe:field name="timestamp">
+                <swe:Time definition="https://dyfi.cobwebproject.eu/skos/phenomenonTime">
+                    <swe:nilValues>
+                        <swe:NilValues id="NIL_VAL">
+                            <swe:nilValue reason="no_data">-9999.99</swe:nilValue>
+                        </swe:NilValues>
+                    </swe:nilValues>
+                    <swe:uom xlink:href="http://www.opengis.net/def/iso-8601/Gregorian+UTC"/>
+                </swe:Time>
+            </swe:field>
+            <swe:field name="lat">
+                <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
+                    <swe:nilValues xlink:href="#NIL_VAL"/>
+                    <swe:uom code="deg"/>
+                </swe:Quantity>
+            </swe:field>
+            <swe:field name="lon">
+                <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lon">
+                    <swe:nilValues xlink:href="#NIL_VAL"/>
+                    <swe:uom code="deg"/>
+                </swe:Quantity>
+            </swe:field>
+        </swe:DataArray>
         <gmlcov:MultiPointCoverage gml:id="c001">
             <gml:domainSet>
                 <gml:MultiPoint gml:id="mp0001_C0042" srsName="http://www.opengis.net/def/crs/EPSG/0/4979">
@@ -99,13 +124,16 @@
                 <gml:DataBlock>
                     <gml:rangeParameters/>
                     <gml:tupleList decimal=".">
-                       2015-11-03T15:45:41,-1,Rivers and streams,https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/LJ%20(6)/1436265141986.jpg,https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed,1.0,No,Very Close (&lt;1m),No,Warm,Dry,Over 10m2,145.238262662,-25.5942265843,4.4.4,12.3224971071 http://www.sony.com/D6603,2015-07-07T13:06:48.394Z,-1,Rivers and streams,https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/Doug%20(16)/1436274370609.jpg,https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed,2.0,No,Far (3m-10m),Yes,Warm,Dry,Far side of river. Visible through the branches in the picture.,166.585854989,-48.7309271996,5.0.2,8.19621761251
+                        "http://www.motorola.com/XT1068","2015-11-03T15:45:41",-1,"Rivers and streams","https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/LJ%20(6)/1436265141986.jpg","https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed",1.0,"No","Very Close (&lt;1m)","No","Warm","Dry","Over 10m2",145.238262662,-25.5942265843,"4.4.4",12.3224971071 "http://www.sony.com/D6603","2015-07-07T13:06:48.394Z",-1,"Rivers and streams","https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/Doug%20(16)/1436274370609.jpg","https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed",2.0,"No","Far (3m-10m)","Yes","Warm","Dry","Far side of river. Visible through the branches in the picture.",166.585854989,-48.7309271996,"5.0.2",8.19621761251
                     </gml:tupleList>
                 </gml:DataBlock>
             </gml:rangeSet>
             <gmlcov:rangeType>
                 <swe:DataRecord>
-                    <swe:field name="samplingTime">
+                    <swe:field name="mobilePhoneType">
+                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#mobilePhoneType"/>           
+                    </swe:field>
+                    <swe:field name="mobilePhoneType">
                         <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
                             <swe:label>Sampling Time</swe:label>
                             <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
