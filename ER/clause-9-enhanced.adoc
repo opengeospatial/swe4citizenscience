@@ -67,7 +67,7 @@ Finally, many COP emerge through common experiences applying common tools to a p
 
 In the case of complex subject domains, such as Citizen Science, Earth Observation, Urban Design, it is likely that all these models of COP will co-exist. What is missing however is a well-known means for each COP to share its particular concerns in ways which can be combined, compared or even discovered.
 
-== Improving the status quo
+=== Improving the status quo
 
 We must recognise that effective COP and standards are not going to "go away" - and that leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimise future system design.
 
@@ -81,10 +81,69 @@ If we then examine, for example, the use of SWE schemas for Citizen Science, we 
 
 The question then is whether an approach to definining data-centric requirements can be "bound" to multiple alternative technical standards, working in a lightweight process suitable for the data design lifecycle, not the software and technical standards lifecycles.
 
+=== Making data specifications easier (more scalable)
 
+There are many factors to consider when defining how to create data, or describing created data, in sufficient depth to allow integration and appropriate reuse to be achieved. Data product specifications tend to be long complex documents. Reviewing and agreeing on such complex artefacts takes a lot of expertise and time.
+
+However there are several possible approaches to addressing this challenge through simplification:
+1) Break the problem into discrete components rether than treating it as a monolithic whole.  
+2) Focus on the most important small subset of the problem first, and make sure the approach allows incremental refinement
+3) Encapsulate different parts of the problem so relevant experts can address specific parts
+4) Use existing specification components to simplify task of creating new, similar ones - as classes, baselines to refine or templates
+5) Provide an effective library of reusable components
+6) Provide effective tooling to assist users with domain expertise to re-use components designed by others with specific techncial expertise
+7) Provide a streamlined governance process for sharing specification components
+8) Provide methodology and tutorial resources to assist different stakeholders
+
+For scientific data, there are typical elements that can be easily identified that need detailed specification:
+1) spatio-temporal values observed
+2) spatio-temporal sampling regime (range and granularity of regular samples in space and/or time)
+3) provenance
+4) data model and how its mapped into one or more data structures
+5) terminology used and the definitions
+6) procedures and validation (descriptive methodology)
+
+Approaches such as SWE and netCDF provide options for how common data structures may be defined. SWE also binds common approaches to low-level expression (syntax) of spatial datatypes. 
+
+The semantics of spatial data instances is handled by defining application schema (i.e. is a point representive of a localised feature, and indicative label point, a centroid, a reference point. Is a polygon a determined or measured boundary). This has two problems:
+ - different communities will define similar semantics using different terms
+ - the semantics of the spatial component is now bundled into a much bigger problem of defining the data structure for the whole dataset
+ 
+Correct and compatible use of terminology, another data value concern,  suffers the same problems - without a standardised way to share and declare such terminology each community develops ad-hoc approaches to managing terminology and specifying where and how it is used.
+
+Thus, the next step would appear to be focussing on a simple way of re-using low-level specifications of what various data elements mean, what they are called, and what allowable terms are. If these elements can be combined into a machine-readable component of data specifications (and hence data metadata) then many of the problems of "how do I use this standard data structure for my specific problem" can be addressed by tools that allow such specifications to be declared and shared.
+
+=== Making data semantically richer
+
+In addition to making it easier for data designers, collectors and aggregators, tying data to a more granular set of specifications offers advantages to users. Knowing all the different ways a dataset conforms to a hiearchy of specifications (i.e. the inheritance pattern in the OGC modular specification) makes it possible to use pre-existing knowledge about the more general specifications.
+This pattern of behaviours is well known from object-oriented programming, where multiple inheritance (or "polymorphism") is used to declare what a given object supports.
+
+Take for example the example of a lighthouse - which may be both a navigation beacon and an airspace obstruction:
+[img]
+
+Similary, a survey of threatened species in a local context may be part of a larger survey, but also conform, to EU standards and the Global Biodiveristy Information Facilty requirements for a biota occurence observation.
+
+If survey designers can determine the set of things that the survey data should be compatible with, then multiple inheritance of requirements can be used to create a suite of requirements for the survey, but critically the survey can then be tagged as compliant with each of those inherited requirements.
+
+This multiple inheritance cannot often be applied to data structures (schema) - but it can be applied to the data semantics. Thus we can envisage a pattern where data semantics profiles of common conceptual models can be combined, then applied to a target schema in a final step to define how the data is actually structured.  
+
+[img]
 
 === Data Cube Approach
-Interoperability dimensions:
+
+The problem of defining data meaning is well known in the broader statistics community, and we can borrow from that experience. 
+
+One approach is to break the idea of a data structure down,  and recognise two key components that can potentially be machine-interpreted: "Measures" and "Dimensions". 
+
+A Measure is a value recorded in the data - either as a result or as metadata - such as the time something happened, the weight of coffee in a sack, the number of cups sold per shop. Things we need to know about Measures are what is being measured, the datatype used, the unit of measure, precision or resolution, any reference system (such as the WGS84 coordinate system used in GPS measures), and the procedures.
+
+Measures and Observations from the SWE world are obviously closely related.
+
+A Dimension is a more complicated concept - but one critical to an understanding of both data semantics and structure. Dimensions are values for phenomena that may be used to identify a particular set of measures - they are the way data is organised. For example, if a dataset is defined to have measures for something every year, then the values of year are fixed to a value which can be known in advance, and hence its possible to ask for "coffees sold in 2016".  In this example, we can see that the set of coffee shops may be a dimension - hence we can ask for "coffees sold in Shop1 in 2016", or a "slice" - "coffees sold per shop in 2016", "coffees sold per year in Shop1"
+
+Note that a value of the same phonomena may be either pre-defined or measured. Dimensions, representing additional semantic knowledge about the regularity of values, are critical to understanding whether data can be aggregated or disaggregated (accessing finer detail) automatically.  Sharing common descriptions of phenomena across dimension descriptions (typically in dataset metadata) and low-level observations (per record) allows the potential relationships between details and summarised to be captured and used to discover and automate.
+
+There are some nteroperability dimensions:
 
 * geographical dimension
 * time
@@ -93,7 +152,10 @@ Interoperability dimensions:
 * ...?
 
 === Future SDI Situation
-aspects such as:
+
+A future Spatial Data Infrastructure leveraging such an approach would allow typical catalog searches to be complemented with a much more powerful view of how datasets are related and structured.
+
+Specifically, the notion of "service endpoints" can be updated to include specifications of how the dimensions of the data set relate to service parameters, to allow such services to be invoked using that semantic knowledge.
 
 * read RDF QB dimensions to understand what vocabularies to query
 * query catalog to get the URI template structures for a given vocabulary (or linked data entries?)
