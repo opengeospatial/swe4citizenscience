@@ -119,7 +119,7 @@ In addition to making it easier for data designers, collectors and aggregators, 
 This pattern of behaviours is well known from object-oriented programming, where multiple inheritance (or "polymorphism") is used to declare what a given object supports.
 
 Take for example the example of a lighthouse - which may be both a navigation beacon and an airspace obstruction:
-[img]
+![Polymorphism example](Slides_for_ER/Slide6.png)
 
 Similary, a survey of threatened species in a local context may be part of a larger survey, but also conform, to EU standards and the Global Biodiveristy Information Facilty requirements for a biota occurence observation.
 
