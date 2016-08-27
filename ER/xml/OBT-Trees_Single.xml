@@ -11,13 +11,13 @@
     xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
     http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
     http://www.opengis.net/timeseriesml/1.0 http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd">
-    <gml:description>Exploring bogs and recording plants species. Observations contain a varying number of plants.</gml:description>
-    <gml:name>Bogs Observation, pure OM, TSML and SWECommon</gml:name>
+    <gml:description>Coetiroedd Dyfi Woodlands Tree Survey as part of the COBWEB project</gml:description>
+    <gml:name>Coetiroedd Dyfi Woodlands Tree Survey 2015</gml:name>
     <om:type
         xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
     <om:phenomenonTime>
         <gml:TimeInstant gml:id="t001">
-            <gml:timePosition>2015-06-21T12:59:51.145Z</gml:timePosition>
+            <gml:timePosition>2015-05-30T14:26:19.197Z</gml:timePosition>
         </gml:TimeInstant>
     </om:phenomenonTime>
     <om:resultTime xlink:href="#t001"/>
@@ -27,7 +27,7 @@
             <tsml:processType xlink:href="http://www.opengis.net/def/waterml/2.0/processType/Sensor"/>
             <!-- processReference defines sampling protocol -->
             <tsml:processReference
-                xlink:href="https://dyfi.cobwebproject.eu/skos/OBT_sampling_protocoll"/>
+                xlink:href="https://dyfi.cobwebproject.eu/skos/OBT_tree_sampling_protocoll"/>
             <!-- if a sensor is used, provide the link to the sensor definition here. Ideayll, value points to SensorML definition -->
             <tsml:parameter>
                 <om:NamedValue>
@@ -61,21 +61,20 @@
     <om:parameter>
         <om:NamedValue>
             <om:name xlink:href="https://dyfi.cobwebproject.eu/sko/SamplingCampaignID"/>
-            <om:value>OBT_Bogs_raw</om:value>
+            <om:value>OBT_trees_raw</om:value>
         </om:NamedValue>
     </om:parameter>
     <!-- observed property is a taxon with specific occurence data -->
-    <om:observedProperty xlink:href="https://dyfi.cobwebproject.eu/skos/bogs"/>
+    <om:observedProperty xlink:href="https://dyfi.cobwebproject.eu/skos/tree"/>
     <om:featureOfInterest>
         <sams:SF_SpatialSamplingFeature gml:id="sf001">
             <sf:type
                 xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
             <sf:sampledFeature
-                xlink:href="https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park"/>
+                xlink:href="https://dyfi.cobwebproject.eu/skos/Coetiroedd_Dyfi_Woodlands"/>
             <sams:shape>
                 <gml:Point gml:id="sp1">
-                    <gml:pos srsName="urn:ogc:def:crs:EPSG:6.8:4326">53.09665139
-                        -3.79436993599</gml:pos>
+                    <gml:pos srsName="urn:ogc:def:crs:EPSG:6.8:4326">52.62094249999998 -3.852768400000045</gml:pos>
                 </gml:Point>
             </sams:shape>
         </sams:SF_SpatialSamplingFeature>
@@ -85,51 +84,50 @@
             <swe:field name="roll">
                 <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/orientation_roll">
                     <swe:uom code="deg"/>
-                    <swe:value>-0.2377</swe:value>
+                    <swe:value>-24.123</swe:value>
                 </swe:Quantity>
             </swe:field>
             <swe:field name="pitch">
                 <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/orientation_pitch">
                     <swe:uom code="deg"/>
-                    <swe:value>-16.196</swe:value>
+                    <swe:value>-24.529</swe:value>
                 </swe:Quantity>
             </swe:field>
             <swe:field name="azimuth">
                 <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/orientation_azimuth">
                     <swe:uom code="deg"/>
-                    <swe:value>-8.455</swe:value>
+                    <swe:value>-7.964</swe:value>
                 </swe:Quantity>
             </swe:field>
-            <swe:field name="topographyType">
-                <swe:Category definition="http://cobweb.eu/skos/topographyType">
-                    <swe:codeSpace xlink:href="http://cobweb.eu/skos/topographyTypes"/>
-                    <swe:value>Mountain</swe:value>
+            <swe:field name="treeType">
+                <swe:Category definition="http://cobweb.eu/skos/treeType">
+                    <swe:codeSpace xlink:href="http://cobweb.eu/skos/OBT_TreeTypes"/>
+                    <swe:value>Coniferous</swe:value>
+                </swe:Category>
+            </swe:field>
+            <swe:field name="treeSpecies">
+                <swe:Category definition="http://cobweb.eu/skos/treeSpecies">
+                    <swe:codeSpace xlink:href="http://cobweb.eu/skos/OBT_TreeSpecies"/>
+                    <swe:value>Douglas fir</swe:value>
                 </swe:Category>
             </swe:field>
             <swe:field name="photo">
                 <swe:Text definition="https://dyfi.cobwebproject.eu/skos/photo">
-                    <swe:value>https://dyfi.cobwebproject.eu/1.3/pcapi/records/local/2338e388-f34e-25d9-945c-54cffd9c46c2/ob (11)/1434891560330.jpg</swe:value>
+                    <swe:value>https://dyfi.cobwebproject.eu/1.3/pcapi/records/local/2338e388-f34e-25d9-945c-54cffd9c46c2/Hahn/1432995969611.jpg</swe:value>
                 </swe:Text>
             </swe:field>
-            <swe:field name="plants">
-                <swe:DataRecord>
-                    <swe:field name="plant">
-                        <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
-                            <swe:value>Bog cotton</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                    <swe:field name="plant">
-                        <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
-                            <swe:value>Common rush</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                    <swe:field name="plant">
-                        <swe:Text definition="http://rs.tdwg.org/dwc/terms/index.htm#Taxon">
-                            <swe:value>Other</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                </swe:DataRecord>
+            <swe:field name="grid">
+                <swe:Count definition="https://dyfi.cobwebproject.eu/skos/gridReference">
+                    <swe:nilValues xlink:href="#GRID_CELL_UNKNOWN"/>
+                    <swe:value>679961</swe:value>
+                </swe:Count>
+            </swe:field>
+            <swe:field name="otherTrees">
+                <swe:Text definition="http://cobweb.eu/skos/treeSpecies">
+                    <swe:value>Hawthorne</swe:value>
+                </swe:Text>
             </swe:field>
         </swe:DataRecord>
     </om:result>
 </om:OM_Observation>
+

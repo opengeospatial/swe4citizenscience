@@ -12,10 +12,11 @@ image::images/clause-8-AggregationPatterns.png[width=600]
 The following XML examples show the encoding of the various options described above. To improve readability, the number of Japanese Knotweed occurrences has been reduced to two and all elements except for _featureOfInterest_ and _result_ have been omitted.
 
 === Aggregation encoding: DiscretePointCoverage
-The first examples illustrates Japanese Knotweed occurrence encoded as a _DiscretePointCoverage_. This is the recommended approach if a compact serialization is intended and the number of observed properties and corresponding result elements remains stable. 
+The first examples illustrates Japanese Knotweed occurrence encoded as a _DiscretePointCoverage_. This is the recommended approach if a compact serialization is intended and the number of observed properties and corresponding result elements remains stable. Two different serializations are possible. The <<xmlDiscretePointCoverageGMLCov,first one below>> uses _gmlcov:MultiPointCoverage_, the  <<xmlDiscretePointCoverageSWECommon,second further below>> uses _SweCommon_ _DataArray_. Both express the same data. It requires further discussion on which one should be preferred.
 
+[[xmlDiscretePointCoverageGMLCov]]
 [source,xml]
-.XML example: DiscretePointCoverage option
+.XML example: DiscretePointCoverage using gmlcov:MultiPointCoverage
 ----
 <om:featureOfInterest xlink:href="https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park"/>
 <!-- the result uses a gmlcov:MultiPointCoverage. Each observation occurrence results in a   MultiPoint:member gml:Point as part of the domain set. Values are provided as part of the rangeSet,   which is described in rangeType -->
@@ -39,25 +40,19 @@ The first examples illustrates Japanese Knotweed occurrence encoded as a _Discre
       <!-- Note: Order of components within a composite rangeSet value (e.g. tuples in tupleList) corresponds to document order of the rangeType elements (e.g. fields). -->
       <gml:DataBlock>
         <gml:rangeParameters/>
-        <gml:tupleList decimal=".">
-          "http://www.motorola.com/XT1068","2015-11-03T15:45:41","https://dyfi.cobwebproject.eu/65141986.jpg",1.0
-          "http://www.sony.com/D6603","2015-07-07T13:06:48.394Z","https://dyfi.cobwebproject.eu/74370609.jpg",2.0
-        </gml:tupleList>
+        <gml:tupleList decimal=".">                       2015-11-03T15:45:41,https://dyfi.cobwebproject.eu/6265141986.jpg,1.0                       2015-11-07T13:06:48,https://dyfi.cobwebproject.eu/433ds70609.jpg,2.0                    </gml:tupleList>
       </gml:DataBlock>
     </gml:rangeSet>
     <gmlcov:rangeType>
       <swe:DataRecord>
-        <swe:field name="mobilePhoneType">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/mobilePhoneType"/>
-        </swe:field>
         <swe:field name="samplingTime">
           <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
             <swe:label>Sampling Time</swe:label>
             <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
           </swe:Time>
         </swe:field>
-        <swe:field name="image">
-          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/image" />
+        <swe:field name="photo">
+          <swe:Text definition="https://dyfi.cobwebproject.eu/skos/photo" />
         </swe:field>
         <swe:field name="approxPlantHeight">
           <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/approxPlantHeight">
@@ -69,6 +64,56 @@ The first examples illustrates Japanese Knotweed occurrence encoded as a _Discre
   </gmlcov:MultiPointCoverage>
 </om:result>
 ----
+
+[[xmlDiscretePointCoverageSWECommon]]
+[source,xml]
+.XML example: DiscretePointCoverage using SweCommon
+----
+<om:featureOfInterest xlink:href="https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park"/>
+<!-- the result uses a SweDataArray. Each observation occurrence results in a value. The value types are described in the swe:elementType -->
+<om:result>
+    <swe:DataArray>
+        <swe:elementCount>
+            <swe:Count>
+                <swe:value>5</swe:value>
+            </swe:Count>
+        </swe:elementCount>
+        <swe:elementType name="occurrence">
+            <swe:DataRecord>
+                <swe:field name="timestamp">
+                    <swe:Time definition="https://dyfi.cobwebproject.eu/skos/phenomenonTime">
+                        <swe:uom xlink:href="http://www.opengis.net/def/iso-8601/Gregorian+UTC"/>
+                    </swe:Time>
+                </swe:field>
+                <swe:field name="lat">
+                    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
+                        <swe:uom code="deg"/>
+                    </swe:Quantity>
+                </swe:field>
+                <swe:field name="lon">
+                    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lon">
+                        <swe:uom code="deg"/>
+                    </swe:Quantity>
+                </swe:field>
+                <swe:field name="photo">
+                    <swe:Text definition="https://dyfi.cobwebproject.eu/skos/photo" />
+                </swe:field>
+                <swe:field name="approxPlantHeight">
+                    <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/approxPlantHeight">
+                        <swe:uom code="m"/>
+                    </swe:Quantity>
+                </swe:field>
+            </swe:DataRecord>
+        </swe:elementType>
+    </swe:DataArray>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator="," decimalSeparator="."/>
+    <swe:values>
+        2015-11-03T15:45:41,52.409602775074845,-4.078234501964251,https://dyfi.cobwebproject.eu/6265141986.jpg,1.0
+        2015-11-07T13:06:48,53.1139046729,-3.78766989708,https://dyfi.cobwebproject.eu/433ds70609.jpg,2.0
+    </swe:values>
+</om:result>
+----
+
 
 === Aggregation encoding: Collection of observations
 The second examples illustrates Japanese Knotweed occurrence encoded as a collection of individual observations and thus represents a simple form of time series. This option allows to capture different number of elements per observation, e.g. at the first observation lists two species, Sphagnum moss and Bog cotton, where as the next lists Bog cotton, Common rush, and Star moss. Those varying number of observed property results are best serialized using the _swe:DataRecord_ approach.

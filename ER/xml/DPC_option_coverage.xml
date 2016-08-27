@@ -99,7 +99,8 @@
                 <gml:DataBlock>
                     <gml:rangeParameters/>
                     <gml:tupleList decimal=".">
-                       2015-11-03T15:45:41,-1,Rivers and streams,https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/LJ%20(6)/1436265141986.jpg,https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed,1.0,No,Very Close (&lt;1m),No,Warm,Dry,Over 10m2,145.238262662,-25.5942265843,4.4.4,12.3224971071 http://www.sony.com/D6603,2015-07-07T13:06:48.394Z,-1,Rivers and streams,https://dyfi.cobwebproject.eu/pcapi/fs/local/2338e388-f34e-25d9-945c-54cffd9c46c2/records/Doug%20(16)/1436274370609.jpg,https://dyfi.cobwebproject.eu/skos#JapaneseKnotweed,2.0,No,Far (3m-10m),Yes,Warm,Dry,Far side of river. Visible through the branches in the picture.,166.585854989,-48.7309271996,5.0.2,8.19621761251
+                       2015-11-03T15:45:41,https://dyfi.cobwebproject.eu/6265141986.jpg,1.0
+                       2015-11-07T13:06:48,https://dyfi.cobwebproject.eu/433ds70609.jpg,2.0
                     </gml:tupleList>
                 </gml:DataBlock>
             </gml:rangeSet>
@@ -111,58 +112,12 @@
                             <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
                         </swe:Time>          
                     </swe:field>
-                    <swe:field name="positionAccuracy">
-                        <swe:Count definition="https://dyfi.cobwebproject.eu/skos#positionAccuracy"/> 
-                    </swe:field>
-                    <swe:field name="broadHabitatType">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#BroadHabitatType"/>           
-                    </swe:field>
-                    <swe:field name="image">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#image" />               
-                    </swe:field>
-                    <swe:field name="taxon">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#taxon"/>
+                    <swe:field name="photo">
+                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos/photo" />               
                     </swe:field>
                     <swe:field name="approxPlantHeight">
-                        <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#approxPlantHeight">
+                        <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos/approxPlantHeight">
                             <swe:uom code="m"/>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="evidenceOfManagement">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#evidenceOfManagement"/>
-                    </swe:field>
-                    <swe:field name="distanceFromObservation">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#distanceFromObservation"/>
-                    </swe:field>
-                    <swe:field name="riverBankErrosion">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#riverBankErrosion"/>
-                    </swe:field>
-                    <swe:field name="temperature">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#Temperature"/>
-                    </swe:field>
-                    <swe:field name="weather">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#Weather"/>
-                    </swe:field>
-                    <swe:field name="fieldNnotes">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#FieldNotes"/>
-                    </swe:field>
-                    <swe:field name="azimuth">
-                        <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#Azimuth">
-                            <swe:uom code="deg"/>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="pitch">
-                        <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#Pitch">
-                            <swe:uom code="deg"/>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="osVersion">
-                        <swe:Text definition="https://dyfi.cobwebproject.eu/skos#OSVersion">
-                        </swe:Text>
-                    </swe:field>
-                    <swe:field name="roll">
-                        <swe:Quantity definition="https://dyfi.cobwebproject.eu/skos#Roll">
-                            <swe:uom code="deg"/>
                         </swe:Quantity>
                     </swe:field>
                 </swe:DataRecord>

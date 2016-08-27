@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<title>Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite:before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media only screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7;font-weight:bold}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
+.clearfix:after,.float-group:after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
+b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
+b.button:before{content:"[";padding:0 3px 0 2px}
+b.button:after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header:before,#header:after,#content:before,#content:after,#footnotes:before,#footnotes:after,#footer:before,#footer:after{content:" ";display:table}
+#header:after,#content:after,#footnotes:after,#footer:after{clear:both}
+#content{margin-top:1.25em}
+#content:before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span:before{content:"\00a0\2013\00a0"}
+#header .details br+span.author:before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark:before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber:after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+.sect1{padding-bottom:.625em}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
+.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]:before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]:before{display:block}
+.listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote:before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote:before{display:none}
+.verseblock{margin:0 1em 1.25em 1em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 0 1.25em 0;display:block}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
+.quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot{border-width:1px 0}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
+ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
+ul.inline>li>*{display:block}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:last-of-type{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@media print{@page{margin:1.25cm .75cm}
+*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]:after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+.sect1{padding-bottom:0!important}
+.sect1+.sect1{border:0!important}
+#header>h1:first-child{margin-top:1.25rem}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em 0}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span:before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]:before{display:block}
+#footer{background:none!important;padding:0 .9375em}
+#footer-text{color:rgba(0,0,0,.6)!important;font-size:.9em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+</style>
+<style>
+.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+</head>
+<body class="book">
+<div id="header">
+<h1>Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Publication Date: 2016-mm-dd</p>
+</div>
+<div class="paragraph">
+<p>Approval Date: 2016-mm-dd</p>
+</div>
+<div class="paragraph">
+<p>Posted Date: 2016-01-01</p>
+</div>
+<div class="paragraph">
+<p>Reference number of this document: OGC 16-NNNrN</p>
+</div>
+<div class="paragraph">
+<p>Reference URL for this document: <a href="http://www.opengis.net/doc/PER/XXXX-xxx" class="bare">http://www.opengis.net/doc/PER/XXXX-xxx</a></p>
+</div>
+<div class="paragraph">
+<p>Category: Public Engineering Report</p>
+</div>
+<div class="paragraph">
+<p>Editor: Ingo Simonis, Rob Atkinson</p>
+</div>
+<div class="paragraph">
+<p>Title: <span class="big">Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data</span></p>
+</div>
+<hr>
+<div class="paragraph">
+<div class="title"><strong class="big">OGC Engineering Report</strong></div>
+<p><strong>COPYRIGHT</strong></p>
+</div>
+<div class="paragraph">
+<p>Copyright © 2016 Open Geospatial Consortium.
+To obtain additional rights of use, visit <a href="http://www.opengeospatial.org/" class="bare">http://www.opengeospatial.org/</a></p>
+</div>
+<div class="paragraph">
+<p><strong>WARNING</strong></p>
+</div>
+<div class="paragraph">
+<p>This document is not an OGC Standard. This document is an OGC Public Engineering Report created as a deliverable in an OGC Interoperability Initiative and is not an official position of the OGC membership. It is distributed for review and comment. It is subject to change without notice and may not be referred to as an OGC Standard. Further, any OGC Engineering Report should not be referenced as required or mandatory technology in procurements. However, the discussions in this document could very well lead to the definition of an OGC Standard.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p><strong>LICENSE AGREEMENT</strong></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Permission is hereby granted by the Open Geospatial Consortium, ("Licensor"), free of charge and subject to the terms set forth below, to any person obtaining a copy of this Intellectual Property and any associated documentation, to deal in the Intellectual Property without restriction (except as set forth below), including without limitation the rights to implement, use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Intellectual Property, and to permit persons to whom the Intellectual Property is furnished to do so, provided that all copyright notices on the intellectual property are retained intact and that each person to whom the Intellectual Property is furnished agrees to the terms of this Agreement.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">If you modify the Intellectual Property, all copies of the modified Intellectual Property must include, in addition to the above copyright notice, a notice that the Intellectual Property includes modifications that have not been approved or adopted by LICENSOR.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">THIS LICENSE IS A COPYRIGHT LICENSE ONLY, AND DOES NOT CONVEY ANY RIGHTS UNDER ANY PATENTS THAT MAY BE IN FORCE ANYWHERE IN THE WORLD. THE INTELLECTUAL PROPERTY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE INTELLECTUAL PROPERTY WILL MEET YOUR REQUIREMENTS OR THAT THE OPERATION OF THE INTELLECTUAL PROPERTY WILL BE UNINTERRUPTED OR ERROR FREE. ANY USE OF THE INTELLECTUAL PROPERTY SHALL BE MADE ENTIRELY AT THE USER’S OWN RISK. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR ANY CONTRIBUTOR OF INTELLECTUAL PROPERTY RIGHTS TO THE INTELLECTUAL PROPERTY BE LIABLE FOR ANY CLAIM, OR ANY DIRECT, SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM ANY ALLEGED INFRINGEMENT OR ANY LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR UNDER ANY OTHER LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH THE IMPLEMENTATION, USE, COMMERCIALIZATION OR PERFORMANCE OF THIS INTELLECTUAL PROPERTY.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">This license is effective until terminated. You may terminate it at any time by destroying the Intellectual Property together with all copies in any form. The license will also terminate if you fail to comply with any term or condition of this Agreement. Except as provided in the following sentence, no such termination of this license shall require the termination of any third party end-user sublicense to the Intellectual Property which is in force as of the date of notice of such termination. In addition, should the Intellectual Property, or the operation of the Intellectual Property, infringe, or in LICENSOR’s sole opinion be likely to infringe, any patent, copyright, trademark or other right of a third party, you agree that LICENSOR, in its sole discretion, may terminate this license without any compensation or liability to you, your licensees or any other party. You agree upon termination of any kind to destroy or cause to be destroyed the Intellectual Property together with all copies in any form, whether held by you or by any third party.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Except as contained in this notice, the name of LICENSOR or of any other holder of a copyright in all or part of the Intellectual Property shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Intellectual Property without prior written authorization of LICENSOR or such copyright holder. LICENSOR is and shall at all times be the sole entity that may authorize you or any third party to use certification marks, trademarks or other special designations to indicate compliance with any LICENSOR standards or specifications.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">This Agreement is governed by the laws of the Commonwealth of Massachusetts. The application to this Agreement of the United Nations Convention on Contracts for the International Sale of Goods is hereby expressly excluded. In the event any provision of this Agreement shall be deemed unenforceable, void or invalid, such provision shall be modified so as to make it valid and enforceable, and as so modified the entire Agreement shall remain in full force and effect. No decision, action or inaction by LICENSOR shall be construed to be a waiver of any rights or remedies available to it.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">None of the Intellectual Property or underlying information or technology may be downloaded or otherwise exported or reexported in violation of U.S. export laws and regulations. In addition, you are responsible for complying with any local laws in your jurisdiction which may impact your right to import, export or use the Intellectual Property, and you represent that you have complied with any regulations or registration procedures required by applicable law to make this license enforceable.</span></p>
+</div>
+<div style="page-break-after: always;"></div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_scope">1.1. Scope</a></li>
+<li><a href="#_document_contributor_contact_points">1.2. Document contributor contact points</a></li>
+<li><a href="#_future_work">1.3. Future Work</a></li>
+<li><a href="#_forward">1.4. Forward</a></li>
+</ul>
+</li>
+<li><a href="#references">2. References</a></li>
+<li><a href="#_terms_and_definitions">3. Terms and definitions</a>
+<ul class="sectlevel2">
+<li><a href="#_citizen_science">3.1. Citizen Science</a></li>
+</ul>
+</li>
+<li><a href="#_conventions">4. Conventions</a>
+<ul class="sectlevel2">
+<li><a href="#_abbreviated_terms">4.1. Abbreviated terms</a></li>
+<li><a href="#_uml_notation">4.2. UML notation</a></li>
+</ul>
+</li>
+<li><a href="#overview">5. Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data</a></li>
+<li><a href="#CitizenScienceIntroduction">6. Citizen Science Data Collection and Exchange</a>
+<ul class="sectlevel2">
+<li><a href="#CitizenScienceProcess">6.1. The Citizen Science Process</a></li>
+<li><a href="#_exemplary_sampling_campaign">6.2. Exemplary Sampling Campaign</a></li>
+</ul>
+</li>
+<li><a href="#CitizenScienceModels">7. Citizen Science Data Models</a>
+<ul class="sectlevel2">
+<li><a href="#GeneralDesignDecision">7.1. General Design Decision</a></li>
+<li><a href="#OMBaseModel">7.2. O&amp;M Base Model</a>
+<ul class="sectlevel3">
+<li><a href="#_elements_inherited_from_gml_super_model">7.2.1. Elements Inherited From GML Super Model</a></li>
+<li><a href="#_phenomenontime">7.2.2. phenomenonTime</a></li>
+<li><a href="#_resulttime">7.2.3. resultTime</a></li>
+<li><a href="#_validtime_resultquality_parameter">7.2.4. validTime, resultQuality, parameter</a></li>
+<li><a href="#_procedure">7.2.5. procedure</a></li>
+<li><a href="#_observedproperty">7.2.6. observedProperty</a></li>
+<li><a href="#_featureofinterest">7.2.7. featureOfInterest</a></li>
+<li><a href="#_result">7.2.8. result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#CitizenScienceCollections">8. Observation Collections and Aggregations</a>
+<ul class="sectlevel2">
+<li><a href="#_aggregation_encoding_discretepointcoverage">8.1. Aggregation encoding: DiscretePointCoverage</a></li>
+<li><a href="#_aggregation_encoding_collection_of_observations">8.2. Aggregation encoding: Collection of observations</a></li>
+<li><a href="#_aggregation_encoding_collection_of_observations_with_track_information">8.3. Aggregation encoding: Collection of observations with track information</a></li>
+</ul>
+</li>
+<li><a href="#EnhancedInteroperability">9. From Schemas to Data Interoperability Contracts</a>
+<ul class="sectlevel2">
+<li><a href="#_current_situation_in_sdis">9.1. Current situation in SDIs</a></li>
+<li><a href="#_current_situation_in_domain_standards">9.2. Current situation in "domain standards"</a></li>
+</ul>
+</li>
+<li><a href="#_improving_the_status_quo">10. Improving the status quo</a>
+<ul class="sectlevel2">
+<li><a href="#_data_cube_approach">10.1. Data Cube Approach</a></li>
+<li><a href="#_future_sdi_situation">10.2. Future SDI Situation</a></li>
+</ul>
+</li>
+<li><a href="#_annex_a_xml_examples">Appendix A: Annex A - XML Examples</a></li>
+<li><a href="#_revision_history">Appendix B: Revision History</a></li>
+<li><a href="#_bibliography">Appendix C: Bibliography</a></li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<div class="title"><strong class="big">Abstract</strong></div>
+<p>This discussion paper is a result of the research project <a href="https://cobwebproject.eu">Citizen Observatory Web (COBWEB)</a>. COBWEB is supported by the European Commission through grant agreement 308513. The discussion paper describes a data model for the standardized exchange of citizen science sampling data.</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong class="big">Business Value</strong></div>
+<p>This discussion paper outlines a data model for citizen science data and outlines a future interoperability approach based on semantic web concepts. A standardized model allows for efficient exchange of citizen science data and supports re-use of data in other than originally planned contexts.</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong class="big">What does this ER mean for the Working Group and OGC in general</strong></div>
+<p>This discussion paper should be considered by the Citizen Science Domain Working Group as a baseline for future citizen science data exchange research and standardization.</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong class="big">How does this ER relates to the work of the Working Group</strong></div>
+<p>This report provides a solid base for future discussions on data models for citizen science in particular and interoperability in general.</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong class="big">Keywords</strong></div>
+<p>ogcdocs, citizen science, data models, interoperability</p>
+</div>
+<div class="paragraph">
+<div class="title"><strong class="big">Proposed OGC Working Group for Review and Approval</strong></div>
+<p>Citizen Science Domain Working Group</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The number of citizen science projects is constantly growing. Local, national, and international platforms feature new projects almost every month, resulting in huge number of observations. If these are to contribute to knowledge beyond short term project outputs these observations need to be gathered and potentially stored in Web accessible databases. For this data to fulfil that potential it needs to fulfil various aspects of comparability with other similar data, and this to be transparent as an aid to data discovery. Any automated integration of such data will require machine-readable metadata about the level of compatibility of such data. This paper describes those aspects of 'data interoperability'. It focuses on the concept of a scalable approach to "citizen science application profiles" using a standardized information model that ensures syntactic and semantic understanding of citizen science data collected by arbitrary sampling campaigns. Data compliant to this information model can be discovered and accessed through standardized Web interfaces and therefore easily integrated into any data processing environment or compared to any other data set. It is emphasized that the application profile approach described in this paper is one out of two possible solutions. The second is briefly addressed and will be documented in detail in future publications.</p>
+</div>
+<div class="sect2">
+<h3 id="_scope"><a class="anchor" href="#_scope"></a>1.1. Scope</h3>
+<div class="paragraph">
+<p>This document focuses on three aspects. First, it describes common design decisions as they currently occur in many citizen science sampling campaigns. Second, it provides a data model that addresses most of the current interoperability issues by applying available models and technologies. Third, it outlines a path ahead that describes future solutions that further improve the level of interoperability.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_document_contributor_contact_points"><a class="anchor" href="#_document_contributor_contact_points"></a>1.2. Document contributor contact points</h3>
+<div class="paragraph">
+<p>All questions regarding this document should be directed to the editor or the contributors:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 1. Contacts</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Organization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ingo Simonis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OGC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rob Atkinson</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OGC</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_future_work"><a class="anchor" href="#_future_work"></a>1.3. Future Work</h3>
+<div class="paragraph">
+<p>The inherent challenges in defining a "one size fits all" approach have led to the identification of a need for, and a possible standards-based solution to, a flexible and scalable methdology for describing the semantic interoperability of data and how this is then realised in standardised data structures.
+This document is thus a first step towards a new approach to interoperability in heterogenous environments that supports semantic interoperability managed by the communities of practice. The concept needs further research and should be explored in other domains to evaluate its universal applicability.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_forward"><a class="anchor" href="#_forward"></a>1.4. Forward</h3>
+<div class="paragraph">
+<p>Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.</p>
+</div>
+<div class="paragraph">
+<p>Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references"><a class="anchor" href="#references"></a>2. References</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following documents are referenced in this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://portal.opengeospatial.org/files/?artifact_id=41579">OGC Abstract Specification Topic 20 Observation and Measurements (O&amp;M)</a></p>
+</li>
+<li>
+<p><a href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=59193">ISO 19109</a> (Geographic information - Rules for application schema)</p>
+</li>
+<li>
+<p><a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=32554">ISO 19136</a></p>
+</li>
+<li>
+<p><a href="http://www.opengeospatial.org/standards/gml">OGC Geography Markup Language (GML)</a></p>
+</li>
+<li>
+<p><a href="http://www.opengeospatial.org/standards/sensorml">SensorML</a></p>
+</li>
+<li>
+<p><a href="http://www.opengeospatial.org/standards/swecommon">SWECommon</a></p>
+</li>
+<li>
+<p><a href="https://portal.opengeospatial.org/files/?artifact_id=64592">TimeseriesML</a></p>
+</li>
+<li>
+<p><a href="https://portal.opengeospatial.org/files/?artifact_id=41438">GML coverages</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>3. Terms and definitions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard [OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.</p>
+</div>
+<div class="sect2">
+<h3 id="_citizen_science"><a class="anchor" href="#_citizen_science"></a>3.1. Citizen Science</h3>
+<div class="literalblock">
+<div class="content">
+<pre>tbd</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conventions"><a class="anchor" href="#_conventions"></a>4. Conventions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>4.1. Abbreviated terms</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>API	Application Program Interface</p>
+</li>
+<li>
+<p>COTS	Commercial Off The Shelf</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uml_notation"><a class="anchor" href="#_uml_notation"></a>4.2. UML notation</h3>
+<div class="paragraph">
+<p>Most diagrams that appear in this standard are presented using the Unified Modeling Language (UML) static structure diagram, as described in Subclause 5.2 of [OGC 06-121r9].</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>5. Standardized Information Models to Optimize Exchange, Reusability and Comparability of Citizen Science Data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After a short <a href="#CitizenScienceIntroduction">introduction</a>, this engineering report discusses the typical <a href="#CitizenScienceProcess">citizen science sampling campaign formalization and execution process</a> to allow understanding the full set of requirements that needs to be fulfilled by citizen science data in order to maximize reuse and comparability. It then focuses on the <a href="#CitizenScienceApplicationProfile">citizen science application profile</a>, an information model that allows the integration of citizen science data in new contexts without risking semantically incorrect use or interpretation. The model itself makes use of several other OGC standards and can be implemented and serialized in various ways, such as XML or JSON, or Semantic Web approaches based on triples and links. Here, focus is on XML exclusively.</p>
+</div>
+<div class="paragraph">
+<p>The paper describes how to encode citizen science data in an efficient way. It does not define an application schema with value or other types of constraints. Instead, it should be considered as a guide that helps survey managers to share their data in an efficient way. For that reason, this report describes the usage of O&amp;M and the derived citizen science profile for <a href="#CitizenScienceModels">single</a> and <a href="#CitizenScienceCollections">aggregated</a> observations and addresses a number of semantic interoperability aspects.</p>
+</div>
+<div class="paragraph">
+<p>The paper concludes with an outlook on <a href="#EnhancedInteroperability">future interoperability profile concepts</a> that shall help simplifying the usage of specialized data models, support the automatic setup of data collection campaigns, and ensure shared semantics in heterogeneous environments.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="CitizenScienceIntroduction"><a class="anchor" href="#CitizenScienceIntroduction"></a>6. Citizen Science Data Collection and Exchange</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Citizen science projects often fail to collect and document their data in standardized forms. Some projects design their own protocols, others use proprietary or disciplinary protocols. This report is based on experiences made in five citizen science projects co-funded by the European Commission. Based on these experiences, the goal was to develop a common model for citizen science data for different sampling campaigns based on existing standards. This engineering report outlines the fundamental structure of such a Citizen Science data profile. It uses existing standards such as OGC Sensor Web Enablement O&amp;M, SensorML, and SweCommon together with TimeseriesML and GML-coverage.</p>
+</div>
+<div class="paragraph">
+<p>The Citizen Science model developed herein reflects the current status quo in standardization of geospatial data produced in citizen science sampling campaigns. This status quo already allows the definition of a solid and semantically sound model. Nevertheless, interoperability can be further improved. Interoperability contracts and profiles allow to further simplify the sampling campaign definition process and enhance chances for common semantics across campaigns. This report describes the path ahead towards improved interoperability and enhanced ease of use for different citizen science data producers, consumers, survey designers, and quality managers.</p>
+</div>
+<div class="paragraph">
+<p>Citizen Science data collection and exchange is not a streamlined and consistent process. Depending on the local settings and requirements, a number of aspects need to be decided upon:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How do data models look like that support reusability of citizen science data even in other than the original context?</p>
+</li>
+<li>
+<p>How much information needs to be preserved and documented throughout citizen science data processing chains?</p>
+</li>
+<li>
+<p>How can citizen science data be shared efficiently?</p>
+</li>
+<li>
+<p>What level of semantics is required to ensure correct usage of citizen science data and how can it be realized?</p>
+</li>
+<li>
+<p>What standards need to be considered in order to maximize reusability of citizen science data?</p>
+</li>
+<li>
+<p>How can citizen science data be integrated with external data sets?</p>
+</li>
+<li>
+<p>How do citizen science data quality assurance processes look like and how can they be documented?</p>
+</li>
+<li>
+<p>How can citizen science data be made persistent and accessible (even beyond the lifetime of the original research project)?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These questions reflect the different perspectives of citizen science participants, e.g. data providers, survey designers, or data consumers.</p>
+</div>
+<div id="img_SurveyDesigner" class="imageblock">
+<div class="content">
+<img src="images/clause-6-ProblemStatement-11a91.png" alt="clause 6 ProblemStatement 11a91" width="400">
+</div>
+<div class="title">Figure 1. Particularly relevant aspects for survey designers</div>
+</div>
+<div class="paragraph">
+<p><a href="#img_SurveyDesigner">Survey designers</a> usually develop their survey design and configure their survey tools and applications based on a set up local requirements. These may require survey data processing steps that include automated processes that require a certain set of metadata and the use of shared vocabularies. In the ideal case, survey designers already consider the future use of the survey data outside of the original context, which adds aspects such as discoverability or simplified access to the data to the list of requirements.</p>
+</div>
+<div class="paragraph">
+<p><a href="#img_DataConsumer">Data consumers</a> have different motivations and requirements. They are focusing mostly on easy discovery and access, including spatio-temporal and thematic filtering together with easy-to-load data models and encodings.</p>
+</div>
+<div id="img_DataConsumer" class="imageblock">
+<div class="content">
+<img src="images/clause-6-ProblemStatement-75f53.png" alt="clause 6 ProblemStatement 75f53" width="400">
+</div>
+<div class="title">Figure 2. Particularly relevant aspects for data consumers</div>
+</div>
+<div class="paragraph">
+<p>The goal of the Swe4CS data model was to integrate those different perspectives. In addition, the data model should support specific requirements as formulated as part of the <a href="#CitizenScienceProcess">citizen science data collection, processing, and presentation process</a> described below.</p>
+</div>
+<div class="sect2">
+<h3 id="CitizenScienceProcess"><a class="anchor" href="#CitizenScienceProcess"></a>6.1. The Citizen Science Process</h3>
+<div class="paragraph">
+<p>The citizen science process commonly consists of five steps as illustrated in figure  <a href="#img_CitizenScienceProcess">Citizen Science Process</a> below. These steps are usually executed sequentially, though include loops and feedback cycles. The first step (left) includes the definition of the sampling campaign itself. The type and nature of the sampling protocol and corresponding observed properties is normally motivated by the survey objectives, but may take additional aspects into consideration such as quality assurance process or publication requirements. Once defined, an (usually) mobile app (survey app) is configured and made available to the citizens to support the data collection process. All raw data, i.e. the observation data as provided by citizens, is persistently stored and eventually published. Quality assurance processes work on the raw data and on previously quality assured data, potentially taking external data sets into account. This multi-loop process may result in any number of data sets of various quality or aggregation levels or any number of versions of raw, quality assured, aggregated, or newly derived data sets.</p>
+</div>
+<div id="img_CitizenScienceProcess" class="imageblock">
+<div class="content">
+<img src="images/CitizenScienceProcess.png" alt="CitizenScienceProcess" width="600">
+</div>
+<div class="title">Figure 3. Citizen Science Process</div>
+</div>
+<div class="paragraph">
+<p>The end of the citizen science process is the publication of the data, which in turn might be the beginning for another process. The publication can include all levels from raw to highly processed data. In this report, we make primarily use of an exemplary sampling campaign executed as part of the research project <a href="https://cobwebproject.eu">Citizen OBservatory WEB (COBWEB)</a>: The <a href="https://en.wikipedia.org/wiki/Fallopia_japonica">Japanese Knotweed</a> survey.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exemplary_sampling_campaign"><a class="anchor" href="#_exemplary_sampling_campaign"></a>6.2. Exemplary Sampling Campaign</h3>
+<div class="paragraph">
+<p>Citizen science sampling campaigns often make use of mobile applications to support the citizen in the data collection process. Figure <a href="#img_MobileApp">Japanese Knotweed Sampling Application</a> illustrates such a mobile app that is used in Japanese Knotweed (Fallopia japonica) sampling campaigns. Occurrences of the invasive species Japanese Knotweed are monitored in many places of the world. Japanese Knotweed, native to East Asia, is a large, herbaceous perennial plant of the Polygonaceae family. It is known for its invasive root system and strong growth that can damage concrete foundations, buildings, flood defenses, roads, or sidewalks. It can also reduce the capacity of channels in flood defenses to carry water and accelerate river bank erosion (Bailey 2003).</p>
+</div>
+<div class="paragraph">
+<p>One of the primary goals during sampling campaign definition is to avoid any ambiguities in the understanding of observed properties, used sensing techniques and hardware, and sampling protocols between survey designers and citizens. Both groups shall share common semantics of all terms used. Though the interaction options with a mass of citizens is limited, and little influence exists to ensure that citizens make themselves familiar with the applied semantics, it is crucial that clear instructions and definitions of all aspects, e.g. observed properties or sensors, are available. As the screen space on mobile devices is limited, it is necessary to provide resolvable links to all observed properties and clear explanations of the sampling protocol and applied sensing hardware. The application shown in Figure 2 illustrates this aspect using the observed properties as an example. Though “Plant height” is probably easy to understand, “Evidence of management” leaves considerably more room for interpretation. There are many aspects related to user interface design that cannot discussed here. Instead, focus is laid on the definition of the semantics, which are not visible to the user.</p>
+</div>
+<div id="img_MobileApp" class="imageblock">
+<div class="content">
+<img src="images/MobileApp.png" alt="MobileApp" width="221">
+</div>
+<div class="title">Figure 4. Japanese Knotweed Sampling Application</div>
+</div>
+<div class="paragraph">
+<p>If all observed properties would be using definitions in the form of simple names, semantics would be limited to the understanding of the survey designer and, given that sufficient descriptive data are provided as part of the mobile app, to the citizens participating in the survey. If instead fully qualified names in the form of resolvable URLs would be used, then the raw data becomes meaningful even to external users that have not used the mobile app but only received the raw data. Labels can still be used for display purposes.</p>
+</div>
+<div class="paragraph">
+<p>Other examples and survey types are used if necessary. This report does not cover any software architecture that could be used for fully standards-based data creation and exchange.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="CitizenScienceModels"><a class="anchor" href="#CitizenScienceModels"></a>7. Citizen Science Data Models</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>SWE For Citizen Science</em> (Swe4cs) is a common data model suitable for collecting and sharing citizen science data. It is based on the ISO 19156 / <a href="http://portal.opengeospatial.org/files/?artifact_id=41579">OGC Abstract Specification Topic 20 Observation and Measurements (O&amp;M)</a> standard and implemented as an <a href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=59193">ISO 19109</a> (Geographic information - Rules for application schema) compliant application schema, which implements key elements from other ISO standards following the conventions defined in <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=32554">ISO 19136</a> / <a href="http://www.opengeospatial.org/standards/gml">OGC Geography Markup Language (GML)</a>. Swe4cs is based on the OGC core model, with the General Feature Model (defined in ISO 19109) as a metamodel for representing features in application schemas; therefore, Swe4cs data can easily be processed and integrated with other OGC compliant data such as coverage based on satellite data, sensor data from ground stations, or reference data sets provided by public bodies. In addition, Swe4cs uses standards from the OGC Sensor Web Enablement (SWE) family, a suite of standards initially developed to realize the Sensor Web. Originally designed to network sensors, the scope of SWE has broadened to include humans as sensors and sensor data processing capacities. Swe4cs uses the OGC standards <a href="http://www.opengeospatial.org/standards/sensorml">SensorML</a>, a robust and semantically-tied means of defining assets, to describe sensors used in sampling campaigns, and <a href="http://www.opengeospatial.org/standards/swecommon">SWECommon</a>, a low-level data model for exchanging sensor related data between nodes of the OGC Sensor Web Enablement (SWE) framework. To express time series and coverage data, Swe4cs implements OGC standards <a href="https://portal.opengeospatial.org/files/?artifact_id=64592">TimeseriesML</a> and <a href="https://portal.opengeospatial.org/files/?artifact_id=41438">GML coverages</a>. The package dependencies are illustrated in the figure <a href="#img_Swe4CSPackageDependencies">below</a>.</p>
+</div>
+<div id="img_Swe4CSPackageDependencies" class="imageblock">
+<div class="content">
+<img src="images/clause-7-models-7519f.png" alt="clause 7 models 7519f" width="700">
+</div>
+<div class="title">Figure 5. Package dependencies of the Swe4CS data model</div>
+</div>
+<div class="paragraph">
+<p>The currently available Swe4cs model has been designed with a focus on reusing existing standards to the greatest degree possible. As it stands, Swe4cs is suitable for expressing the key elements of a citizen science observation, i.e. the observed property(ies), the results, temporal and spatial aspects, potentially used hardware, and information about the volunteer herself. It is envisioned that future interoperability pilots are required to extend the model and address remaining interoperability concerns, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Definition of the sampling protocol</p>
+</li>
+<li>
+<p>Semantic pointers to shared ontologies</p>
+</li>
+<li>
+<p>Definition of a Swe4cs constraint model of SensorML to overcome design issues caused by the extreme flexibility of SensorML</p>
+</li>
+<li>
+<p>Data quality and user feedback</p>
+</li>
+<li>
+<p>Further serializations such as JSON and RDF</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="GeneralDesignDecision"><a class="anchor" href="#GeneralDesignDecision"></a>7.1. General Design Decision</h3>
+<div class="paragraph">
+<p>Defining a data model for a particular community commonly involves a number of design decisions. In the case of Swe4CS, it was decided after long debates to favor a data model that is fully based on existing core standards without profiling them using specializations. The reason is that specializations require adapted client applications to parse serialized data. On the other side, specializations would allow more fine-grained adaptations to particular needs - but these are commonly an issue for interoperability anyway.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="OMBaseModel"><a class="anchor" href="#OMBaseModel"></a>7.2. O&amp;M Base Model</h3>
+<div class="paragraph">
+<p>Observation &amp; Measurement (O&amp;M) provides a general model to encode observations done by either humans, machines, or software processes and is therefore suitable for citizen science data. Citizen science data often results from human observations or is provided by citizen scientists using mobile sensor assets. O&amp;M features a number of levels of freedom that require design decisions and constraints in order to result in a model for interoperable data exchange. These levels of freedom are illustrated in figure <a href="#img_OMLevelsOfFreedom">Levels of Freedom in the O&amp;M model</a>. The O&amp;M observation model is the core of all citizen science observations. We need to understand a single observation first, before we will look how to aggregate multiple observations in the next chapter.</p>
+</div>
+<div id="img_OMLevelsOfFreedom" class="imageblock">
+<div class="content">
+<img src="images/OMLevelsOfFreedom.png" alt="OMLevelsOfFreedom" width="600">
+</div>
+<div class="title">Figure 6. Levels of Freedom in the O&amp;M model</div>
+</div>
+<div class="paragraph">
+<p>Following the decision to use O&amp;M as is without further specialization, design decisions had to be taken to improve interoperability of the <em>featureOfInterest</em>, the <em>procedure</em>, and the <em>result</em>. Before those are further investigated, the O&amp;M observation properties are briefly discussed.</p>
+</div>
+<div class="sect3">
+<h4 id="_elements_inherited_from_gml_super_model"><a class="anchor" href="#_elements_inherited_from_gml_super_model"></a>7.2.1. Elements Inherited From GML Super Model</h4>
+<div class="paragraph">
+<p>O&amp;M observation inherits a number of elements from it super model GML, the geography markup language which defines an abstract feature as one of its core elements. The <em>gml:AbstractFeature</em> and its type <em>gml:AbstractFeatureType</em> implement the ISO 19109 General Feature Model (we don&#8217;t discuss the details of the internal structure of the O&amp;M Schema with all its complex types and property types here. O&amp;M_Observation is developed in UML and follows the UML-to-XML Schema rules as defined in ISO 19136. Interested readers are referred to the specifications ISO 19109, 19136, and 19156). Therefore, O&amp;M Observation has a number of properties not directly visible in the <a href="#img_OMLevelsOfFreedom">O&amp;M model</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here, we focus on elements that are relevant for citizen science data only. All three elements are optional:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(1) <strong>gml:description</strong>: General description of this observation</p>
+</li>
+<li>
+<p>(2) <strong>gml:name</strong>: Name of the observation that could be used as a label in a client application</p>
+</li>
+<li>
+<p>(3) <strong>gml:boundedBy</strong>: Only relevant if the bounding box of all locations aggregated in an observation shall be documented</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">XML example: Elements inherited from GML</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;gml:description&gt;</span>Snowdonia National Park, Japanese Knotweed Survey 2015<span class="tok-nt">&lt;/gml:description&gt;</span><b class="conum">(1)</b>
+<span class="tok-nt">&lt;gml:name&gt;</span>Japanese Knotweed Observation<span class="tok-nt">&lt;/gml:name&gt;</span><b class="conum">(2)</b>
+<span class="tok-nt">&lt;gml:boundedBy&gt;</span><b class="conum">(3)</b>
+    <span class="tok-nt">&lt;gml:Envelope</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:x-ogc:def:crs:EPSG:6.11:4326&quot;</span><span class="tok-nt">&gt;</span>
+        <span class="tok-nt">&lt;gml:lowerCorner&gt;</span>-5.009766 51.266412<span class="tok-nt">&lt;/gml:lowerCorner&gt;</span>
+        <span class="tok-nt">&lt;gml:upperCorner&gt;</span>-2.927977 53.127076<span class="tok-nt">&lt;/gml:upperCorner&gt;</span>
+    <span class="tok-nt">&lt;/gml:Envelope&gt;</span>
+<span class="tok-nt">&lt;/gml:boundedBy&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_phenomenontime"><a class="anchor" href="#_phenomenontime"></a>7.2.2. phenomenonTime</h4>
+<div class="paragraph">
+<p>The <em>phenomenonTime</em> describes the time the <em>observedProperty</em> was observed.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: phenomenonTime</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:phenomenonTime&gt;</span>
+   <span class="tok-nt">&lt;gml:TimeInstant</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;t001&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;gml:timePosition&gt;</span>2015-07-07T10:32:48.460Z<span class="tok-nt">&lt;/gml:timePosition&gt;</span>
+   <span class="tok-nt">&lt;/gml:TimeInstant&gt;</span>
+<span class="tok-nt">&lt;/om:phenomenonTime&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_resulttime"><a class="anchor" href="#_resulttime"></a>7.2.3. resultTime</h4>
+<div class="paragraph">
+<p>The <em>resultTime</em> describes the time the result value(s) was assigned to the observation. In most cases, this time is similar to the <em>phenomenonTime</em> defined above. It is different if there is a time gap between the actual observation and the assignment of the result value. This might be the case if a water sample is taken from a river (<em>phenomenonTime</em>), analyzed in a lab and the value assigned to that observation once the analysis is completed (<em>resultTime</em>).</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: resultTime</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:resultTime</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;#t001&quot;</span><span class="tok-nt">/&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validtime_resultquality_parameter"><a class="anchor" href="#_validtime_resultquality_parameter"></a>7.2.4. validTime, resultQuality, parameter</h4>
+<div class="paragraph">
+<p>These three elements may be of little relevance for the original observation, because citizen scientists are often not able to determine how long the observation they did is valid (<em>validTime</em>) or the quality of the assigned result value (<em>resultQuality</em>). Nevertheless, during the quality assurance processes and control flows citizen science raw data may get annotated with additional information. Then, validity and quality parameters may be set.</p>
+</div>
+<div class="paragraph">
+<p>The <em>parameter</em> element is a generic extension point that allows adding context specific key-value pairs to observation data without breaking the schema. Clients that cannot make sense of these additional parameters are required to ignore these.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_procedure"><a class="anchor" href="#_procedure"></a>7.2.5. procedure</h4>
+<div class="paragraph">
+<p>The procedure property of an observation defines the process used to generate the observation. The O&amp;M model uses the empty <em>OM_Process</em> that needs to be further defined in order to achieve interoperability. It is recommended to follow the <a href="https://portal.opengeospatial.org/files/?artifact_id=66015&amp;version=2">Timeseries Profile of Observations and Measurements specification (OGC 15-042r3)</a>, which is about to be released to the public soon.</p>
+</div>
+<div id="img_TSMLProcess" class="imageblock">
+<div class="content">
+<img src="images/clause-7-models-b0570.png" alt="clause 7 models b0570" width="600">
+</div>
+<div class="title">Figure 7. Observation process feature type, source <a href="https://portal.opengeospatial.org/files/?artifact_id=66015&amp;version=2">OGC 15-042r3</a></div>
+</div>
+<div class="paragraph">
+<p><em>tsml:ObservationProcess</em> defines a number of properties that are less relevant in the context of citizen science. At the same time, <em>tsml:ObservationProcess</em> provides the same <em>parameter:NamedValue</em> extension mechanism as <em>om:Observation</em>.</p>
+</div>
+<div class="paragraph">
+<p>We recommend to use the following properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>processType</strong> to define the type of the process. From the <em>ProcessTypeCode</em> code list, the following properties are important:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Manual Method</strong> if the observation was performed by a human <strong>without</strong> any additional hardware</p>
+</li>
+<li>
+<p><strong>Sensor</strong> if the observation was performed by a human <strong>with</strong> additional hardware</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>processReference</strong> to link to the sampling protocol. The sampling protocol includes all rules and guidelines on how the sampling should be performed. Currently, there are no models available to define sampling protocols in a standardized way. Instead, sampling protocols are usually provided in text form, often with accompanying images and often enough several pages long.</p>
+</li>
+<li>
+<p><strong>parameter</strong>: the generic extension mechanism should be used to provide information about the sensor(s) being used to generate the observation. In the ideal case, the sensor description is provided using <a href="http://www.opengeospatial.org/standards/sensorml">SensorML</a>.</p>
+</li>
+<li>
+<p><strong>operator</strong> to define the citizen scientist who performed the observation. A potential issue here: <em>operator</em> can only be provided once. If more than one person has performed the observation, the data about the additional person(s) needs to be added by alternative ways that require further discussion. The approach used herein  In the case, <em>parameter</em> shall be used to identify the additional persons. Examples are given below for one, two, and anonymous.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following examples illustrate the <em>procedures</em> definition. Annotations in the examples help understanding the various elements.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: procedure; anonymous citizen scientist with cellphone sensors</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:procedure&gt;</span>
+  <span class="tok-nt">&lt;tsml:ObservationProcess</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;op1&quot;</span><span class="tok-nt">&gt;</span>
+    <span class="tok-c">&lt;!-- processType defines observation performed by human with sensor --&gt;</span>
+    <span class="tok-nt">&lt;tsml:processType</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/waterml/2.0/processType/Sensor&quot;</span><span class="tok-nt">/&gt;</span>
+    <span class="tok-c">&lt;!-- processReference defines sampling protocol --&gt;</span>
+    <span class="tok-nt">&lt;tsml:processReference</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/JapaneseKnotweedSamplingProtocol&quot;</span><span class="tok-nt">/&gt;</span>
+    <span class="tok-c">&lt;!-- if a sensor is used, provide the link to the sensor definition here. Use SensorML if possible --&gt;</span>
+    <span class="tok-nt">&lt;tsml:parameter&gt;</span>
+      <span class="tok-nt">&lt;om:NamedValue&gt;</span>
+        <span class="tok-nt">&lt;om:name</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/property/OGC/0/SensorType&quot;</span><span class="tok-nt">/&gt;</span>
+        <span class="tok-nt">&lt;om:value&gt;</span>http://www.motorola.com/XT1068<span class="tok-nt">&lt;/om:value&gt;</span>
+      <span class="tok-nt">&lt;/om:NamedValue&gt;</span>
+    <span class="tok-nt">&lt;/tsml:parameter&gt;</span>
+    <span class="tok-c">&lt;!-- operator defines the citizen scientist producing this observation --&gt;</span>
+    <span class="tok-nt">&lt;tsml:operator&gt;</span>
+      <span class="tok-c">&lt;!-- anonymous observation producer from ISO 19115, roleCode &quot;Expert&quot; --&gt;</span>
+      <span class="tok-nt">&lt;gmd:CI_ResponsibleParty&gt;</span>
+        <span class="tok-nt">&lt;gmd:role&gt;</span>
+          <span class="tok-nt">&lt;gmd:CI_RoleCode</span> <span class="tok-na">codeList=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos#CI_roleCodes&quot;</span> <span class="tok-na">codeListValue=</span><span class="tok-s">&quot;Expert&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;/gmd:CI_RoleCode&gt;</span>
+        <span class="tok-nt">&lt;/gmd:role&gt;</span>
+      <span class="tok-nt">&lt;/gmd:CI_ResponsibleParty&gt;</span>
+    <span class="tok-nt">&lt;/tsml:operator&gt;</span>
+  <span class="tok-nt">&lt;/tsml:ObservationProcess&gt;</span>
+<span class="tok-nt">&lt;/om:procedure&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+This report shows a number of hyperlinks in the XML examples. Not all of these hyperlinks resolve. Reason is that this report is a discussion paper. No terms have been registered with the <a href="http://www.opengeospatial.org/ogcna">OGC Naming Authority</a> so far. Existing names from the <a href="http://def.seegrid.csiro.au/sissvoc/ogc-def/concept">OGC Definitions Service</a> have been used wherever available. In all other cases, the URLs start with https://dyfi.cobwebproject.eu.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following example shows how the citizen scientist can be identified. The ISO 19115 element CI_ResponsibleParty allows providing more detail such as email, phone number etc. as illustrated in figure <a href="#img_CI_ResponsibleParty">below</a>.</p>
+</div>
+<div id="img_CI_ResponsibleParty" class="imageblock">
+<div class="content">
+<img src="images/CI_ResponsibleParty.png" alt="CI ResponsibleParty" width="700">
+</div>
+<div class="title">Figure 8. CI_ResponsibleParty object describes people and organizations that are related to a resource and their roles</div>
+</div>
+<div class="paragraph">
+<p>The following XML example illustrates how the <em>operator</em> element of the example above could be modified to provide more details about the citizen scientist who provided the observation.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: operator; identified citizen scientist. CI_RoleCode from ISO 19115</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;tsml:operator&gt;</span>
+  <span class="tok-nt">&lt;gmd:CI_ResponsibleParty&gt;</span>
+    <span class="tok-nt">&lt;gmd:individualName&gt;</span>
+      <span class="tok-nt">&lt;gco:CharacterString&gt;</span>Ingo Simonis<span class="tok-nt">&lt;/gco:CharacterString&gt;</span>
+    <span class="tok-nt">&lt;/gmd:individualName&gt;</span>
+    <span class="tok-nt">&lt;gmd:organisationName&gt;</span>
+      <span class="tok-nt">&lt;gco:CharacterString&gt;</span>OGC<span class="tok-nt">&lt;/gco:CharacterString&gt;</span>
+    <span class="tok-nt">&lt;/gmd:organisationName&gt;</span>
+    <span class="tok-nt">&lt;gmd:role&gt;</span>
+      <span class="tok-nt">&lt;gmd:CI_RoleCode</span> <span class="tok-na">codeList=</span><span class="tok-s">&quot;http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml&quot;</span> <span class="tok-na">codeListValue=</span><span class="tok-s">&quot;resourceProvider&quot;</span><span class="tok-nt">/&gt;</span>
+    <span class="tok-nt">&lt;/gmd:role&gt;</span>
+  <span class="tok-nt">&lt;/gmd:CI_ResponsibleParty&gt;</span>
+<span class="tok-nt">&lt;/tsml:operator&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observedproperty"><a class="anchor" href="#_observedproperty"></a>7.2.6. observedProperty</h4>
+<div class="paragraph">
+<p>The property(ies) that is/are of interest in the citizen science sampling campaign. The <em>observedProperty</em> might be a single aspect, such as occurrences of a specific species, e.g. Japanese Knotweed, or a complex of multiple aspects. In all cases, the <em>observedProperty</em>'s details can be retrieved from the <a href="#om:result">result</a> section described further <a href="#om:result">below</a>. Following the link shall lead to a detailed description of the observedProperty. If available, existing vocabularies shall be used.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: observedProperty</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:observedProperty</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/bogs&quot;</span><span class="tok-nt">/&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_featureofinterest"><a class="anchor" href="#_featureofinterest"></a>7.2.7. featureOfInterest</h4>
+<div class="paragraph">
+<p>The <em>featureOfInterest</em> is a tricky element. Following the rules and guidelines provided in <a href="https://portal.opengeospatial.org/files/?artifact_id=22467&amp;version=2">Observations and Measurements – Part 2 - Sampling Features</a>, the <em>featureOfInterest</em> can describe the ultimate feature of interest, called <em>domain feature</em>, or a (spatial) sampling feature. Sampling features are used if the ultimate feature of interest only allows observations being made on a subset of the complete feature, with the intention that the sample represents the whole. This is for example the case if we sample Japanese Knotweed in Snowdonia National Park. We cannot assume that we sample the whole national park, but only walk randomly around and spot knotweed here and there. The random walk is a sampling feature, and if the citizen walks around long enough, we can assume that the observations made represent the whole park. In this case, the <em>featureOfInterest</em> is the sampling feature that in this case represents the whole ultimate feature of interest, the domain feature Snowdownia National Park.</p>
+</div>
+<div class="paragraph">
+<p>If the citizen scientist tracks his path, i.e. can provide the full trajectory, then the <em>featureOfInterest</em> is a <em>spatial sampling feature</em> in the form of a <em>SF_SamplingCurve</em> that reveals all locations of the citizen scientist during his walk in Snowdonia National Park. This is highly valuable information, as it allows estimating the coverage of the sampling campaign and helps understanding if areas without any knotweed occurrences have not been explored or de facto have no knotweed growing. In this case, the <em>featureOfInterest</em> would be defined in more detail: It contains the path itself in the form of a shape definition, and the ultimate feature of interest in the form of the <em>sampledFeature</em>.</p>
+</div>
+<div class="paragraph">
+<p>The following examples illustrate this concept.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: featureOfInterest defines a domain feature</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:featureOfInterest</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The link to the feature of interest can be a call to a Web Feature Service also.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: featureOfInterest defines a domain feature as accessible at a Web Feature Service (WFS) instance</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:featureOfInterest</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://example.com/wfs?service=WFS&amp;request=GetFeature&amp;version=2.0.0&amp;featureID=SnowdoniaNationalPark&quot;</span><span class="tok-nt">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example illustrates a survey with existing trajectory data.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: featureOfInterest defines a spatial sampling feature (1)  with sampled feature (2) and shape information (3)</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:featureOfInterest&gt;</span>
+  <span class="tok-nt">&lt;sams:SF_SpatialSamplingFeature</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sf001&quot;</span><span class="tok-nt">&gt;</span><b class="conum">(1)</b>
+    <span class="tok-nt">&lt;sf:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingCurve&quot;</span><span class="tok-nt">/&gt;</span>
+    <span class="tok-nt">&lt;sf:sampledFeature</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span><b class="conum">(2)</b>
+    <span class="tok-nt">&lt;sams:shape&gt;</span><b class="conum">(3)</b>
+      <span class="tok-nt">&lt;gml:Curve</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sc1&quot;</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:ogc:def:crs:EPSG:6.8:3857&quot;</span><span class="tok-nt">&gt;</span>
+        <span class="tok-nt">&lt;gml:segments&gt;</span>
+          <span class="tok-nt">&lt;gml:LineStringSegment&gt;</span>
+            <span class="tok-nt">&lt;gml:posList&gt;</span>52.4096027 -4.0782345 52.4095827 -4.0782352 52.409551 -4.0782377 52.4094811 -4.0782878 52.4095147 -4.0789545 52.409452 -4.0787875 52.409124 -4.0785565 52.4091245 -4.0782447 52.4097877 -4.0782454 52.4097797 -4.0781024<span class="tok-nt">&lt;/gml:posList&gt;</span>
+          <span class="tok-nt">&lt;/gml:LineStringSegment&gt;</span>
+        <span class="tok-nt">&lt;/gml:segments&gt;</span>
+      <span class="tok-nt">&lt;/gml:Curve&gt;</span>
+    <span class="tok-nt">&lt;/sams:shape&gt;</span>
+  <span class="tok-nt">&lt;/sams:SF_SpatialSamplingFeature&gt;</span>
+<span class="tok-nt">&lt;/om:featureOfInterest&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_result"><a class="anchor" href="#_result"></a>7.2.8. result</h4>
+<div class="paragraph">
+<p>The <em>result</em> property provides the actual observation result data. <em>om:result</em> points to a generic placeholder <em>Any</em>, which has been further specialized in the citizen science profile to <em>SweCommon</em> <em>DataRecord</em> to encode all result data. For a single observation, this is straight forward and illustrated in the XML example below.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: result property defining topography type, a photo, and three plant species</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:result&gt;</span>
+  <span class="tok-nt">&lt;swe:DataRecord&gt;</span>
+    <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;topographyType&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/topographyType&quot;</span><span class="tok-nt">&gt;</span>
+        <span class="tok-nt">&lt;swe:value&gt;</span>Mountain<span class="tok-nt">&lt;/swe:value&gt;</span>
+      <span class="tok-nt">&lt;/swe:Text&gt;</span>
+    <span class="tok-nt">&lt;/swe:field&gt;</span>
+    <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;photo&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/photo&quot;</span><span class="tok-nt">&gt;</span>
+        <span class="tok-nt">&lt;swe:value&gt;</span>https://dyfi.cobwebproject.eu/1.3/pcapi/records/local/2338e388-f34e-25d9-945c-54cffd9c46c2/ob (11)/1434891560330.jpg<span class="tok-nt">&lt;/swe:value&gt;</span>
+      <span class="tok-nt">&lt;/swe:Text&gt;</span>
+    <span class="tok-nt">&lt;/swe:field&gt;</span>
+    <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;plants&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;swe:DataRecord&gt;</span><b class="conum">(1)</b>
+        <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;plant&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:value&gt;</span>Bog cotton<span class="tok-nt">&lt;/swe:value&gt;</span>
+          <span class="tok-nt">&lt;/swe:Text&gt;</span>
+        <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;plant&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:value&gt;</span>Common rush<span class="tok-nt">&lt;/swe:value&gt;</span>
+          <span class="tok-nt">&lt;/swe:Text&gt;</span>
+        <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;plant&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:value&gt;</span>Other<span class="tok-nt">&lt;/swe:value&gt;</span>
+          <span class="tok-nt">&lt;/swe:Text&gt;</span>
+        <span class="tok-nt">&lt;/swe:field&gt;</span>
+      <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+    <span class="tok-nt">&lt;/swe:field&gt;</span>
+  <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+<span class="tok-nt">&lt;/om:result&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>DataRecord</em> contains any number of fields with semantics coded in the <em>definition</em> attribute. It is recommended to link to common vocabularies to improve reusability. Alternatively, if survey managers set up their own vocabulary as illustrated here, it is recommended to use the <a href="http://www.w3.org/2004/02/skos/">SKOS Simple Knowledge Organization System</a> with links to external, commonly used vocabularies, as availability of the vocabulary can be assured and shared semantics achieved through links to external ontologies.</p>
+</div>
+<div class="paragraph">
+<p>As illustrated in the example above, <em>SweCommon</em> allows nesting further <em>DataRecord_s. This allows adding more than one value for a single type, here done with three different plants that have been observed. Instead of (1) _swe:DataRecord</em> a <em>swe:DataArray</em> could be used, but it does not add any value here, as the number of entries fixed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+In principle, O&amp;M supports associations to other observations. This is - in principle - a very powerful linking mechanism that allows describing associations to other observations. In practice, it turned out that users prefer to have all relevant data in a single file with minimum links embedded. Therefore, we don&#8217;t make use of this mechanism in this engineering report.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="CitizenScienceCollections"><a class="anchor" href="#CitizenScienceCollections"></a>8. Observation Collections and Aggregations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="#CitizenScienceModels">previous chapter</a> introduced the citizen science model for simple and complex observations, i.e. individual observations done by citizen scientists. This chapter introduces observation collections and aggregation patterns. These patterns will make use of the citizen science model as described, but extend it to allow different types of aggregations, e.g. all observations by a specific citizen scientist, or all observations in a given area, etc. These collections and aggregations are either produced directly by the (mobile) applications used by citizen scientists to optimize data transfer, or result from data analysis and filtering processes.</p>
+</div>
+<div class="paragraph">
+<p>The following figure illustrates different aspects that need to be taken into consideration. Here, a citizen scientist walks from left to right and detects four occurrences of Japanese Knotweed (1). These occurrences can be modeled in different ways, depending on the sampling protocol and other potentially available information. One option is <em>DiscretePointCoverage</em> (2). Here, the extent of the coverage describes the projected path of the scientist to the plane. Occurrences of Japanese Knotweed are modeled as <em>MultiPoint</em> elements in a <em>MultiPointCoverage</em>. The second option, if the exact path of the scientist is not available or does not matter, is a simple <em>TimeSeries</em>. The third option and fourth option illustrated in the <a href="#img_AggregationPatterns">figure below</a> provide the trajectory and encode all occurrences together with the sampling path (4), or, if the sampling protocol defines to watch out for occurrences 10m left and right of the path, as a sampling polygon (5).</p>
+</div>
+<div id="img_AggregationPatterns" class="imageblock">
+<div class="content">
+<img src="images/clause-8-AggregationPatterns.png" alt="clause 8 AggregationPatterns" width="600">
+</div>
+<div class="title">Figure 9. Observation aggregation patterns</div>
+</div>
+<div class="paragraph">
+<p>The following XML examples show the encoding of the various options described above. To improve readability, the number of Japanese Knotweed occurrences has been reduced to two and all elements except for <em>featureOfInterest</em> and <em>result</em> have been omitted.</p>
+</div>
+<div class="sect2">
+<h3 id="_aggregation_encoding_discretepointcoverage"><a class="anchor" href="#_aggregation_encoding_discretepointcoverage"></a>8.1. Aggregation encoding: DiscretePointCoverage</h3>
+<div class="paragraph">
+<p>The first examples illustrates Japanese Knotweed occurrence encoded as a <em>DiscretePointCoverage</em>. This is the recommended approach if a compact serialization is intended and the number of observed properties and corresponding result elements remains stable. Two different serializations are possible. The <a href="#xmlDiscretePointCoverageGMLCov">first one below</a> uses <em>gmlcov:MultiPointCoverage</em>, the  <a href="#xmlDiscretePointCoverageSWECommon">second further below</a> uses <em>SweCommon</em> <em>DataArray</em>. Both express the same data. It requires further discussion on which one should be preferred.</p>
+</div>
+<div id="xmlDiscretePointCoverageGMLCov" class="listingblock">
+<div class="title">XML example: DiscretePointCoverage using gmlcov:MultiPointCoverage</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:featureOfInterest</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span>
+<span class="tok-c">&lt;!-- the result uses a gmlcov:MultiPointCoverage. Each observation occurrence results in a   MultiPoint:member gml:Point as part of the domain set. Values are provided as part of the rangeSet,   which is described in rangeType --&gt;</span>
+<span class="tok-nt">&lt;om:result&gt;</span>
+  <span class="tok-nt">&lt;gmlcov:MultiPointCoverage</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;c001&quot;</span><span class="tok-nt">&gt;</span>
+    <span class="tok-nt">&lt;gml:domainSet&gt;</span>
+      <span class="tok-nt">&lt;gml:MultiPoint</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;mp0001_C0042&quot;</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;http://www.opengis.net/def/crs/EPSG/0/4979&quot;</span><span class="tok-nt">&gt;</span>
+        <span class="tok-nt">&lt;gml:pointMember&gt;</span>
+          <span class="tok-nt">&lt;gml:Point</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sp1&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;gml:pos</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:ogc:def:crs:EPSG:6.8:3857&quot;</span><span class="tok-nt">&gt;</span>52.409602775074845 -4.078234501964251<span class="tok-nt">&lt;/gml:pos&gt;</span>
+          <span class="tok-nt">&lt;/gml:Point&gt;</span>
+        <span class="tok-nt">&lt;/gml:pointMember&gt;</span>
+        <span class="tok-nt">&lt;gml:pointMember&gt;</span>
+          <span class="tok-nt">&lt;gml:Point</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sp2&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;gml:pos</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:ogc:def:crs:EPSG:6.8:3857&quot;</span><span class="tok-nt">&gt;</span>53.1139046729 -3.78766989708<span class="tok-nt">&lt;/gml:pos&gt;</span>
+          <span class="tok-nt">&lt;/gml:Point&gt;</span>
+        <span class="tok-nt">&lt;/gml:pointMember&gt;</span>
+      <span class="tok-nt">&lt;/gml:MultiPoint&gt;</span>
+    <span class="tok-nt">&lt;/gml:domainSet&gt;</span>
+    <span class="tok-nt">&lt;gml:rangeSet&gt;</span>
+      <span class="tok-c">&lt;!-- Note: Order of components within a composite rangeSet value (e.g. tuples in tupleList) corresponds to document order of the rangeType elements (e.g. fields). --&gt;</span>
+      <span class="tok-nt">&lt;gml:DataBlock&gt;</span>
+        <span class="tok-nt">&lt;gml:rangeParameters/&gt;</span>
+        <span class="tok-nt">&lt;gml:tupleList</span> <span class="tok-na">decimal=</span><span class="tok-s">&quot;.&quot;</span><span class="tok-nt">&gt;</span>                       2015-11-03T15:45:41,https://dyfi.cobwebproject.eu/6265141986.jpg,1.0                       2015-11-07T13:06:48,https://dyfi.cobwebproject.eu/433ds70609.jpg,2.0                    <span class="tok-nt">&lt;/gml:tupleList&gt;</span>
+      <span class="tok-nt">&lt;/gml:DataBlock&gt;</span>
+    <span class="tok-nt">&lt;/gml:rangeSet&gt;</span>
+    <span class="tok-nt">&lt;gmlcov:rangeType&gt;</span>
+      <span class="tok-nt">&lt;swe:DataRecord&gt;</span>
+        <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;samplingTime&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;swe:Time</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://www.opengis.net/def/property/OGC/0/SamplingTime&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:label&gt;</span>Sampling Time<span class="tok-nt">&lt;/swe:label&gt;</span>
+            <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/uom/ISO-8601/0/Gregorian&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;/swe:Time&gt;</span>
+        <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;photo&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/photo&quot;</span> <span class="tok-nt">/&gt;</span>
+        <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;approxPlantHeight&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/approxPlantHeight&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">code=</span><span class="tok-s">&quot;m&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+        <span class="tok-nt">&lt;/swe:field&gt;</span>
+      <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+    <span class="tok-nt">&lt;/gmlcov:rangeType&gt;</span>
+  <span class="tok-nt">&lt;/gmlcov:MultiPointCoverage&gt;</span>
+<span class="tok-nt">&lt;/om:result&gt;</span></code></pre>
+</div>
+</div>
+<div id="xmlDiscretePointCoverageSWECommon" class="listingblock">
+<div class="title">XML example: DiscretePointCoverage using SweCommon</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:featureOfInterest</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span>
+<span class="tok-c">&lt;!-- the result uses a SweDataArray. Each observation occurrence results in a value. The value types are described in the swe:elementType --&gt;</span>
+<span class="tok-nt">&lt;om:result&gt;</span>
+    <span class="tok-nt">&lt;swe:DataArray&gt;</span>
+        <span class="tok-nt">&lt;swe:elementCount&gt;</span>
+            <span class="tok-nt">&lt;swe:Count&gt;</span>
+                <span class="tok-nt">&lt;swe:value&gt;</span>5<span class="tok-nt">&lt;/swe:value&gt;</span>
+            <span class="tok-nt">&lt;/swe:Count&gt;</span>
+        <span class="tok-nt">&lt;/swe:elementCount&gt;</span>
+        <span class="tok-nt">&lt;swe:elementType</span> <span class="tok-na">name=</span><span class="tok-s">&quot;occurrence&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:DataRecord&gt;</span>
+                <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;timestamp&quot;</span><span class="tok-nt">&gt;</span>
+                    <span class="tok-nt">&lt;swe:Time</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/phenomenonTime&quot;</span><span class="tok-nt">&gt;</span>
+                        <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/iso-8601/Gregorian+UTC&quot;</span><span class="tok-nt">/&gt;</span>
+                    <span class="tok-nt">&lt;/swe:Time&gt;</span>
+                <span class="tok-nt">&lt;/swe:field&gt;</span>
+                <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;lat&quot;</span><span class="tok-nt">&gt;</span>
+                    <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude&quot;</span> <span class="tok-na">axisID=</span><span class="tok-s">&quot;Lat&quot;</span><span class="tok-nt">&gt;</span>
+                        <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">code=</span><span class="tok-s">&quot;deg&quot;</span><span class="tok-nt">/&gt;</span>
+                    <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+                <span class="tok-nt">&lt;/swe:field&gt;</span>
+                <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;lon&quot;</span><span class="tok-nt">&gt;</span>
+                    <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude&quot;</span> <span class="tok-na">axisID=</span><span class="tok-s">&quot;Lon&quot;</span><span class="tok-nt">&gt;</span>
+                        <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">code=</span><span class="tok-s">&quot;deg&quot;</span><span class="tok-nt">/&gt;</span>
+                    <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+                <span class="tok-nt">&lt;/swe:field&gt;</span>
+                <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;photo&quot;</span><span class="tok-nt">&gt;</span>
+                    <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/photo&quot;</span> <span class="tok-nt">/&gt;</span>
+                <span class="tok-nt">&lt;/swe:field&gt;</span>
+                <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;approxPlantHeight&quot;</span><span class="tok-nt">&gt;</span>
+                    <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/approxPlantHeight&quot;</span><span class="tok-nt">&gt;</span>
+                        <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">code=</span><span class="tok-s">&quot;m&quot;</span><span class="tok-nt">/&gt;</span>
+                    <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+                <span class="tok-nt">&lt;/swe:field&gt;</span>
+            <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+        <span class="tok-nt">&lt;/swe:elementType&gt;</span>
+    <span class="tok-nt">&lt;/swe:DataArray&gt;</span>
+    <span class="tok-nt">&lt;swe:TextEncoding</span> <span class="tok-na">blockSeparator=</span><span class="tok-s">&quot;&amp;#10;&quot;</span> <span class="tok-na">tokenSeparator=</span><span class="tok-s">&quot;,&quot;</span> <span class="tok-na">decimalSeparator=</span><span class="tok-s">&quot;.&quot;</span><span class="tok-nt">/&gt;</span>
+    <span class="tok-nt">&lt;swe:values&gt;</span>
+        2015-11-03T15:45:41,52.409602775074845,-4.078234501964251,https://dyfi.cobwebproject.eu/6265141986.jpg,1.0
+        2015-11-07T13:06:48,53.1139046729,-3.78766989708,https://dyfi.cobwebproject.eu/433ds70609.jpg,2.0
+    <span class="tok-nt">&lt;/swe:values&gt;</span>
+<span class="tok-nt">&lt;/om:result&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aggregation_encoding_collection_of_observations"><a class="anchor" href="#_aggregation_encoding_collection_of_observations"></a>8.2. Aggregation encoding: Collection of observations</h3>
+<div class="paragraph">
+<p>The second examples illustrates Japanese Knotweed occurrence encoded as a collection of individual observations and thus represents a simple form of time series. This option allows to capture different number of elements per observation, e.g. at the first observation lists two species, Sphagnum moss and Bog cotton, where as the next lists Bog cotton, Common rush, and Star moss. Those varying number of observed property results are best serialized using the <em>swe:DataRecord</em> approach.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: Collection of individual observations</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tok-nt">&lt;gml:FeatureCollection</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;JapanesKnotweedFeatureCollection_1&quot;</span><span class="tok-nt">&gt;</span>
+  <span class="tok-nt">&lt;gml:description&gt;</span>Collection of Japanese Knotweed observations, Dyfie, Wales<span class="tok-nt">&lt;/gml:description&gt;</span>
+  <span class="tok-nt">&lt;gml:name&gt;</span>Observation Collection 1<span class="tok-nt">&lt;/gml:name&gt;</span>
+  <span class="tok-nt">&lt;gml:featureMember&gt;</span>
+    <span class="tok-nt">&lt;om:OM_Observation</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;_x3ebvgy65&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;gml:description&gt;</span>Swe4CitizenScience example observation from the Japanese Knotweed field sampling campaign<span class="tok-nt">&lt;/gml:description&gt;</span>
+      <span class="tok-nt">&lt;gml:name&gt;</span>Japanese Knotweed Observation, pure OM, TSML and SWECommon<span class="tok-nt">&lt;/gml:name&gt;</span>
+      <span class="tok-nt">&lt;om:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;om:phenomenonTime&gt;</span>
+        <span class="tok-nt">&lt;gml:TimeInstant</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;t001&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;gml:timePosition&gt;</span>2015-11-03T15:45:41<span class="tok-nt">&lt;/gml:timePosition&gt;</span>
+        <span class="tok-nt">&lt;/gml:TimeInstant&gt;</span>
+      <span class="tok-nt">&lt;/om:phenomenonTime&gt;</span>
+      <span class="tok-nt">&lt;om:resultTime</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;#t001&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;om:procedure&gt;</span>
+        <span class="tok-nt">&lt;tsml:ObservationProcess</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;op1-moto&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-c">&lt;!-- processType defines observation performed by human with sensor --&gt;</span>
+          <span class="tok-nt">&lt;tsml:processType</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/waterml/2.0/processType/Sensor&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-c">&lt;!-- processReference defines sampling protocol --&gt;</span>
+          <span class="tok-nt">&lt;tsml:processReference</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/JapaneseKnotweedSamplingProtocol&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-c">&lt;!-- if a sensor is used, provide the link to the sensor definition here. Ideayll, value points to SensorML definition --&gt;</span>
+          <span class="tok-nt">&lt;tsml:parameter&gt;</span>
+            <span class="tok-nt">&lt;om:NamedValue&gt;</span>
+              <span class="tok-nt">&lt;om:name</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/property/OGC/0/SensorType&quot;</span><span class="tok-nt">/&gt;</span>
+              <span class="tok-nt">&lt;om:value&gt;</span>http://www.motorola.com/XT1068<span class="tok-nt">&lt;/om:value&gt;</span>
+            <span class="tok-nt">&lt;/om:NamedValue&gt;</span>
+          <span class="tok-nt">&lt;/tsml:parameter&gt;</span>
+          <span class="tok-c">&lt;!-- operator defines the human producing this observation --&gt;</span>
+          <span class="tok-nt">&lt;tsml:operator&gt;</span>
+            <span class="tok-c">&lt;!-- anonymous observation producer from ISO 19115 --&gt;</span>
+            <span class="tok-nt">&lt;gmd:CI_ResponsibleParty&gt;</span>
+              <span class="tok-nt">&lt;gmd:role&gt;</span>
+                <span class="tok-nt">&lt;gmd:CI_RoleCode</span> <span class="tok-na">codeList=</span><span class="tok-s">&quot;http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml&quot;</span> <span class="tok-na">codeListValue=</span><span class="tok-s">&quot;resourceProvider&quot;</span><span class="tok-nt">/&gt;</span>
+              <span class="tok-nt">&lt;/gmd:role&gt;</span>
+            <span class="tok-nt">&lt;/gmd:CI_ResponsibleParty&gt;</span>
+          <span class="tok-nt">&lt;/tsml:operator&gt;</span>
+        <span class="tok-nt">&lt;/tsml:ObservationProcess&gt;</span>
+      <span class="tok-nt">&lt;/om:procedure&gt;</span>
+      <span class="tok-c">&lt;!-- namedParameter to provide the sampling campaign identifier --&gt;</span>
+      <span class="tok-nt">&lt;om:parameter&gt;</span>
+        <span class="tok-nt">&lt;om:NamedValue&gt;</span>
+          <span class="tok-nt">&lt;om:name</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/SamplingCampaignID&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;om:value&gt;</span>SnowdoniaNationalParkJapaneseKnotweedSurvey2015_Cleaned<span class="tok-nt">&lt;/om:value&gt;</span>
+        <span class="tok-nt">&lt;/om:NamedValue&gt;</span>
+      <span class="tok-nt">&lt;/om:parameter&gt;</span>
+      <span class="tok-nt">&lt;om:observedProperty</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/BogTaxa&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;om:featureOfInterest&gt;</span>
+        <span class="tok-nt">&lt;sams:SF_SpatialSamplingFeature</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sf001&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;sf:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;sf:sampledFeature</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;sams:shape&gt;</span>
+            <span class="tok-nt">&lt;gml:Point</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sp1&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;gml:pos</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:ogc:def:crs:EPSG:6.8:3857&quot;</span><span class="tok-nt">&gt;</span>52.409602775074845 -4.078234501964251<span class="tok-nt">&lt;/gml:pos&gt;</span>
+            <span class="tok-nt">&lt;/gml:Point&gt;</span>
+          <span class="tok-nt">&lt;/sams:shape&gt;</span>
+        <span class="tok-nt">&lt;/sams:SF_SpatialSamplingFeature&gt;</span>
+      <span class="tok-nt">&lt;/om:featureOfInterest&gt;</span>
+      <span class="tok-nt">&lt;om:result&gt;</span>
+        <span class="tok-nt">&lt;swe:DataRecord&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:value&gt;</span>Sphagnum moss<span class="tok-nt">&lt;/swe:value&gt;</span>
+            <span class="tok-nt">&lt;/swe:Text&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:value&gt;</span>Bog Cotton<span class="tok-nt">&lt;/swe:value&gt;</span>
+            <span class="tok-nt">&lt;/swe:Text&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+      <span class="tok-nt">&lt;/om:result&gt;</span>
+    <span class="tok-nt">&lt;/om:OM_Observation&gt;</span>
+  <span class="tok-nt">&lt;/gml:featureMember&gt;</span>
+  <span class="tok-nt">&lt;gml:featureMember&gt;</span>
+    <span class="tok-nt">&lt;om:OM_Observation</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;_vz9f5kbbe&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;om:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;om:phenomenonTime&gt;</span>
+        <span class="tok-nt">&lt;gml:TimeInstant</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;t002&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;gml:timePosition&gt;</span>2015-11-03T16:06:48.394Z<span class="tok-nt">&lt;/gml:timePosition&gt;</span>
+        <span class="tok-nt">&lt;/gml:TimeInstant&gt;</span>
+      <span class="tok-nt">&lt;/om:phenomenonTime&gt;</span>
+      <span class="tok-nt">&lt;om:resultTime</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;#t002&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-c">&lt;!-- procedure links to procedure data from observation above --&gt;</span>
+      <span class="tok-nt">&lt;om:procedure</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;#op1-moto&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-c">&lt;!-- namedParameter to provide the sampling campaign identifier --&gt;</span>
+      <span class="tok-nt">&lt;om:parameter&gt;</span>
+        <span class="tok-nt">&lt;om:NamedValue&gt;</span>
+          <span class="tok-nt">&lt;om:name</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/SamplingCampaignID&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;om:value&gt;</span>SnowdoniaNationalParkJapaneseKnotweedSurvey2015_Cleaned<span class="tok-nt">&lt;/om:value&gt;</span>
+        <span class="tok-nt">&lt;/om:NamedValue&gt;</span>
+      <span class="tok-nt">&lt;/om:parameter&gt;</span>
+      <span class="tok-nt">&lt;om:observedProperty</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/fallopia_japonica&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;om:featureOfInterest&gt;</span>
+        <span class="tok-nt">&lt;sams:SF_SpatialSamplingFeature</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sf002&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;sf:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;sf:sampledFeature</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;sams:shape&gt;</span>
+            <span class="tok-nt">&lt;gml:Point</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;sp2&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;gml:pos</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:ogc:def:crs:EPSG:6.8:3857&quot;</span><span class="tok-nt">&gt;</span>53.1139046729 -3.78766989708<span class="tok-nt">&lt;/gml:pos&gt;</span>
+            <span class="tok-nt">&lt;/gml:Point&gt;</span>
+          <span class="tok-nt">&lt;/sams:shape&gt;</span>
+        <span class="tok-nt">&lt;/sams:SF_SpatialSamplingFeature&gt;</span>
+      <span class="tok-nt">&lt;/om:featureOfInterest&gt;</span>
+      <span class="tok-nt">&lt;om:result&gt;</span>
+        <span class="tok-nt">&lt;swe:DataRecord&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:value&gt;</span>Bog Cotton<span class="tok-nt">&lt;/swe:value&gt;</span>
+            <span class="tok-nt">&lt;/swe:Text&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:value&gt;</span>Common moss<span class="tok-nt">&lt;/swe:value&gt;</span>
+            <span class="tok-nt">&lt;/swe:Text&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;taxon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:value&gt;</span>Star moss<span class="tok-nt">&lt;/swe:value&gt;</span>
+            <span class="tok-nt">&lt;/swe:Text&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+      <span class="tok-nt">&lt;/om:result&gt;</span>
+    <span class="tok-nt">&lt;/om:OM_Observation&gt;</span>
+  <span class="tok-nt">&lt;/gml:featureMember&gt;</span>
+<span class="tok-nt">&lt;/gml:FeatureCollection&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aggregation_encoding_collection_of_observations_with_track_information"><a class="anchor" href="#_aggregation_encoding_collection_of_observations_with_track_information"></a>8.3. Aggregation encoding: Collection of observations with track information</h3>
+<div class="paragraph">
+<p>The third example illustrates combined path and occurrences information. The applied pattern is <em>SpatialSamplingFeature</em> using a <em>gml:Curve</em> for trajectory information. If a corridor instead of the trajectory would be required, a <em>gml:Polygon</em> would be used instead of the <em>gml:Curve</em>. If the collection would not aggregate observations by the same citizen scientist using the same sensing device, a <em>gml:Collection</em> would be used that needs to repeat the various data sets. A full example of such a situation is given in annex XXX.</p>
+</div>
+<div class="listingblock">
+<div class="title">XML example: Sampling curve option. Here, the location of the observation is part of the <em>result</em> element</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:OM_Observation</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;_x3ebvgy65&quot;</span><span class="tok-nt">&gt;</span>
+  <span class="tok-nt">&lt;gml:description&gt;</span>Collection of Japanese Knotweed observations, Dyfie, Wales<span class="tok-nt">&lt;/gml:description&gt;</span>
+  <span class="tok-nt">&lt;gml:name&gt;</span>Observation Collection 2<span class="tok-nt">&lt;/gml:name&gt;</span>
+  <span class="tok-nt">&lt;om:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation&quot;</span><span class="tok-nt">/&gt;</span>
+  <span class="tok-nt">&lt;om:phenomenonTime&gt;</span>
+    <span class="tok-nt">&lt;gml:TimeInstant</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;t001&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;gml:timePosition&gt;</span>2015-11-03T15:45:41<span class="tok-nt">&lt;/gml:timePosition&gt;</span>
+    <span class="tok-nt">&lt;/gml:TimeInstant&gt;</span>
+  <span class="tok-nt">&lt;/om:phenomenonTime&gt;</span>
+  <span class="tok-nt">&lt;om:resultTime</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;#t001&quot;</span><span class="tok-nt">/&gt;</span>
+  <span class="tok-nt">&lt;om:procedure&gt;</span>
+    <span class="tok-nt">&lt;tsml:ObservationProcess</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;op1-moto&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-c">&lt;!-- processType defines observation performed by human with sensor --&gt;</span>
+      <span class="tok-nt">&lt;tsml:processType</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/waterml/2.0/processType/Sensor&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-c">&lt;!-- processReference defines sampling protocol --&gt;</span>
+      <span class="tok-nt">&lt;tsml:processReference</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/JapaneseKnotweedSamplingProtocol&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-c">&lt;!-- if a sensor is used, provide the link to the sensor definition here. Ideayll, value points to SensorML definition --&gt;</span>
+      <span class="tok-nt">&lt;tsml:parameter&gt;</span>
+        <span class="tok-nt">&lt;om:NamedValue&gt;</span>
+          <span class="tok-nt">&lt;om:name</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/property/OGC/0/SensorType&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;om:value&gt;</span>http://www.motorola.com/XT1068<span class="tok-nt">&lt;/om:value&gt;</span>
+        <span class="tok-nt">&lt;/om:NamedValue&gt;</span>
+      <span class="tok-nt">&lt;/tsml:parameter&gt;</span>
+      <span class="tok-c">&lt;!-- operator defines the human producing this observation --&gt;</span>
+      <span class="tok-nt">&lt;tsml:operator&gt;</span>
+        <span class="tok-c">&lt;!-- anonymous observation producer from ISO 19115 --&gt;</span>
+        <span class="tok-nt">&lt;gmd:CI_ResponsibleParty&gt;</span>
+          <span class="tok-nt">&lt;gmd:role&gt;</span>
+            <span class="tok-nt">&lt;gmd:CI_RoleCode</span> <span class="tok-na">codeList=</span><span class="tok-s">&quot;http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml&quot;</span> <span class="tok-na">codeListValue=</span><span class="tok-s">&quot;resourceProvider&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;/gmd:role&gt;</span>
+        <span class="tok-nt">&lt;/gmd:CI_ResponsibleParty&gt;</span>
+      <span class="tok-nt">&lt;/tsml:operator&gt;</span>
+    <span class="tok-nt">&lt;/tsml:ObservationProcess&gt;</span>
+  <span class="tok-nt">&lt;/om:procedure&gt;</span>
+  <span class="tok-c">&lt;!-- namedParameter to provide the sampling campaign identifier --&gt;</span>
+  <span class="tok-nt">&lt;om:parameter&gt;</span>
+    <span class="tok-nt">&lt;om:NamedValue&gt;</span>
+      <span class="tok-nt">&lt;om:name</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/SamplingCampaignID&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;om:value&gt;</span>SnowdoniaNationalParkJapaneseKnotweedSurvey2015_Cleaned<span class="tok-nt">&lt;/om:value&gt;</span>
+    <span class="tok-nt">&lt;/om:NamedValue&gt;</span>
+  <span class="tok-nt">&lt;/om:parameter&gt;</span>
+  <span class="tok-nt">&lt;om:observedProperty</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/fallopia_japonica&quot;</span><span class="tok-nt">/&gt;</span>
+  <span class="tok-nt">&lt;om:featureOfInterest&gt;</span>
+    <span class="tok-nt">&lt;sams:SF_SpatialSamplingFeature</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;ssf1&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;sf:type</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingCurve&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;sf:sampledFeature</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/Snowdonia_National_Park&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;sams:shape&gt;</span>
+        <span class="tok-nt">&lt;gml:Curve</span> <span class="tok-na">gml:id=</span><span class="tok-s">&quot;curve1&quot;</span><span class="tok-nt">&gt;</span>
+          <span class="tok-nt">&lt;gml:segments&gt;</span>
+            <span class="tok-nt">&lt;gml:LineStringSegment&gt;</span>
+              <span class="tok-nt">&lt;gml:posList</span> <span class="tok-na">srsName=</span><span class="tok-s">&quot;urn:ogc:def:crs:EPSG:6.8:3857&quot;</span><span class="tok-nt">&gt;</span>
+                52.0409627 -4.0732345
+                52.0410527 -4.0742352
+                52.0410612 -4.0752377
+                52.0411411 -4.0762878
+                52.0411547 -4.0779545
+                52.0412423 -4.0787875
+                52.0413144 -4.0795565
+                52.0414145 -4.0802447
+                52.0414477 -4.0812454
+                52.0414797 -4.0821024
+              <span class="tok-nt">&lt;/gml:posList&gt;</span>
+            <span class="tok-nt">&lt;/gml:LineStringSegment&gt;</span>
+          <span class="tok-nt">&lt;/gml:segments&gt;</span>
+        <span class="tok-nt">&lt;/gml:Curve&gt;</span>
+      <span class="tok-nt">&lt;/sams:shape&gt;</span>
+    <span class="tok-nt">&lt;/sams:SF_SpatialSamplingFeature&gt;</span>
+  <span class="tok-nt">&lt;/om:featureOfInterest&gt;</span>
+  <span class="tok-nt">&lt;om:result&gt;</span>
+    <span class="tok-nt">&lt;swe:DataArray&gt;</span>
+      <span class="tok-nt">&lt;swe:elementCount&gt;</span>
+        <span class="tok-nt">&lt;swe:Count&gt;</span>
+          <span class="tok-nt">&lt;swe:value&gt;</span>4<span class="tok-nt">&lt;/swe:value&gt;</span>
+        <span class="tok-nt">&lt;/swe:Count&gt;</span>
+      <span class="tok-nt">&lt;/swe:elementCount&gt;</span>
+      <span class="tok-nt">&lt;swe:elementType</span> <span class="tok-na">name=</span><span class="tok-s">&quot;occurrence&quot;</span><span class="tok-nt">&gt;</span>
+        <span class="tok-nt">&lt;swe:DataRecord</span> <span class="tok-na">id=</span><span class="tok-s">&quot;occurrenceRecord&quot;</span><span class="tok-nt">&gt;</span>
+          <b class="conum">(1)</b>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;lat&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude&quot;</span> <span class="tok-na">axisID=</span><span class="tok-s">&quot;Lat&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:label&gt;</span>Latitude<span class="tok-nt">&lt;/swe:label&gt;</span>
+              <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;deg&quot;</span><span class="tok-nt">/&gt;</span>
+            <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;lon&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude&quot;</span> <span class="tok-na">axisID=</span><span class="tok-s">&quot;Lon&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:label&gt;</span>Longitude<span class="tok-nt">&lt;/swe:label&gt;</span>
+              <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">xlink:href=</span><span class="tok-s">&quot;deg&quot;</span><span class="tok-nt">/&gt;</span>
+            <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;image&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/image&quot;</span><span class="tok-nt">/&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+          <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;approxPlantHeight&quot;</span><span class="tok-nt">&gt;</span>
+            <span class="tok-nt">&lt;swe:Quantity</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/approxPlantHeight&quot;</span><span class="tok-nt">&gt;</span>
+              <span class="tok-nt">&lt;swe:uom</span> <span class="tok-na">code=</span><span class="tok-s">&quot;m&quot;</span><span class="tok-nt">/&gt;</span>
+            <span class="tok-nt">&lt;/swe:Quantity&gt;</span>
+          <span class="tok-nt">&lt;/swe:field&gt;</span>
+        <span class="tok-nt">&lt;/swe:DataRecord&gt;</span>
+      <span class="tok-nt">&lt;/swe:elementType&gt;</span>
+      <span class="tok-nt">&lt;swe:encoding&gt;</span>
+        <span class="tok-nt">&lt;swe:TextEncoding</span> <span class="tok-na">blockSeparator=</span><span class="tok-s">&quot;&amp;#10;&quot;</span> <span class="tok-na">tokenSeparator=</span><span class="tok-s">&quot; &quot;</span> <span class="tok-na">decimalSeparator=</span><span class="tok-s">&quot;.&quot;</span><span class="tok-nt">/&gt;</span>
+      <span class="tok-nt">&lt;/swe:encoding&gt;</span>
+      <span class="tok-nt">&lt;swe:values&gt;</span>
+        52.0411411 -4.0762878 https://dyfi.cobwebproject.eu/5141986.jpg 1.5
+        52.0414145 -4.0802447 https://dyfi.cobwebproject.eu/12144d1.jpg 2.0
+        52.0414797 -4.0821024 https://dyfi.cobwebproject.eu/65dfe43.jpg 1.0
+      <span class="tok-nt">&lt;/swe:values&gt;</span>
+    <span class="tok-nt">&lt;/swe:DataArray&gt;</span>
+  <span class="tok-nt">&lt;/om:result&gt;</span>
+<span class="tok-nt">&lt;/om:OM_Observation&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="EnhancedInteroperability"><a class="anchor" href="#EnhancedInteroperability"></a>9. From Schemas to Data Interoperability Contracts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The use of a known schema, whether it be encoded as XML, JSON or even the classes and properties in an RDF graph, provides for some of the semantics of the data to be understood by the recipient. In general, however, it provides little or no information about a range of key issues that determine if that data can be understood, combined, or even discovered in the context of very large collections.</p>
+</div>
+<div class="paragraph">
+<p>Standard practice to date has been the provision of documents defining "Application Profiles" - for example the NetCDF [<a href="http://www.unidata.ucar.edu/software/netcdf/conventions.html" class="bare">http://www.unidata.ucar.edu/software/netcdf/conventions.html</a>]</p>
+</div>
+<div class="paragraph">
+<p>The OGC has been using the ISO 19100 approach to defining Application Schema, using an UML idiom that allows data structures to be defined, but offers no standardised way to allow data providers to further refine the rules about the data content contained. The OGC Modular Specification Policy however supports the inheritance of specifications, and the identification of specification elements (conformance classes and requirements) using URI identifiers.</p>
+</div>
+<div class="paragraph">
+<p>These processes form a backbone for defining interoperability contracts around data structures and service interfaces.
+Defining interoperability requirements of data within these constraints needs to be supported by additional mechanisms.</p>
+</div>
+<div class="paragraph">
+<p>We can summarise the design goals for such mechanisms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>reduced transaction costs</p>
+</li>
+<li>
+<p>improve interoperability between components</p>
+</li>
+<li>
+<p>improve ease of use for non-experts</p>
+</li>
+<li>
+<p>allow more auto-configuration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong><em>reduced transaction costs</em></strong> :
+Implementing interface standards requires development of software. Implementing schema standards requires mapping data structures into the internal data models of consuming systems. These have high transaction costs, borne by the experts building systems, to reduce the transaction cost of users of that software accessing such data.</p>
+</div>
+<div class="paragraph">
+<p>Interpretation of the data, and semantic translations, remain the problem of the end user, who relies on metadata or prior knowledge of data to discover, formulate appropriate requests, transform and exploit the data. With data descriptions available in large documents, at best, or relatively terse dataset metadata, identify a basis for data integration remains a high transaction cost.  Declarative machine readable statements about the conformance of data to one or more interoperability contracts reduce the transaction costs compared to interpretation of unstructured, relatively ad-hoc documents or descriptive metadata/</p>
+</div>
+<div class="paragraph">
+<p>The goal is therefore to allow data publishers to make statements about data content that can reduce the burden on the end user to discover and exploit data, through both unambiguous identification of conformance with interoperability contracts, and making as much of the aspects of those contracts machine-readable.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>improve interoperability between components</em></strong> :
+It is recognised that similar data may be structured and packaged in many different ways, yet share common elements. For example, a record of Sea Surface Temperature may be held as a gridded coverage over an area, or may be present in discrete samples combined with Salinity readings. A set of readings at different locations may be available for a time period, or the same type of data may be available as a timeseries at a given location.
+In the case of Citizen Science activities, it will be important to be able to distinguish different methodologies used to collect the same type of data, including "official data".
+The requirement is thus to be able to make statements about aspects of the data, and where that aspect is expressed in data encodings. Each aspect will this need its own identifier, and be related to the broader data set description as well as further parameters about how that aspect is implemented.
+The useful implication is that this will allow partial description of datasets, with key aspects being documented with declariative semantics, whilst allowing less important aspects, or harder to describe, to be documented in an ad-hoc fashion.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>improve ease of use for non-experts</em></strong>
+Non experts need explicit statements regarding the semantic compatibility of data for a given purpose, including simple comparability of data. The alternative is locating, accessing, reading and comparing, and ultimately citing, potentially detailed and inconsistently structured descriptive documentation.
+The design goal is for interoperability contracts to be constructed of components that can be immediately tested for comparability, using identifiers that can be de-referenced to immediately access relevant sections of documentation.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>allow more auto-configuration</em></strong>
+Data interoperability is enhanced by enforced compliance during data collection, therefore the goal is to provide sufficient guidance to data collection software configuration to automate much of that compliance and user-assistance.
+Auto-configuration of data integration processes needs to be supported, partially or wholly, by unambiguous machine-readable metadata of data, preferably carried from the data collection process.
+Conformance to structural and semantic contracts then allows auto-configuration of data utlisation through re-use of configurations for display or model assimilation.</p>
+</div>
+<div class="sect2">
+<h3 id="_current_situation_in_sdis"><a class="anchor" href="#_current_situation_in_sdis"></a>9.1. Current situation in SDIs</h3>
+<div class="paragraph">
+<p>It is noted that current Spatial Data Infrastructures based on "Publish-Find-Bind" paradigm using catalogues of static metadata records seem to lose performace as the number and heterogeneity of data sets grows. Furthermore, with increased numbers and backgrounds of end-users (such as a broad Citizen Science community) there must be expected a lower level of familiarity of users with the descriptive conventions.  Scientists working in a narrow field may be expected to know the code name of a particular instrument (e.g. MODIS Version 6 products to AρρEEARS: MCD43A1, MCD43A3, and MCD43A4 [<a href="https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12" class="bare">https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12</a>] ).</p>
+</div>
+<div class="paragraph">
+<p>We note the following areas where current practices are fragile in multi-stakeholder contexts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>keywords for discovery</p>
+</li>
+<li>
+<p>identification of observed property and methodology</p>
+</li>
+<li>
+<p>use of naming conventions in dataset/layer etc names to convey semantic meaning</p>
+</li>
+<li>
+<p>data models - identification of , declaration of, descriptions of, relationships between</p>
+</li>
+<li>
+<p>consistency of profile and data product specification documents</p>
+</li>
+<li>
+<p>discovery of datasets containing information about a particular feature</p>
+</li>
+<li>
+<p>lack of easily discoverable links between related data elements</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_current_situation_in_domain_standards"><a class="anchor" href="#_current_situation_in_domain_standards"></a>9.2. Current situation in "domain standards"</h3>
+<div class="paragraph">
+<p>Currently "communities of practice" (COP) emerge through various fora and try to address their interoperability requirements. OGC has formalised such a process whereby "Domain Working Groups" can be established, and then work within the OGC framework to generate specifications, which are then vetted for consistency with similar approaches by other domains.</p>
+</div>
+<div class="paragraph">
+<p>Domains with stakeholders willing and able to take the "long view" may thus standardise data models and service interfaces for interoperability. Applying such standards in the wider community is done by a much broader community, on shorter timescales. Such short term demands mean the payoff for developing standards is ahrd to realise, and the value of conforming to a given standard/COP requirement must be easily understood and realised.</p>
+</div>
+<div class="paragraph">
+<p>COPs also emerge out of technical sub-groups from within existing cooperations with the domain. such groups develop "fit-for-purpose" but idiosyncratics APIs and data models. (e.g. GBIF)</p>
+</div>
+<div class="paragraph">
+<p>Some COPs are created by design, through projects and programmes targetting cooperation, such as the GEOSS system, or the COBWEB project. They may be infrastructure oriented, or "network building" attempts. Participation requires conformance to a specification provided by a controlling interest. Typically the aim is that such COP may grow into "opt-in" models embracing a wider audience than the initial participants.</p>
+</div>
+<div class="paragraph">
+<p>Finally, many COP emerge through common experiences applying common tools to a problem space. User groups for particular toolsets may simply share experiences and resources, and de facto standards emerge.</p>
+</div>
+<div class="paragraph">
+<p>In the case of complex subject domains, such as Citizen Science, Earth Observation, Urban Design, it is likely that all these models of COP will co-exist. What is missing however is a well-known means for each COP to share its particular concerns in ways which can be combined, compared or even discovered.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_improving_the_status_quo"><a class="anchor" href="#_improving_the_status_quo"></a>10. Improving the status quo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We must recognise that effective COP and standards are not going to "go away" - and that leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimise future system design.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we must recognise that for each system (or COP) some aspects will be unique but many will be common between COPs. Thus, <em>granularity</em> of requirements specification must be a driving principle. In fact, this is the main shortcoming of the status quo for both SDIs and standards development.</p>
+</div>
+<div class="paragraph">
+<p>Thirdly, recognising that the same data can be packaged, transferred and access using different technologies, but still conform to an underlying semantics suggests that technical standards need to be applied to data standards, rather than the converse - where each technical standard (schema or interface) needs multiple independent specifications of the data content.</p>
+</div>
+<div class="paragraph">
+<p>At this point we can note that the trend to separating the "conceptual model" from schema encodings in the OGC standards process is addressing this concern. In addition there is an emerging supporting infrastructure of the OGC Modular Specifications Policy - and publishing components of specifications (conformance classes and requirements) as indivual Web addressible components.</p>
+</div>
+<div class="paragraph">
+<p>If we then examine, for example, the use of SWE schemas for Citizen Science, we can see that the OGC process works well to a point, at which we start to need to tie data specifications into specific schema elements, and we find ourselves with multiple possible schemas, and no standard way to define the commonality of data elements between these.</p>
+</div>
+<div class="paragraph">
+<p>The question then is whether an approach to definining data-centric requirements can be "bound" to multiple alternative technical standards, working in a lightweight process suitable for the data design lifecycle, not the software and technical standards lifecycles.</p>
+</div>
+<div class="sect2">
+<h3 id="_data_cube_approach"><a class="anchor" href="#_data_cube_approach"></a>10.1. Data Cube Approach</h3>
+<div class="paragraph">
+<p>Interoperability dimensions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>geographical dimension</p>
+</li>
+<li>
+<p>time</p>
+</li>
+<li>
+<p>thematic</p>
+</li>
+<li>
+<p>data model</p>
+</li>
+<li>
+<p>&#8230;&#8203;?</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_future_sdi_situation"><a class="anchor" href="#_future_sdi_situation"></a>10.2. Future SDI Situation</h3>
+<div class="paragraph">
+<p>aspects such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>read RDF QB dimensions to understand what vocabularies to query</p>
+</li>
+<li>
+<p>query catalog to get the URI template structures for a given vocabulary (or linked data entries?)</p>
+</li>
+<li>
+<p>interact with vocabulary to get relationships of query terms and other resources</p>
+</li>
+<li>
+<p>data access with content negotiation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_annex_a_xml_examples"><a class="anchor" href="#_annex_a_xml_examples"></a>Appendix A: Annex A - XML Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title"><strong class="big">A.1	Introduction</strong></div>
+<p>This annex provides complete XML examples covering the following sampling situations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bogs in Wales: Citizen scientists observe bogs in Western Wales.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Single.xml">Individual citizen scientist</a></p>
+</li>
+<li>
+<p>Collection of citizen scientist surveys</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Collection.xml"> uncompressed version with annotations</a> (1.6MB)</p>
+</li>
+<li>
+<p><a href="https://github.com/opengeospatial/swe4citizenscience/blob/master/ER/xml/OBT-Bogs-Collection.xml.zip">compressed version</a> (43kb)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Trees Survey: Citizen scientists observe trees in</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Appendix B: Revision History</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 2. Revision History</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Date</th>
+<th class="tableblock halign-left valign-top">Release</th>
+<th class="tableblock halign-left valign-top">Editor</th>
+<th class="tableblock halign-left valign-top">Primary clauses modified</th>
+<th class="tableblock halign-left valign-top">Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aug 10, 2016</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I. Simonis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initial version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aug 20, 2016</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I. Simonis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chap 7-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">complemented</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>Appendix C: Bibliography</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>tbd</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2016-08-23 14:36:07 CEST
+</div>
+</div>
+</body>
+</html>
