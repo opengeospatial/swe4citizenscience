@@ -121,7 +121,7 @@ This pattern of behaviours is well known from object-oriented programming, where
 Take for example the example of a lighthouse - which may be both a navigation beacon and an airspace obstruction:
 [[img_Polymorphism]]
 .Polymorphism - being different things to different users
-image::images/Polymorphism.png[width=400]
+image::images/Polymorphism.png
 
 Similary, a survey of threatened species in a local context may be part of a larger survey, but also conform, to EU standards and the Global Biodiveristy Information Facilty requirements for a biota occurence observation.
 
@@ -131,7 +131,7 @@ This multiple inheritance cannot often be applied to data structures (schema) - 
 
 [[img_Profiles]]
 .Profiles inheriting semantics, schema or service interoperability requirements
-image::images/Profiles.png[width=400]
+image::images/Profiles.png
 
 === Data Cube Approach
 
@@ -147,19 +147,19 @@ A Dimension is a more complicated concept - but one critical to an understanding
 
 [[img_Dimensions]]
 .Dimensions and data access methods
-image::images/Dimensions.png[width=400]
+image::images/Dimensions.png
 
 Note that a value of the same phonomena may be either pre-defined or measured. Dimensions, representing additional semantic knowledge about the regularity of values, are critical to understanding whether data can be aggregated or disaggregated (accessing finer detail) automatically.  Sharing common descriptions of phenomena across dimension descriptions (typically in dataset metadata) and low-level observations (per record) allows the potential relationships between details and summarised to be captured and used to discover and automate.
 
-Nesting of datacubes may be done virtually...
+Nesting of datacubes may be done virtually, using "brokering" to handle the relationships between similar terms used in comparable dimensions. A broker therefore has a set of small, discrete and testable semantic relationships to negotiate, rather than a potentially impossible task of dealing with vaguer descriptions of semantic content.
 
 [[img_Geofederation]]
 .Geofederation - a typical "virtual nesting" of datacubes
-image::images/Geofederation.png[width=400]
+image::images/Geofederation.png
 
 [[img_Brokering]]
 .Semantics enabled brokering of datasets using dimension relationships
-image::images/QB_brokering.png[width=400]
+image::images/QB_brokering.png
 
 
 There are some  common interoperability dimensions for any observational data:
@@ -170,6 +170,52 @@ There are some  common interoperability dimensions for any observational data:
 * observer
 * observationProcedure
 * data model (result type)
+
+Each of these will typically be present, and be fairly complex to properly or usefully describe, eyet each domain will have its own requirements. Thus, the choices are:
+1) no standardisation - leaving each project to develop and document its own apporach (the status quo)
+2) A standard data model, and each project describes its usage within this model. 
+3) An inheritance hierarchy of specialised descriptions
+
+Each of these puts a fair burden on both data providers and consumers. The third option however offers simplicity through encapsulation - or in other words experts can fully describe the baseline (inherited) descriptions and users can make simpler statements about specific cases. End users (consumers) gain the benefit of explicit statements about interoperability with inherited baselines.
+
+Inheritance requires infrastructure support however:
+1) a defined mechanism (aka an ontology) describing inheritance and refinement relationships. This may exploit existing ontologies such as OWL - or may require specific semantics)
+2) An approach to publishing and sharing descriptions (i.e. a registry - possible federated)
+3) Tools to perform inheritance reasoning - such as a convenience API on such a registry
+
+=== Standardising Interoperablity Profiles
+
+Following from the above discussion it is now possible to conceive of interoperability specifications as a combination of documents and machine-readable profiles, where profiles detail the structure of the data in terms of standardised dimension descriptions, the meaning of result values and metadata in terms of standardised measures, and the meaning of actual terminology used through interoperable terminology references.
+
+Tooling will be required to manage such complex structures, however the relative similarity of the components suggest that this is is feasible. Structured content management is well supported by available technologies, whereas interpretation of free textual descriptions is an unlikely prospect. 
+
+A demonstrator has been developed using the popular Django Content Management System integrated with available semantic and Linked Data tools.
+
+[[img_POC_architecture]]
+.Proof-of-concept - a modular register of interoperability specification components using the Django CMS and Linked Data technologies. 
+image::images/POC_architectue.png
+
+
+=== Terminology interoperability
+Currently standardisation of terminology is a typical concern of any community of practice, but there is no supporting mechanism for standardising the way it is published, accessed and shared. Groups such as the Marine Metadata Initiative have highlighted that such infrastructure is a necessary component of a future architecture. GML supports dictionaries.  Many groups such as GBIF, INSPIRE publish terminology via ad-hoc services/
+
+The RDF-QB implementation of the Datacube concept exploits another potential standard: SKOS - however SKOS is a data model and does not specify access methods for distributed resources. Activities such as SISSVoc define an API for accessing SKOS resources, however it has many more features that perhaps needed and has no formal standards status.
+
+Again, there are many possible choices for handling the heterogeneity of terminology resources:
+1) leave it to the user (the status quo)
+2) Develop a standardised approach and promote its adoption by data publishers
+3) Develop software capable of bridging across all the possible means of publishing vocabularies
+4) Have COP develop brokering solutions to standardise access for its own community.
+
+It is difficult to imagine widespread adoption of a standard overnight, however a COP such as SWE4CS, working within the framework of OGC and W3C liaison could potentially demonstrate the value of such an approach. This implies that #4 is a necessary precursor to a standardised approach.
+
+
+A COP can therefore take on a mixed model:
+1) publishing using a "candidate standard" its own managed terminology
+2) re-publish terms managed by others, needed by the community, but not directly accessible
+3) build software to "wrap" online, but non-standardised terminology resources
+4) promote development of standards by publishing its Use Cases etc in appropriate fora.
+
 
 
 === Future SDI Situation
@@ -182,3 +228,11 @@ Specifically, the notion of "service endpoints" can be updated to include specif
 * query catalog to get the URI template structures for a given vocabulary (or linked data entries?)
 * interact with vocabulary to get relationships of query terms and other resources
 * data access with content negotiation
+
+=== Next steps
+
+These recommendations cover many of the aspects of the current unsatisfactory approach to data publishing, however they leverage many existing standards components not familiar to the wider community, and will require additional elements and guidances to be developed and tested. 
+There is enough to start making the most important aspects interoperable, using particularly the SKOS and Datacube standards as sub-components of an extended metadata architecture. Experimentation is required on how to best manage and combine these elements, and the potential for exploitation in different parts of the data supply chain.
+These approaches can be applied immediately to improve the consistency and support stakeholders using off-the-shelf data models and service interfaces such as the SWE standards suite. 
+Semantic interoperability profiles can however be applied to any data structures and service interfaces, including specialised approaches (such as timeseries coverages), streaming data - and future suites of technical standards. 
+
