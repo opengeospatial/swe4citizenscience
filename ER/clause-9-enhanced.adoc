@@ -119,7 +119,9 @@ In addition to making it easier for data designers, collectors and aggregators, 
 This pattern of behaviours is well known from object-oriented programming, where multiple inheritance (or "polymorphism") is used to declare what a given object supports.
 
 Take for example the example of a lighthouse - which may be both a navigation beacon and an airspace obstruction:
-[img]
+[[img_Polymorphism]]
+.Polymorphism - being different things to different users
+image::images/Polymorphism.png[width=400]
 
 Similary, a survey of threatened species in a local context may be part of a larger survey, but also conform, to EU standards and the Global Biodiveristy Information Facilty requirements for a biota occurence observation.
 
@@ -127,7 +129,9 @@ If survey designers can determine the set of things that the survey data should 
 
 This multiple inheritance cannot often be applied to data structures (schema) - but it can be applied to the data semantics. Thus we can envisage a pattern where data semantics profiles of common conceptual models can be combined, then applied to a target schema in a final step to define how the data is actually structured.  
 
-[img]
+[[img_Profiles]]
+.Profiles inheriting semantics, schema or service interoperability requirements
+image::images/Profiles.png[width=400]
 
 === Data Cube Approach
 
@@ -141,15 +145,32 @@ Measures and Observations from the SWE world are obviously closely related.
 
 A Dimension is a more complicated concept - but one critical to an understanding of both data semantics and structure. Dimensions are values for phenomena that may be used to identify a particular set of measures - they are the way data is organised. For example, if a dataset is defined to have measures for something every year, then the values of year are fixed to a value which can be known in advance, and hence its possible to ask for "coffees sold in 2016".  In this example, we can see that the set of coffee shops may be a dimension - hence we can ask for "coffees sold in Shop1 in 2016", or a "slice" - "coffees sold per shop in 2016", "coffees sold per year in Shop1"
 
+[[img_Dimensions]]
+.Dimensions and data access methods
+image::images/Dimensions.png[width=400]
+
 Note that a value of the same phonomena may be either pre-defined or measured. Dimensions, representing additional semantic knowledge about the regularity of values, are critical to understanding whether data can be aggregated or disaggregated (accessing finer detail) automatically.  Sharing common descriptions of phenomena across dimension descriptions (typically in dataset metadata) and low-level observations (per record) allows the potential relationships between details and summarised to be captured and used to discover and automate.
 
-There are some nteroperability dimensions:
+Nesting of datacubes may be done virtually...
 
-* geographical dimension
-* time
-* thematic
-* data model
-* ...?
+[[img_Geofederation]]
+.Geofederation - a typical "virtual nesting" of datacubes
+image::images/Geofederation.png[width=400]
+
+[[img_Brokering]]
+.Semantics enabled brokering of datasets using dimension relationships
+image::images/QB_brokering.png[width=400]
+
+
+There are some  common interoperability dimensions for any observational data:
+
+* geography (feature or grids) (locations may be Measures!)
+* observation time
+* observedProperty
+* observer
+* observationProcedure
+* data model (result type)
+
 
 === Future SDI Situation
 
