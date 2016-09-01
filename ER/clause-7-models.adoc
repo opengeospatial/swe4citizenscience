@@ -210,6 +210,7 @@ The following example illustrates a survey with existing trajectory data.
 ==== result
 The _result_ property provides the actual observation result data. _om:result_ points to a generic placeholder _Any_, which has been further specialized in the citizen science profile to _SweCommon_ _DataRecord_ to encode all result data. For a single observation, this is straight forward and illustrated in the XML example below.
 
+[[code_OMResult]]
 [source,xml]
 .XML example: result property defining topography type, a photo, and three plant species
 ----
