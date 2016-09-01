@@ -3,15 +3,33 @@
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard [OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
 === Citizen Science
- tbd
+ The collection and analysis of data relating to the natural world by members of the general public, typically as part of a collaborative project with professional scientists
+
+=== Interoperability Contract
+ Set of agreements to facilitate interoperability between parties
+
+===	Semantics
+ The meaning of expressions
+
+===	Syntax
+ Way of expressing the meaning
 
 
 == Conventions
 
 ===	Abbreviated terms
 
-* API	Application Program Interface
-* COTS	Commercial Off The Shelf
+* API	https://en.wikipedia.org/wiki/Application_programming_interface[Application Program Interface]
+* LDP   https://www.w3.org/TR/ldp/[Linked Data Platform]
+* OWL	https://www.w3.org/OWL/[Web Ontology Language]
+* OWL-S http://www.w3.org/Submission/OWL-S/[OWL-S: Semantic Markup for Web Services]
+* RDF   https://www.w3.org/RDF/[Resources Description Format]
+* RDF-QB https://www.w3.org/TR/vocab-data-cube/[RDF Data Cube]
+* SISSVoc http://www.sissvoc.info[Spatial Information Services Stack Vocabulary Service]
+* SWE http://www.opengeospatial.org/domain/swe[Sensor Web Enablement]
+* SKOS  https://www.w3.org/2004/02/skos/[Simple Knowledge Organisation System]
+* UML http://www.uml.org[Unified Modeling Language]
+* VoID  https://www.w3.org/TR/void/[Vocabulary of Interlinked Datasets]
 
 ===	UML notation
 Most diagrams that appear in this standard are presented using the Unified Modeling Language (UML) static structure diagram, as described in Subclause 5.2 of [OGC 06-121r9].
