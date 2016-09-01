@@ -1,4 +1,3 @@
 [appendix]
 = Bibliography
-
-* tbd
+This document provides all references directly in the text in the form of hyperlinks. 

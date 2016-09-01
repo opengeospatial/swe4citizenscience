@@ -7,4 +7,6 @@
 |Date |Release |Editor | Primary clauses modified |Descriptions
 |Aug 10, 2016 | 0.1 | I. Simonis |all |initial version
 |Aug 20, 2016 | 0.2 | I. Simonis |chap 7-9 | complemented
+|Aug 30, 2016 | 0.3 | R. Atkinson |chap 9 | complemented
+|Sep 01, 2016 | 1.0 | I. Simonis |all | final version 
 |====================
