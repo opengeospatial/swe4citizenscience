@@ -121,7 +121,7 @@ This pattern of behaviours is well known from object-oriented programming, where
 Take for example the example of a lighthouse - which may be both a navigation beacon and an airspace obstruction:
 [[img_Polymorphism]]
 .Polymorphism - being different things to different users
-image::images/Polymorphism.png
+image::images/Polymorphism.png[width=700]
 
 Similary, a survey of threatened species in a local context may be part of a larger survey, but also conform, to EU standards and the Global Biodiveristy Information Facilty requirements for a biota occurence observation.
 
@@ -131,13 +131,13 @@ This multiple inheritance cannot often be applied to data structures (schema) - 
 
 [[img_Profiles]]
 .Profiles inheriting semantics, schema or service interoperability requirements
-image::images/Profiles.png
+image::images/Profiles.png[width=700]
 
-=== Data Cube Approach
+=== "Data Cube" Approach
 
-The problem of defining data meaning is well known in the broader statistics community, and we can borrow from that experience. 
+The problem of defining data meaning is well known in the broader statistics community, and we can borrow from that experience. The https://www.w3.org/2015/spatial/wiki/Main_Page[Spatial Data on the Web Working Group] is currently exploring definition of spatial concerns using the https://www.w3.org/TR/vocab-data-cube/[W3C's RDF Datacube recommendation]
 
-One approach is to break the idea of a data structure down,  and recognise two key components that can potentially be machine-interpreted: "Measures" and "Dimensions". 
+The "Datacube" approach is to break the idea of a data structure down,  and recognise two key components that can potentially be machine-interpreted: "Measures" and "Dimensions".  This information extends the options of defining the data schema, and its general extents, into far more specific metadata about the semantics of the data itself. In the case of RDF data, RDF-QB defines the semantics of data properties found in the data itself. Applying the same meta-model of a datacube to other data encodings (such as XML, JSON or gridded coverages) will require additional information to identify the structural elements such descriptions apply to. The opportunity here is a data model that exists in a published standard, and the absence of competing equivalent approaches for non-RDF encodings. Using RDF to describe metadata for such data provides an elegant, extensible solution, with suitable components pre-defined.
 
 A Measure is a value recorded in the data - either as a result or as metadata - such as the time something happened, the weight of coffee in a sack, the number of cups sold per shop. Things we need to know about Measures are what is being measured, the datatype used, the unit of measure, precision or resolution, any reference system (such as the WGS84 coordinate system used in GPS measures), and the procedures.
 
@@ -147,7 +147,7 @@ A Dimension is a more complicated concept - but one critical to an understanding
 
 [[img_Dimensions]]
 .Dimensions and data access methods
-image::images/Dimensions.png
+image::images/Dimensions.png[width=700]
 
 Note that a value of the same phonomena may be either pre-defined or measured. Dimensions, representing additional semantic knowledge about the regularity of values, are critical to understanding whether data can be aggregated or disaggregated (accessing finer detail) automatically.  Sharing common descriptions of phenomena across dimension descriptions (typically in dataset metadata) and low-level observations (per record) allows the potential relationships between details and summarised to be captured and used to discover and automate.
 
@@ -155,11 +155,11 @@ Nesting of datacubes may be done virtually, using "brokering" to handle the rela
 
 [[img_Geofederation]]
 .Geofederation - a typical "virtual nesting" of datacubes
-image::images/Geofederation.png
+image::images/Geofederation.png[width=700]
 
 [[img_Brokering]]
 .Semantics enabled brokering of datasets using dimension relationships
-image::images/QB_brokering.png
+image::images/QB_brokering.png[width=700]
 
 
 There are some  common interoperability dimensions for any observational data:
@@ -189,11 +189,11 @@ Following from the above discussion it is now possible to conceive of interopera
 
 Tooling will be required to manage such complex structures, however the relative similarity of the components suggest that this is is feasible. Structured content management is well supported by available technologies, whereas interpretation of free textual descriptions is an unlikely prospect. 
 
-A demonstrator has been developed using the popular Django Content Management System integrated with available semantic and Linked Data tools.
+A demonstrator is being developed using the popular Django Content Management System integrated with available semantic and Linked Data tools. Link to be inserted here..
 
 [[img_POC_architecture]]
 .Proof-of-concept - a modular register of interoperability specification components using the Django CMS and Linked Data technologies. 
-image::images/POC_architectue.png
+image::images/POC_architectue.png[width=700]
 
 
 === Terminology interoperability
