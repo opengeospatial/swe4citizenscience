@@ -610,16 +610,27 @@ To obtain additional rights of use, visit <a href="http://www.opengeospatial.org
 </li>
 <li><a href="#EnhancedInteroperability">9. From Schemas to Data Interoperability Contracts</a>
 <ul class="sectlevel2">
-<li><a href="#_current_situation_in_sdis">9.1. Current situation in SDIs</a></li>
-<li><a href="#_current_situation_in_domain_standards">9.2. Current situation in "domain standards"</a></li>
+<li><a href="#_design_goals_of_interoperability_contracts">9.1. Design Goals of Interoperability Contracts</a>
+<ul class="sectlevel3">
+<li><a href="#_reduced_transaction_costs">9.1.1. Reduced Transaction Costs</a></li>
+<li><a href="#_improve_interoperability_between_components">9.1.2. Improve Interoperability Between Components</a></li>
+<li><a href="#_improve_ease_of_use_for_non_experts">9.1.3. Improve Ease of Use for Non-Experts</a></li>
+<li><a href="#_allow_more_auto_configuration">9.1.4. Allow More Auto-Configuration</a></li>
 </ul>
 </li>
-<li><a href="#_improving_the_status_quo">10. Improving the status quo</a>
-<ul class="sectlevel2">
-<li><a href="#_data_cube_approach">10.1. Data Cube Approach</a></li>
-<li><a href="#_future_sdi_situation">10.2. Future SDI Situation</a></li>
+<li><a href="#_current_situation_in_sdis">9.2. Current Situation in SDIs</a></li>
+<li><a href="#_current_situation_in_domain_standards">9.3. Current Situation in "Domain Standards"</a></li>
+<li><a href="#_improving_the_status_quo">9.4. Improving the Status Quo</a></li>
+<li><a href="#_making_data_specifications_easier_more_scalable">9.5. Making Data Specifications Easier (More Scalable)</a></li>
+<li><a href="#_making_data_semantically_richer">9.6. Making Data Semantically Richer</a></li>
+<li><a href="#__data_cube_approach">9.7. "Data Cube" Approach</a></li>
+<li><a href="#_standardizing_interoperability_profiles">9.8. Standardizing Interoperability Profiles</a></li>
+<li><a href="#_terminology_interoperability">9.9. Terminology Interoperability</a></li>
+<li><a href="#_future_sdi_situation">9.10. Future SDI Situation</a></li>
+<li><a href="#_next_steps">9.11. Next Steps</a></li>
 </ul>
 </li>
+<li><a href="#SupportThisWork">10. Supporting this Work</a></li>
 <li><a href="#_annex_a_xml_examples">Appendix A: Annex A - XML Examples</a></li>
 <li><a href="#_revision_history">Appendix B: Revision History</a></li>
 <li><a href="#_bibliography">Appendix C: Bibliography</a></li>
@@ -1215,7 +1226,7 @@ This report shows a number of hyperlinks in the XML examples. Not all of these h
 <div class="paragraph">
 <p>The <em>result</em> property provides the actual observation result data. <em>om:result</em> points to a generic placeholder <em>Any</em>, which has been further specialized in the citizen science profile to <em>SweCommon</em> <em>DataRecord</em> to encode all result data. For a single observation, this is straight forward and illustrated in the XML example below.</p>
 </div>
-<div class="listingblock">
+<div id="code_OMResult" class="listingblock">
 <div class="title">XML example: result property defining topography type, a photo, and three plant species</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:result&gt;</span>
@@ -1662,20 +1673,46 @@ In principle, O&amp;M supports associations to other observations. This is - in 
 <h2 id="EnhancedInteroperability"><a class="anchor" href="#EnhancedInteroperability"></a>9. From Schemas to Data Interoperability Contracts</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The use of a known schema, whether it be encoded as XML, JSON or even the classes and properties in an RDF graph, provides for some of the semantics of the data to be understood by the recipient. In general, however, it provides little or no information about a range of key issues that determine if that data can be understood, combined, or even discovered in the context of very large collections.</p>
+<p>The use of a known schema, whether it be encoded as XML, JSON or even the classes and properties in an RDF graph, provides for some of the semantics of the data to be understood by the recipient. In general, however, it provides little or no information about a range of key issues that determine if that data can be understood, combined, or even discovered in the context of very large collections. As an example: See the value definition attributes in the <a href="#code_OMResult">SweCommon encoded O&amp;M result model</a>, illustrated in the code-snipped <a href="#code_OMResultDefinitions">below</a>.</p>
+</div>
+<div id="code_OMResultDefinitions" class="listingblock">
+<div class="title">XML example: field definition elements to provide semantics</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;om:result&gt;</span>
+    <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;topographyType&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/topographyType&quot;</span><span class="tok-nt">&gt;</span><b class="conum">(1)</b>
+        <span class="tok-nt">&lt;swe:value&gt;</span>Mountain<span class="tok-nt">&lt;/swe:value&gt;</span>
+      <span class="tok-nt">&lt;/swe:Text&gt;</span>
+    <span class="tok-nt">&lt;/swe:field&gt;</span>
+    <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;photo&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;https://dyfi.cobwebproject.eu/skos/photo&quot;</span><span class="tok-nt">&gt;</span><b class="conum">(2)</b>
+        <span class="tok-nt">&lt;swe:value&gt;</span>https://dyfi.cobwebproject.eu/cffd560330.jpg<span class="tok-nt">&lt;/swe:value&gt;</span>
+      <span class="tok-nt">&lt;/swe:Text&gt;</span>
+    <span class="tok-nt">&lt;/swe:field&gt;</span>
+    <span class="tok-nt">&lt;swe:field</span> <span class="tok-na">name=</span><span class="tok-s">&quot;plant&quot;</span><span class="tok-nt">&gt;</span>
+      <span class="tok-nt">&lt;swe:Text</span> <span class="tok-na">definition=</span><span class="tok-s">&quot;http://rs.tdwg.org/dwc/terms/index.htm#Taxon&quot;</span><span class="tok-nt">&gt;</span><b class="conum">(3)</b>
+        <span class="tok-nt">&lt;swe:value&gt;</span>Bog cotton<span class="tok-nt">&lt;/swe:value&gt;</span>
+      <span class="tok-nt">&lt;/swe:Text&gt;</span>
+    <span class="tok-err">&lt;</span>/swe:field name=&quot;plant&quot;&gt;
+<span class="tok-nt">&lt;/om:result&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Standard practice to date has been the provision of documents defining "Application Profiles" - for example the NetCDF [<a href="http://www.unidata.ucar.edu/software/netcdf/conventions.html" class="bare">http://www.unidata.ucar.edu/software/netcdf/conventions.html</a>]</p>
+<p>A client can follow the links to the definitions (1), (2), and (3), but it is unclear what the client will find there. In addition, if the user wants to search for specific topography types (1), the search terms are unknown. Same applies to super-classes, say we want to find all photos (2) and videos. Can we do that? Is (2) a child-class of a super class called <em>media</em> or similar? The same issues arise for survey designers. How can they constrain the range of allowed values? How can the survey designer ensure that whatever term is used fosters for later discovery using super-classes and similar constructs?</p>
 </div>
 <div class="paragraph">
-<p>The OGC has been using the ISO 19100 approach to defining Application Schema, using an UML idiom that allows data structures to be defined, but offers no standardised way to allow data providers to further refine the rules about the data content contained. The OGC Modular Specification Policy however supports the inheritance of specifications, and the identification of specification elements (conformance classes and requirements) using URI identifiers.</p>
+<p>Standard practice to date has been the provision of documents defining "Application Profiles" - for example <a href="http://www.unidata.ucar.edu/software/netcdf/conventions.html" class="bare">http://www.unidata.ucar.edu/software/netcdf/conventions.html</a> NetCDF]. These profiles, often in combination with additional text documentation, provide the necessary level of detail (or refer to other profiles that they include or are derived from, which makes the process more complicated).</p>
 </div>
 <div class="paragraph">
-<p>These processes form a backbone for defining interoperability contracts around data structures and service interfaces.
-Defining interoperability requirements of data within these constraints needs to be supported by additional mechanisms.</p>
+<p>The OGC has been using the ISO 19100 approach to defining Application Schema, using an UML idiom that allows data structures to be defined, but offers no standardized way to allow data providers to further refine the rules about the data content contained. The OGC Modular Specification Policy however supports the inheritance of specifications, and the identification of specification elements (conformance classes and requirements) using URI identifiers.</p>
 </div>
 <div class="paragraph">
-<p>We can summarise the design goals for such mechanisms:</p>
+<p>These processes form a backbone for defining interoperability contracts around data structures and service interfaces. Defining interoperability requirements of data within these constraints needs to be supported by additional mechanisms.</p>
+</div>
+<div class="sect2">
+<h3 id="_design_goals_of_interoperability_contracts"><a class="anchor" href="#_design_goals_of_interoperability_contracts"></a>9.1. Design Goals of Interoperability Contracts</h3>
+<div class="paragraph">
+<p>We can summarize the design goals for such mechanisms:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1693,38 +1730,54 @@ Defining interoperability requirements of data within these constraints needs to
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="_reduced_transaction_costs"><a class="anchor" href="#_reduced_transaction_costs"></a>9.1.1. Reduced Transaction Costs</h4>
 <div class="paragraph">
-<p><strong><em>reduced transaction costs</em></strong> :
-Implementing interface standards requires development of software. Implementing schema standards requires mapping data structures into the internal data models of consuming systems. These have high transaction costs, borne by the experts building systems, to reduce the transaction cost of users of that software accessing such data.</p>
+<p>Implementing interface standards requires development of software. Implementing schema standards requires mapping data structures into the internal data models of consuming systems. These have high transaction costs, borne by the experts building systems, to reduce the transaction cost of users of that software accessing such data.</p>
 </div>
 <div class="paragraph">
-<p>Interpretation of the data, and semantic translations, remain the problem of the end user, who relies on metadata or prior knowledge of data to discover, formulate appropriate requests, transform and exploit the data. With data descriptions available in large documents, at best, or relatively terse dataset metadata, identify a basis for data integration remains a high transaction cost.  Declarative machine readable statements about the conformance of data to one or more interoperability contracts reduce the transaction costs compared to interpretation of unstructured, relatively ad-hoc documents or descriptive metadata/</p>
+<p>Interpretation of the data, and semantic translations, remain the problem of the end user, who relies on metadata or prior knowledge of data to discover, formulate appropriate requests, transform and exploit the data. With data descriptions available in large documents, at best, or relatively terse dataset metadata, identify a basis for data integration remains a high transaction cost. Declarative machine readable statements about the conformance of data to one or more interoperability contracts reduce the transaction costs compared to interpretation of unstructured, relatively ad-hoc documents or descriptive metadata.</p>
 </div>
 <div class="paragraph">
 <p>The goal is therefore to allow data publishers to make statements about data content that can reduce the burden on the end user to discover and exploit data, through both unambiguous identification of conformance with interoperability contracts, and making as much of the aspects of those contracts machine-readable.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_improve_interoperability_between_components"><a class="anchor" href="#_improve_interoperability_between_components"></a>9.1.2. Improve Interoperability Between Components</h4>
 <div class="paragraph">
-<p><strong><em>improve interoperability between components</em></strong> :
-It is recognised that similar data may be structured and packaged in many different ways, yet share common elements. For example, a record of Sea Surface Temperature may be held as a gridded coverage over an area, or may be present in discrete samples combined with Salinity readings. A set of readings at different locations may be available for a time period, or the same type of data may be available as a timeseries at a given location.
-In the case of Citizen Science activities, it will be important to be able to distinguish different methodologies used to collect the same type of data, including "official data".
-The requirement is thus to be able to make statements about aspects of the data, and where that aspect is expressed in data encodings. Each aspect will this need its own identifier, and be related to the broader data set description as well as further parameters about how that aspect is implemented.
-The useful implication is that this will allow partial description of datasets, with key aspects being documented with declariative semantics, whilst allowing less important aspects, or harder to describe, to be documented in an ad-hoc fashion.</p>
+<p>It is recognized that similar data may be structured and packaged in many different ways, yet share common elements. For example, a record of <em>Sea Surface Temperature</em> may be held as a gridded coverage over an area, or may be present in discrete samples combined with <em>Salinity</em> readings. A set of readings at different locations may be available for a time period, or the same type of data may be available as a timeseries at a given location.</p>
 </div>
 <div class="paragraph">
-<p><strong><em>improve ease of use for non-experts</em></strong>
-Non experts need explicit statements regarding the semantic compatibility of data for a given purpose, including simple comparability of data. The alternative is locating, accessing, reading and comparing, and ultimately citing, potentially detailed and inconsistently structured descriptive documentation.
-The design goal is for interoperability contracts to be constructed of components that can be immediately tested for comparability, using identifiers that can be de-referenced to immediately access relevant sections of documentation.</p>
+<p>In the case of Citizen Science activities, it will be important to be able to distinguish different methodologies used to collect the same type of data, including "official data". The requirement is thus to be able to make statements about aspects of the data, and where that aspect is expressed in data encodings. Each aspect will need its own identifier, and be related to the broader data set description as well as further parameters about how that aspect is implemented.</p>
 </div>
 <div class="paragraph">
-<p><strong><em>allow more auto-configuration</em></strong>
-Data interoperability is enhanced by enforced compliance during data collection, therefore the goal is to provide sufficient guidance to data collection software configuration to automate much of that compliance and user-assistance.
-Auto-configuration of data integration processes needs to be supported, partially or wholly, by unambiguous machine-readable metadata of data, preferably carried from the data collection process.
-Conformance to structural and semantic contracts then allows auto-configuration of data utlisation through re-use of configurations for display or model assimilation.</p>
+<p>The useful implication is that this will allow partial description of datasets, with key aspects being documented with declarative semantics, whilst allowing less important aspects, or harder to describe, to be documented in an ad-hoc fashion.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_improve_ease_of_use_for_non_experts"><a class="anchor" href="#_improve_ease_of_use_for_non_experts"></a>9.1.3. Improve Ease of Use for Non-Experts</h4>
+<div class="paragraph">
+<p>Non experts need explicit statements regarding the semantic compatibility of data for a given purpose, including simple comparability of data. The alternative is locating, accessing, reading and comparing, and ultimately citing, potentially detailed and inconsistently structured descriptive documentation.</p>
+</div>
+<div class="paragraph">
+<p>The design goal is for interoperability contracts to be constructed of components that can be immediately tested for comparability, using identifiers that can be de-referenced to immediately access relevant sections of documentation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_allow_more_auto_configuration"><a class="anchor" href="#_allow_more_auto_configuration"></a>9.1.4. Allow More Auto-Configuration</h4>
+<div class="paragraph">
+<p>Data interoperability is enhanced by enforced compliance during data collection, therefore the goal is to provide sufficient guidance to data collection software configuration to automate much of that compliance and user-assistance.</p>
+</div>
+<div class="paragraph">
+<p>Auto-configuration of data integration processes needs to be supported, partially or wholly, by unambiguous machine-readable metadata of data, preferably carried from the data collection process.
+Conformance to structural and semantic contracts then allows auto-configuration of data utilization through re-use of configurations for display or model assimilation.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_current_situation_in_sdis"><a class="anchor" href="#_current_situation_in_sdis"></a>9.1. Current situation in SDIs</h3>
+<h3 id="_current_situation_in_sdis"><a class="anchor" href="#_current_situation_in_sdis"></a>9.2. Current Situation in SDIs</h3>
 <div class="paragraph">
-<p>It is noted that current Spatial Data Infrastructures based on "Publish-Find-Bind" paradigm using catalogues of static metadata records seem to lose performace as the number and heterogeneity of data sets grows. Furthermore, with increased numbers and backgrounds of end-users (such as a broad Citizen Science community) there must be expected a lower level of familiarity of users with the descriptive conventions.  Scientists working in a narrow field may be expected to know the code name of a particular instrument (e.g. MODIS Version 6 products to AρρEEARS: MCD43A1, MCD43A3, and MCD43A4 [<a href="https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12" class="bare">https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12</a>] ).</p>
+<p>It is noted that current Spatial Data Infrastructures based on the <em>Publish-Find-Bind</em> paradigm using catalogues of static metadata records seem to lose performance as the number and heterogeneity of data sets grows. Furthermore, with increased numbers and backgrounds of end-users (such as a broad Citizen Science community) there must be expected a lower level of familiarity of users with the descriptive conventions. Scientists working in a narrow field may be expected to know the code name of a particular instrument (e.g. MODIS Version 6 products to AρρEEARS: MCD43A1, MCD43A3, and MCD43A4 <a href="https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12">as examples</a>).</p>
 </div>
 <div class="paragraph">
 <p>We note the following areas where current practices are fragile in multi-stakeholder contexts:</p>
@@ -1756,18 +1809,18 @@ Conformance to structural and semantic contracts then allows auto-configuration 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_current_situation_in_domain_standards"><a class="anchor" href="#_current_situation_in_domain_standards"></a>9.2. Current situation in "domain standards"</h3>
+<h3 id="_current_situation_in_domain_standards"><a class="anchor" href="#_current_situation_in_domain_standards"></a>9.3. Current Situation in "Domain Standards"</h3>
 <div class="paragraph">
-<p>Currently "communities of practice" (COP) emerge through various fora and try to address their interoperability requirements. OGC has formalised such a process whereby "Domain Working Groups" can be established, and then work within the OGC framework to generate specifications, which are then vetted for consistency with similar approaches by other domains.</p>
+<p>Currently "communities of practice" (COP) emerge through various fora and try to address their interoperability requirements. OGC has formalized such a process whereby "Domain Working Groups" can be established, and then work within the OGC framework to generate specifications, which are then vetted for consistency with similar approaches by other domains.</p>
 </div>
 <div class="paragraph">
-<p>Domains with stakeholders willing and able to take the "long view" may thus standardise data models and service interfaces for interoperability. Applying such standards in the wider community is done by a much broader community, on shorter timescales. Such short term demands mean the payoff for developing standards is ahrd to realise, and the value of conforming to a given standard/COP requirement must be easily understood and realised.</p>
+<p>Domains with stakeholders willing and able to take the "long view" may thus standardize data models and service interfaces for interoperability. Applying such standards in the wider community is done by a much broader community, on shorter timescales. Such short term demands mean the payoff for developing standards is hard to realize, and the value of conforming to a given standard/COP requirement must be easily understood and realized.</p>
 </div>
 <div class="paragraph">
-<p>COPs also emerge out of technical sub-groups from within existing cooperations with the domain. such groups develop "fit-for-purpose" but idiosyncratics APIs and data models. (e.g. GBIF)</p>
+<p>COPs also emerge out of technical sub-groups from within existing cooperations with the domain. Such groups develop "fit-for-purpose" but idiosyncratic APIs and data models (e.g. GBIF).</p>
 </div>
 <div class="paragraph">
-<p>Some COPs are created by design, through projects and programmes targetting cooperation, such as the GEOSS system, or the COBWEB project. They may be infrastructure oriented, or "network building" attempts. Participation requires conformance to a specification provided by a controlling interest. Typically the aim is that such COP may grow into "opt-in" models embracing a wider audience than the initial participants.</p>
+<p>Some COPs are created by design, through projects and programs targeting cooperation, such as the GEOSS system, or the COBWEB project. They may be infrastructure oriented, or "network building" attempts. Participation requires conformance to a specification provided by a controlling interest. Typically the aim is that such COP may grow into "opt-in" models embracing a wider audience than the initial participants.</p>
 </div>
 <div class="paragraph">
 <p>Finally, many COP emerge through common experiences applying common tools to a problem space. User groups for particular toolsets may simply share experiences and resources, and de facto standards emerge.</p>
@@ -1776,58 +1829,321 @@ Conformance to structural and semantic contracts then allows auto-configuration 
 <p>In the case of complex subject domains, such as Citizen Science, Earth Observation, Urban Design, it is likely that all these models of COP will co-exist. What is missing however is a well-known means for each COP to share its particular concerns in ways which can be combined, compared or even discovered.</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_improving_the_status_quo"><a class="anchor" href="#_improving_the_status_quo"></a>10. Improving the status quo</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_improving_the_status_quo"><a class="anchor" href="#_improving_the_status_quo"></a>9.4. Improving the Status Quo</h3>
 <div class="paragraph">
-<p>We must recognise that effective COP and standards are not going to "go away" - and that leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimise future system design.</p>
+<p>We must recognize that effective COP and standards are not going to "go away" - and that leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimize future system design.</p>
 </div>
 <div class="paragraph">
-<p>Secondly, we must recognise that for each system (or COP) some aspects will be unique but many will be common between COPs. Thus, <em>granularity</em> of requirements specification must be a driving principle. In fact, this is the main shortcoming of the status quo for both SDIs and standards development.</p>
+<p>Secondly, we must recognize that for each system (or COP) some aspects will be unique but many will be common between COPs. Thus, <em>granularity</em> of requirements specification must be a driving principle. In fact, this is the main shortcoming of the status quo for both SDIs and standards development.</p>
 </div>
 <div class="paragraph">
-<p>Thirdly, recognising that the same data can be packaged, transferred and access using different technologies, but still conform to an underlying semantics suggests that technical standards need to be applied to data standards, rather than the converse - where each technical standard (schema or interface) needs multiple independent specifications of the data content.</p>
+<p>Thirdly, recognizing that the same data can be packaged, transferred and accessed using different technologies, but still conform to an underlying semantics suggests that technical standards need to be applied to data standards, rather than the converse - where each technical standard (schema or interface) needs multiple independent specifications of the data content.</p>
 </div>
 <div class="paragraph">
-<p>At this point we can note that the trend to separating the "conceptual model" from schema encodings in the OGC standards process is addressing this concern. In addition there is an emerging supporting infrastructure of the OGC Modular Specifications Policy - and publishing components of specifications (conformance classes and requirements) as indivual Web addressible components.</p>
+<p>At this point we can note that the trend to separating the "conceptual model" from schema encodings in the OGC standards process is addressing this concern. In addition there is an emerging supporting infrastructure of the OGC Modular Specifications Policy - and publishing components of specifications (conformance classes and requirements) as individual Web-addressable components.</p>
 </div>
 <div class="paragraph">
 <p>If we then examine, for example, the use of SWE schemas for Citizen Science, we can see that the OGC process works well to a point, at which we start to need to tie data specifications into specific schema elements, and we find ourselves with multiple possible schemas, and no standard way to define the commonality of data elements between these.</p>
 </div>
 <div class="paragraph">
-<p>The question then is whether an approach to definining data-centric requirements can be "bound" to multiple alternative technical standards, working in a lightweight process suitable for the data design lifecycle, not the software and technical standards lifecycles.</p>
+<p>The question then is whether an approach to defining data-centric requirements can be "bound" to multiple alternative technical standards, working in a lightweight process suitable for the data design lifecycle, not the software and technical standards lifecycles.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_data_cube_approach"><a class="anchor" href="#_data_cube_approach"></a>10.1. Data Cube Approach</h3>
+<h3 id="_making_data_specifications_easier_more_scalable"><a class="anchor" href="#_making_data_specifications_easier_more_scalable"></a>9.5. Making Data Specifications Easier (More Scalable)</h3>
 <div class="paragraph">
-<p>Interoperability dimensions:</p>
+<p>There are many factors to consider when defining how to create data, or describing created data, in sufficient depth to allow integration and appropriate reuse to be achieved. Data product specifications tend to be long complex documents. Reviewing and agreeing on such complex artefacts takes a lot of expertise and time.</p>
+</div>
+<div class="paragraph">
+<p>However there are several possible approaches to addressing this challenge through simplification:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>break the problem into discrete components rather than treating it as a monolithic whole.</p>
+</li>
+<li>
+<p>focus on the most important small subset of the problem first, and make sure the approach allows incremental refinement</p>
+</li>
+<li>
+<p>encapsulate different parts of the problem so relevant experts can address specific parts</p>
+</li>
+<li>
+<p>use existing specification components to simplify task of creating new, similar ones - as classes, baselines to refine or templates</p>
+</li>
+<li>
+<p>provide an effective library of reusable components</p>
+</li>
+<li>
+<p>provide effective tooling to assist users with domain expertise to re-use components designed by others with specific technical expertise</p>
+</li>
+<li>
+<p>provide a streamlined governance process for sharing specification components</p>
+</li>
+<li>
+<p>provide methodology and tutorial resources to assist different stakeholders</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For scientific data, there are typical elements that can be easily identified that need detailed specification:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>spatio-temporal values observed</p>
+</li>
+<li>
+<p>spatio-temporal sampling regime (range and granularity of regular samples in space and/or time)</p>
+</li>
+<li>
+<p>provenance</p>
+</li>
+<li>
+<p>data model and how its mapped into one or more data structures</p>
+</li>
+<li>
+<p>terminology used and the definitions</p>
+</li>
+<li>
+<p>procedures and validation (descriptive methodology)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Approaches such as SWE and netCDF provide options for how common data structures may be defined. SWE also binds common approaches to low-level expression (syntax) of spatial datatypes.</p>
+</div>
+<div class="paragraph">
+<p>The semantics of spatial data instances is handled by defining application schema (i.e. is a point representative of a localized feature, and indicative label point, a centroid, or a reference point; is a polygon a determined or measured boundary). This has two problems:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>geographical dimension</p>
+<p>different communities will define similar semantics using different terms</p>
 </li>
 <li>
-<p>time</p>
-</li>
-<li>
-<p>thematic</p>
-</li>
-<li>
-<p>data model</p>
-</li>
-<li>
-<p>&#8230;&#8203;?</p>
+<p>the semantics of the spatial component is now bundled into a much bigger problem of defining the data structure for the whole dataset</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Correct and compatible use of terminology, another data value concern, suffers the same problems - without a standardized way to share and declare such terminology each community develops ad-hoc approaches to managing terminology and specifying where and how it is used.</p>
+</div>
+<div class="paragraph">
+<p>Thus, the next step would appear to be focussing on a simple way of re-using low-level specifications of what various data elements mean, what they are called, and what allowable terms are. If these elements can be combined into a machine-readable component of data specifications (and hence data metadata) then many of the problems of "how do I use this standard data structure for my specific problem" can be addressed by tools that allow such specifications to be declared and shared.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_future_sdi_situation"><a class="anchor" href="#_future_sdi_situation"></a>10.2. Future SDI Situation</h3>
+<h3 id="_making_data_semantically_richer"><a class="anchor" href="#_making_data_semantically_richer"></a>9.6. Making Data Semantically Richer</h3>
 <div class="paragraph">
-<p>aspects such as:</p>
+<p>In addition to making it easier for data designers, collectors and aggregators, tying data to a more granular set of specifications offers advantages to users. Knowing all the different ways a dataset conforms to a hierarchy of specifications (i.e. the inheritance pattern in the OGC modular specification) makes it possible to use pre-existing knowledge about the more general specifications.</p>
+</div>
+<div class="paragraph">
+<p>This pattern of behaviors is well known from object-oriented programming, where multiple inheritance (or "polymorphism") is used to declare what a given object supports.</p>
+</div>
+<div class="paragraph">
+<p>Take for example the example of a lighthouse - which may be both a navigation beacon and an airspace obstruction:</p>
+</div>
+<div id="img_Polymorphism" class="imageblock">
+<div class="content">
+<img src="images/Polymorphism.png" alt="Polymorphism" width="700">
+</div>
+<div class="title">Figure 10. Polymorphism - being different things to different users</div>
+</div>
+<div class="paragraph">
+<p>Similarly, a survey of threatened species in a local context may be part of a larger survey, but also conform to EU standards and the <em>Global Biodiversity Information Facility</em> (GBIF) requirements for a biota occurrence observation.</p>
+</div>
+<div class="paragraph">
+<p>If survey designers can determine the set of things that the survey data should be compatible with, then multiple inheritance of requirements can be used to create a suite of requirements for the survey, but critically the survey can then be tagged as compliant with each of those inherited requirements.</p>
+</div>
+<div class="paragraph">
+<p>This multiple inheritance cannot often be applied to data structures (schema) - but it can be applied to the data semantics. Thus we can envisage a pattern where data semantics profiles of common conceptual models can be combined, then applied to a target schema in a final step to define how the data is actually structured.</p>
+</div>
+<div id="img_Profiles" class="imageblock">
+<div class="content">
+<img src="images/Profiles.png" alt="Profiles" width="700">
+</div>
+<div class="title">Figure 11. Profiles inheriting semantics, schema or service interoperability requirements</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__data_cube_approach"><a class="anchor" href="#__data_cube_approach"></a>9.7. "Data Cube" Approach</h3>
+<div class="paragraph">
+<p>The problem of defining data meaning is well known in the broader statistics community, and we can borrow from that experience. The <a href="https://www.w3.org/2015/spatial/wiki/Main_Page">Spatial Data on the Web Working Group</a> is currently exploring definition of spatial concerns using the <a href="https://www.w3.org/TR/vocab-data-cube/">W3C&#8217;s RDF Datacube recommendation</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Datacube</em> approach is to break the idea of a data structure down,  and recognize two key components that can potentially be machine-interpreted: "Measures" and "Dimensions". This information extends the options of defining the data schema, and its general extents, into far more specific metadata about the semantics of the data itself. In the case of RDF data, RDF-QB defines the semantics of data properties found in the data itself. Applying the same meta-model of a datacube to other data encodings (such as XML, JSON or gridded coverages) will require additional information to identify the structural elements such descriptions apply to. The opportunity here is a data model that exists in a published standard, and the absence of competing equivalent approaches for non-RDF encodings. Using RDF to describe metadata for such data provides an elegant, extensible solution, with suitable components pre-defined.</p>
+</div>
+<div class="paragraph">
+<p>A <em>Measure</em> is a value recorded in the data - either as a result or as metadata - such as the time something happened, the weight of coffee in a sack, the number of cups sold per shop. Things we need to know about Measures are what is being measured, the datatype used, the unit of measure, precision or resolution, any reference system (such as the WGS84 coordinate system used in GPS measures), and the procedures.</p>
+</div>
+<div class="paragraph">
+<p>Measures and Observations from the SWE world are obviously closely related.</p>
+</div>
+<div class="paragraph">
+<p>A <em>Dimension</em> is a more complicated concept - but one critical to an understanding of both data semantics and structure. Dimensions are values for phenomena that may be used to identify a particular set of measures - they are the way data is organized. For example, if a dataset is defined to have measures for something every year, then the values of year are fixed to a value which can be known in advance, and hence its possible to ask for "coffees sold in 2016".  In this example, we can see that the set of coffee shops may be a dimension - hence we can ask for "coffees sold in Shop1 in 2016", or a "slice" - "coffees sold per shop in 2016", "coffees sold per year in Shop1".</p>
+</div>
+<div id="img_Dimensions" class="imageblock">
+<div class="content">
+<img src="images/Dimensions.png" alt="Dimensions" width="700">
+</div>
+<div class="title">Figure 12. Dimensions and data access methods</div>
+</div>
+<div class="paragraph">
+<p>Note that a value of the same phenomena may be either pre-defined or measured. Dimensions, representing additional semantic knowledge about the regularity of values, are critical to understanding whether data can be aggregated or disaggregated (accessing finer detail) automatically. Sharing common descriptions of phenomena across dimension descriptions (typically in dataset metadata) and low-level observations (per record) allows the potential relationships between details and summarized to be captured and used to discover and automate.</p>
+</div>
+<div class="paragraph">
+<p>Nesting of datacubes may be done virtually, using "brokering" to handle the relationships between similar terms used in comparable dimensions. A broker therefore has a set of small, discrete and testable semantic relationships to negotiate, rather than a potentially impossible task of dealing with vaguer descriptions of semantic content.</p>
+</div>
+<div id="img_Geofederation" class="imageblock">
+<div class="content">
+<img src="images/Geofederation.png" alt="Geofederation" width="700">
+</div>
+<div class="title">Figure 13. Geofederation - a typical "virtual nesting" of datacubes</div>
+</div>
+<div id="img_Brokering" class="imageblock">
+<div class="content">
+<img src="images/QB_brokering.png" alt="QB brokering" width="700">
+</div>
+<div class="title">Figure 14. Semantics enabled brokering of datasets using dimension relationships</div>
+</div>
+<div class="paragraph">
+<p>There are some  common interoperability dimensions for any observational data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>geography (feature or grids) (locations may be Measures!)</p>
+</li>
+<li>
+<p>observation time</p>
+</li>
+<li>
+<p>observedProperty</p>
+</li>
+<li>
+<p>observer</p>
+</li>
+<li>
+<p>observationProcedure</p>
+</li>
+<li>
+<p>data model (result type)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each of these will typically be present, and be fairly complex to properly or usefully describe, yet each domain will have its own requirements. Thus, the choices are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>no standardization - leaving each project to develop and document its own approach (the status quo)</p>
+</li>
+<li>
+<p>a standard data model, and each project describes its usage within this model.</p>
+</li>
+<li>
+<p>an inheritance hierarchy of specialized descriptions</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Each of these puts a fair burden on both data providers and consumers. The third option however offers simplicity through encapsulation - or in other words experts can fully describe the baseline (inherited) descriptions and users can make simpler statements about specific cases. End users (consumers) gain the benefit of explicit statements about interoperability with inherited baselines.</p>
+</div>
+<div class="paragraph">
+<p>Inheritance requires infrastructure support however:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>a defined mechanism (aka an ontology) describing inheritance and refinement relationships. This may exploit existing ontologies such as OWL - or may require specific semantics)</p>
+</li>
+<li>
+<p>an approach to publishing and sharing descriptions (i.e. a registry - possible federated)</p>
+</li>
+<li>
+<p>tools to perform inheritance reasoning - such as a convenience API on such a registry</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standardizing_interoperability_profiles"><a class="anchor" href="#_standardizing_interoperability_profiles"></a>9.8. Standardizing Interoperability Profiles</h3>
+<div class="paragraph">
+<p>Following from the above discussion it is now possible to conceive of interoperability specifications as a combination of documents and machine-readable profiles, where profiles detail the structure of the data in terms of standardized dimension descriptions, the meaning of result values and metadata in terms of standardized measures, and the meaning of actual terminology used through interoperable terminology references.</p>
+</div>
+<div class="paragraph">
+<p>Tooling will be required to manage such complex structures, however the relative similarity of the components suggest that this is is feasible. Structured content management is well supported by available technologies, whereas interpretation of free textual descriptions is an unlikely prospect.</p>
+</div>
+<div class="paragraph">
+<p>A demonstrator is being developed using the popular <em>Django Content Management System</em> integrated with available semantic and Linked Data tools. <span class="yellow_background">Link to be inserted here..</span></p>
+</div>
+<div id="img_POC_architecture" class="imageblock">
+<div class="content">
+<img src="images/POC_architectue.png" alt="POC architectue" width="700">
+</div>
+<div class="title">Figure 15. Proof-of-concept - a modular register of interoperability specification components using the Django CMS and Linked Data technologies.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminology_interoperability"><a class="anchor" href="#_terminology_interoperability"></a>9.9. Terminology Interoperability</h3>
+<div class="paragraph">
+<p>Currently standardization of terminology is a typical concern of any community of practice, but there is no supporting mechanism for standardizing the way it is published, accessed and shared. Groups such as the <em>Marine Metadata Initiative</em> have highlighted that such infrastructure is a necessary component of a future architecture. GML supports dictionaries. Many groups such as GBIF, INSPIRE publish terminology via ad-hoc services.</p>
+</div>
+<div class="paragraph">
+<p>The RDF-QB implementation of the Datacube concept exploits another potential standard: SKOS - however SKOS is a data model and does not specify access methods for distributed resources. Activities such as <a href="http://www.sissvoc.info">SISSVoc</a> define an API for accessing SKOS resources, however it has many more features than perhaps needed and has no formal standard status.</p>
+</div>
+<div class="paragraph">
+<p>Again, there are many possible choices for handling the heterogeneity of terminology resources:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>leave it to the user (the status quo)</p>
+</li>
+<li>
+<p>Develop a standardized approach and promote its adoption by data publishers</p>
+</li>
+<li>
+<p>Develop software capable of bridging across all the possible means of publishing vocabularies</p>
+</li>
+<li>
+<p>Have COP develop brokering solutions to standardize access for its own community.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>It is difficult to imagine widespread adoption of a standard overnight, however a COP such as SWE4CS, working within the framework of OGC and W3C liaison could potentially demonstrate the value of such an approach. This implies that #4 is a necessary precursor to a standardized approach.</p>
+</div>
+<div class="paragraph">
+<p>A COP can therefore take on a mixed model:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>publishing using a "candidate standard" its own managed terminology</p>
+</li>
+<li>
+<p>re-publish terms managed by others, needed by the community, but not directly accessible</p>
+</li>
+<li>
+<p>build software to "wrap" online, but non-standardized terminology resources</p>
+</li>
+<li>
+<p>promote development of standards by publishing its Use Cases etc. in appropriate fora</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_future_sdi_situation"><a class="anchor" href="#_future_sdi_situation"></a>9.10. Future SDI Situation</h3>
+<div class="paragraph">
+<p>A future Spatial Data Infrastructure leveraging such an approach would allow typical catalog searches to be complemented with a much more powerful view of how datasets are related and structured.</p>
+</div>
+<div class="paragraph">
+<p>Specifically, the notion of "service endpoints" can be updated to include specifications of how the dimensions of the data set relate to service parameters, to allow such services to be invoked using that semantic knowledge.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1845,6 +2161,25 @@ Conformance to structural and semantic contracts then allows auto-configuration 
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_next_steps"><a class="anchor" href="#_next_steps"></a>9.11. Next Steps</h3>
+<div class="paragraph">
+<p>These recommendations cover many of the aspects of the current unsatisfactory approach to data publishing, however they leverage many existing standards components not familiar to the wider community, and will require additional elements and guidances to be developed and tested.
+There is enough to start making the most important aspects interoperable, using particularly the SKOS and Datacube standards as sub-components of an extended metadata architecture. Experimentation is required on how to best manage and combine these elements, and the potential for exploitation in different parts of the data supply chain.</p>
+</div>
+<div class="paragraph">
+<p>These approaches can be applied immediately to improve the consistency and support stakeholders using off-the-shelf data models and service interfaces such as the SWE standards suite.
+Semantic interoperability profiles can however be applied to any data structures and service interfaces, including specialized approaches (such as timeseries coverages), streaming data - and future suites of technical standards.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="SupportThisWork"><a class="anchor" href="#SupportThisWork"></a>10. Supporting this Work</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are interested in supporting this work, please send an email to the editors. We are currently exploring possibilities to capture feedback (e.g. use cases, requirements, ideas, implementations) in a structured way. Updates will most likely posted as part of the <a href="http://www.ogcnetwork.net">OGC Network</a>.</p>
 </div>
 </div>
 </div>
@@ -1923,6 +2258,20 @@ Conformance to structural and semantic contracts then allows auto-configuration 
 <td class="tableblock halign-left valign-top"><p class="tableblock">chap 7-9</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">complemented</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aug 30, 2016</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R. Atkinson</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chap 9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">complemented</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sep 01, 2016</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I. Simonis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">final version</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1930,19 +2279,15 @@ Conformance to structural and semantic contracts then allows auto-configuration 
 <div class="sect1">
 <h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>Appendix C: Bibliography</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>tbd</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>This document provides all references directly in the text in the form of hyperlinks.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-08-23 14:36:07 CEST
+Last updated 2016-09-01 12:00:06 CEST
 </div>
 </div>
 </body>
