@@ -1,0 +1,3 @@
+[[SupportThisWork]]
+== Supporting this Work
+If you are interested in supporting this work, please send an email to the editors. We are currently exploring possibilities to capture feedback (e.g. use cases, requirements, ideas, implementations) in a structured way. Updates will most likely posted as part of the http://www.ogcnetwork.net[OGC Network].
