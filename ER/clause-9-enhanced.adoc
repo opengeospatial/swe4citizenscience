@@ -1,7 +1,7 @@
 [[EnhancedInteroperability]]
 == From Schemas to Data Interoperability Contracts
 
-The use of a known schema, whether it be encoded as XML, JSON or even the classes and properties in an RDF graph, provides for some of the semantics of the data to be understood by the recipient. In general, however, it provides little or no information about a range of key issues that determine if that data can be understood, combined, or even discovered in the context of very large collections. As an example: See the value definition attributes in the <<code_OMResult, SweCommon encoded O&M result model>>, illustrated in the code-snipped <<code_OMResultDefinitions,below>>.
+The use of a known schema, whether it be encoded as XML, JSON or even the classes and properties in an RDF graph, provides for some of the semantics of the data to be understood by the recipient. In general, however, it provides little or no information about a range of key issues that determine if that data can be understood, combined, or even discovered in the context of very large collections. As an example, see the value definition attributes in the <<code_OMResult, SweCommon encoded O&M result model>>, illustrated in the code-snippet <<code_OMResultDefinitions,below>>.
 
 [[code_OMResultDefinitions]]
 [source,xml]
@@ -28,7 +28,7 @@ The use of a known schema, whether it be encoded as XML, JSON or even the classe
 
 A client can follow the links to the definitions (1), (2), and (3), but it is unclear what the client will find there. In addition, if the user wants to search for specific topography types (1), then the set of terms (eg "Mountain") need to be used consistently, and this set of terms needs to be available to the user making the query.  The same principles apply to semantics that can be inferred by sub-classes or super-classes of terms (more or less specific related terms): say we want to find all photos (2) and videos. Can we do that? Is (2) a child-class of a super class called _media_ or similar? How does the user find the ontology (data model) that specifies such relationships? 
 
-The same issues arise for survey designers. How can they constrain the range of allowed values? How can the survey designer ensure that whatever term is used supports later discovery using super-classes and similar constructs?
+The same issues arise for citizen science survey designers. How can they constrain the range of allowed values? How can the survey designer ensure that whatever term is used supports later discovery using super-classes and similar constructs?
 
 Standard practice to date has been the provision of documents defining "Application Profiles" - for example  http://www.unidata.ucar.edu/software/netcdf/conventions.html list such conventions used to profile the NetCDF data format. These profiles, often in combination with additional text documentation, provide the necessary level of detail to achieve a level of data interoperability.  They often refer to other profiles that they include or are derived from, which makes the process more complicated, but achieves consistency between related elements of data conforming to different profiles.
 
@@ -50,17 +50,17 @@ Implementing interface standards requires development of software. Implementing 
 
 Interpretation of the data, and semantic translations, remain the problem of the end user, who relies on metadata or prior knowledge of data to discover, formulate appropriate requests, transform and exploit the data. With data descriptions available in large documents, at best, or relatively terse dataset metadata, identify a basis for data integration remains a high transaction cost. Declarative machine readable statements about the conformance of data to one or more interoperability contracts reduce the transaction costs compared to interpretation of unstructured, relatively ad-hoc documents or descriptive metadata.
 
-The goal is therefore to allow data publishers to make statements about data content that can reduce the burden on the end user to discover and exploit data, through both unambiguous identification of conformance with interoperability contracts, and making as much of the aspects of those contracts machine-readable.
+The goal is therefore to allow data publishers to make statements about data content that can reduce the burden on the end user to discover and exploit data, through both unambiguous identification of conformance with interoperability contracts, and making as many of the aspects of those contracts machine-readable as possible.
 
 ==== Improve Interoperability Between Components
-It is recognized that similar data may be structured and packaged in many different ways, yet share common elements. For example, a record of _Sea Surface Temperature_ may be held as a gridded coverage over an area, or may be present in discrete samples combined with _Salinity_ readings. A set of readings at different locations may be available for a time period, or the same type of data may be available as a timeseries at a given location.
+Similar data may be structured and packaged in many different ways, yet share common elements. For example, a record of _Sea Surface Temperature_ may be held as a gridded coverage over an area, or may be present in discrete samples combined with _Salinity_ readings. A set of readings at different locations may be available for a time period, or the same type of data may be available as a timeseries at a given location.
 
 In the case of Citizen Science activities, it will be important to be able to distinguish different methodologies used to collect the same type of data, including "official data". The requirement is thus to be able to make statements about aspects of the data, and where that aspect is expressed in data encodings. Each aspect will need its own identifier, and be related to the broader data set description as well as further parameters about how that aspect is implemented.
 
-The useful implication is that this will allow partial description of datasets, with key aspects being documented with declarative semantics, whilst allowing less important aspects, or harder to describe, to be documented in an ad-hoc fashion.
+The useful implication is that this will allow partial description of datasets, with key aspects being documented with declarative semantics, whilst allowing less important or harder to describe aspects to be documented in an ad-hoc fashion.
 
 ==== Improve Ease of Use for Non-Experts
-Non experts need explicit statements regarding the semantic compatibility of data for a given purpose, including simple comparability of data. The alternative is locating, accessing, reading and comparing, and ultimately citing, potentially detailed and inconsistently structured descriptive documentation.
+Non-experts need explicit statements regarding the semantic compatibility of data for a given purpose, including simple comparability of data. The alternative is locating, accessing, reading and comparing, and ultimately citing, potentially detailed and inconsistently structured descriptive documentation.
 
 The design goal is for interoperability contracts to be constructed of components that can be immediately tested for comparability, using identifiers that can be de-referenced to immediately access relevant sections of documentation.
 
@@ -72,14 +72,14 @@ Conformance to structural and semantic contracts then allows auto-configuration 
 
 
 === Current Situation in SDIs
-It is noted that current Spatial Data Infrastructures based on the _Publish-Find-Bind_ paradigm using catalogues of static metadata records seem to lose performance as the number and heterogeneity of data sets grows. Furthermore, with increased numbers and backgrounds of end-users (such as a broad Citizen Science community) there must be expected a lower level of familiarity of users with the descriptive conventions. Scientists working in a narrow field may be expected to know the code name of a particular instrument (e.g. MODIS Version 6 products to AρρEEARS: MCD43A1, MCD43A3, and MCD43A4 https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12[as examples]).
+Current Spatial Data Infrastructures based on the _Publish-Find-Bind_ paradigm using catalogues of static metadata records seem to lose performance as the number and heterogeneity of data sets grows. Furthermore, with increased numbers and backgrounds of end-users (such as a broad Citizen Science community) there must be expected a lower level of familiarity of users with the descriptive conventions. Scientists working in a narrow field may be expected to know the code name of a particular instrument (e.g. MODIS Version 6 products to AρρEEARS: MCD43A1, MCD43A3, and MCD43A4 https://lpdaac.usgs.gov/about/news_archive/release_appeears_version_12[as examples]).
 
 We note the following areas where current practices are fragile in multi-stakeholder contexts:
 
 * keywords for discovery
 * identification of observed property and methodology
-* use of naming conventions in dataset/layer etc names to convey semantic meaning
-* data models - identification of , declaration of, descriptions of, relationships between
+* use of naming conventions in names for datasets/layers etc to convey semantic meaning
+* data models - identification of, declaration of, descriptions of, relationships between
 * consistency of profile and data product specification documents
 * discovery of datasets containing information about a particular feature
 * lack of easily discoverable links between related data elements
@@ -99,13 +99,13 @@ In the case of complex subject domains, such as Citizen Science, Earth Observati
 
 === Improving the Status Quo
 
-We must recognize that effective COP and standards are not going to "go away" - and that leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimize future system design.
+Effective COP and standards are not going to go away. Leveraging multiple heterogenous approaches has advantages for both legacy system integration, and flexibility to optimize future system design.
 
-Secondly, we must recognize that for each system (or COP) some aspects will be unique but many will be common between COPs. Thus, _granularity_ of requirements specification must be a driving principle. In fact, this is the main shortcoming of the status quo for both SDIs and standards development.
+Secondly, for each system (or COP) some aspects will be unique but many will be common between COPs. Thus, _granularity_ of requirements specification must be a driving principle. In fact, this is the main shortcoming of the status quo for both SDIs and standards development.
 
-Thirdly, recognizing that the same data can be packaged, transferred and accessed using different technologies, but still conform to an underlying semantics suggests that technical standards need to be applied to data standards, rather than the converse - where each technical standard (schema or interface) needs multiple independent specifications of the data content.
+Thirdly, the same data can be packaged, transferred and accessed using different technologies, but still conform to an underlying semantics. This suggests that technical standards need to be applied to data standards, rather than the converse - where each technical standard (schema or interface) needs multiple independent specifications of the data content.
 
-At this point we can note that the trend to separating the "conceptual model" from schema encodings in the OGC standards process is addressing this concern. In addition there is an emerging supporting infrastructure of the OGC Modular Specifications Policy - and publishing components of specifications (conformance classes and requirements) as individual Web-addressable components.
+At this point we can note that the trend to separating the "conceptual model" from schema encodings in the OGC standards process is addressing this concern. In addition there is an emerging supporting infrastructure of the OGC Modular Specifications Policy - and publishing components of specifications (conformance classes and requirements) as individual web-addressable components.
 
 If we then examine, for example, the use of SWE schemas for Citizen Science, we can see that the OGC process works well to a point, at which we start to need to tie data specifications into specific schema elements, and we find ourselves with multiple possible schemas, and no standard way to define the commonality of data elements between these.
 
@@ -174,7 +174,7 @@ A _Measure_ is a value recorded in the data - either as a result or as metadata 
 
 Measures and Observations from the SWE world are obviously closely related.
 
-A _Dimension_ is a more complicated concept - but one critical to an understanding of both data semantics and structure. Dimensions are values for phenomena that may be used to identify a particular set of measures - they are the way data is organized. For example, if a dataset is defined to have measures for something every year, then the values of year are fixed to a value which can be known in advance, and hence its possible to ask for "coffees sold in 2016".  In this example, we can see that the set of coffee shops may be a dimension - hence we can ask for "coffees sold in Shop1 in 2016", or a "slice" - "coffees sold per shop in 2016", "coffees sold per year in Shop1".
+A _Dimension_ is a more complicated concept - but one critical to an understanding of both data semantics and structure. Dimensions are values for phenomena that may be used to identify a particular set of measures - they are the way data is organized. For example, if a dataset - such as sales of coffee for example - is defined to have measures for something every year, then the values of year are fixed to a value which can be known in advance, and hence its possible to ask for "coffees sold in 2016."  In this example, we can see that the set of coffee shops may be a dimension - hence we can ask for "coffees sold in Shop1 in 2016", or a "slice" - "coffees sold per shop in 2016", "coffees sold per year in Shop1."
 
 [[img_Dimensions]]
 .Dimensions and data access methods
@@ -219,7 +219,7 @@ Inheritance requires infrastructure support however:
 === Standardizing Interoperability Profiles
 Following from the above discussion it is now possible to conceive of interoperability specifications as a combination of documents and machine-readable profiles, where profiles detail the structure of the data in terms of standardized dimension descriptions, the meaning of result values and metadata in terms of standardized measures, and the meaning of actual terminology used through interoperable terminology references.
 
-Tooling will be required to manage such complex structures, however the relative similarity of the components suggest that this is is feasible. Structured content management is well supported by available technologies, whereas interpretation of free textual descriptions is an unlikely prospect.
+Tooling will be required to manage such complex structures, however the relative similarity of the components suggest that this is feasible. Structured content management is well supported by available technologies, whereas interpretation of free textual descriptions is an unlikely prospect.
 
 A demonstrator is being developed using the popular _Django Content Management System_ integrated with available semantic and Linked Data tools. [yellow_background]#Link to be inserted here..#
 
@@ -229,13 +229,13 @@ image::images/POC_architectue.png[width=700]
 
 
 === Terminology Interoperability
-Currently standardization of terminology is a typical concern of any community of practice, but there is no supporting mechanism for standardizing the way it is published, accessed and shared. Groups such as the _Marine Metadata Initiative_ have highlighted that such infrastructure is a necessary component of a future architecture. GML supports dictionaries. Many groups such as GBIF, INSPIRE publish terminology via ad-hoc services.
+Currently standardization of terminology is a typical concern of any community of practice, but there is no supporting mechanism for standardizing the way it is published, accessed and shared. Groups such as the _Marine Metadata Initiative_ have highlighted that such infrastructure is a necessary component of a future architecture. GML supports dictionaries. Many groups such as GBIF and INSPIRE publish terminology via ad-hoc services.
 
-The RDF-QB implementation of the Datacube concept exploits another potential standard: SKOS - however SKOS is a data model and does not specify access methods for distributed resources. Activities such as http://www.sissvoc.info[SISSVoc] define an API for accessing SKOS resources, however it has many more features than perhaps needed and has no formal standard status.
+The RDF-QB implementation of the Datacube concept exploits another potential standard: SKOS - however SKOS is a data model and does not specify access methods for distributed resources. Activities such as http://www.sissvoc.info[SISSVoc] define an API for accessing SKOS resources, however this has many more features than may be needed in practice and has no formal standard status.
 
 Again, there are many possible choices for handling the heterogeneity of terminology resources:
 
-1. leave it to the user (the status quo)
+1. Leave it to the user (the status quo)
 2. Develop a standardized approach and promote its adoption by data publishers
 3. Develop software capable of bridging across all the possible means of publishing vocabularies
 4. Have COP develop brokering solutions to standardize access for its own community.
@@ -245,26 +245,25 @@ It is difficult to imagine widespread adoption of a standard overnight, however 
 
 A COP can therefore take on a mixed model:
 
-1. publishing using a "candidate standard" its own managed terminology
-2. re-publish terms managed by others, needed by the community, but not directly accessible
-3. build software to "wrap" online, but non-standardized terminology resources
-4. promote development of standards by publishing its Use Cases etc. in appropriate fora
+1. Publish using a "candidate standard" its own managed terminology
+2. Re-publish terms managed by others, needed by the community, but not directly accessible
+3. Build software to "wrap" online, but non-standardized terminology resources
+4. Promote development of standards by publishing its use cases etc in appropriate fora
 
 
 
 === Future SDI Situation
 A future Spatial Data Infrastructure leveraging such an approach would allow typical catalog searches to be complemented with a much more powerful view of how datasets are related and structured.
 
-Specifically, the notion of "service endpoints" can be updated to include specifications of how the dimensions of the data set relate to service parameters, to allow such services to be invoked using that semantic knowledge.
+Specifically, the notion of "service endpoints" can be updated to include specifications of how the dimensions of the data set relate to service parameters, to allow such services to be invoked using that semantic knowledge. [yellow_background]#Need to introduce this list??:#
 
-* read RDF QB dimensions to understand what vocabularies to query
-* query catalog to get the URI template structures for a given vocabulary (or linked data entries?)
-* interact with vocabulary to get relationships of query terms and other resources
-* data access with content negotiation
+* Read RDF QB dimensions to understand what vocabularies to query
+* Query catalog to get the URI template structures for a given vocabulary (or linked data entries?)
+* Interact with vocabulary to get relationships of query terms and other resources
+* Data access with content negotiation
 
 === Next Steps
-These recommendations cover many of the aspects of the current unsatisfactory approach to data publishing, however they leverage many existing standards components not familiar to the wider community, and will require additional elements and guidances to be developed and tested.
-There is enough to start making the most important aspects interoperable, using particularly the SKOS and Datacube standards as sub-components of an extended metadata architecture. Experimentation is required on how to best manage and combine these elements, and the potential for exploitation in different parts of the data supply chain.
+These recommendations cover many of the aspects of the current unsatisfactory approach to data publishing, however they leverage many existing standards components not familiar to the wider community, and will require additional elements and guidance to be developed and tested. Enough pieces are in place to start making the most important aspects interoperable, using particularly the SKOS and Datacube standards as sub-components of an extended metadata architecture. Experimentation is required on how to best manage and combine these elements, and the potential for exploitation in different parts of the data supply chain.
 
-These approaches can be applied immediately to improve the consistency and support stakeholders using off-the-shelf data models and service interfaces such as the SWE standards suite.
+These approaches can be applied immediately to improve consistency and support stakeholders using off-the-shelf data models and service interfaces such as the SWE standards suite.
 Semantic interoperability profiles can however be applied to any data structures and service interfaces, including specialized approaches (such as timeseries coverages), streaming data - and future suites of technical standards.
